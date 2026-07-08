@@ -1,0 +1,139 @@
+/* ==========================================================================
+   SPLASH SCREEN & NETWORK LOADER
+   ========================================================================== */
+#splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #05070a;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.8s cubic-bezier(0.77, 0, 0.175, 1), 
+                visibility 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+    opacity: 1;
+    visibility: visible;
+}
+
+#splash-screen.fade-out {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.splash-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;
+    text-align: center;
+}
+
+/* Network Orbital Loader */
+.network-loader {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loader-circle {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border: 1.5px dashed rgba(0, 242, 254, 0.2);
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(0, 242, 254, 0.05);
+}
+
+.loader-nodes {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    animation: rotateOrbit 6s linear infinite;
+}
+
+/* Loader Node Dots */
+.node {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background-color: var(--color-accent-1);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--color-accent-1);
+}
+
+/* Positioning nodes at different points of the circle */
+.n1 { top: -4px; left: calc(50% - 4px); background-color: var(--color-accent-1); box-shadow: 0 0 8px var(--color-accent-1); }
+.n2 { top: calc(50% - 4px); right: -4px; background-color: var(--color-accent-2); box-shadow: 0 0 8px var(--color-accent-2); }
+.n3 { bottom: -4px; left: calc(50% - 4px); background-color: var(--color-accent-3); box-shadow: 0 0 8px var(--color-accent-3); }
+.n4 { top: calc(50% - 4px); left: -4px; background-color: var(--color-accent-4); box-shadow: 0 0 8px var(--color-accent-4); }
+
+.loader-center-icon {
+    position: absolute;
+    color: var(--color-accent-1);
+    animation: pulseIcon 2s ease-in-out infinite;
+    filter: drop-shadow(0 0 8px rgba(0, 242, 254, 0.5));
+}
+
+/* Status Text */
+.splash-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.splash-title {
+    font-family: var(--font-heading);
+    font-size: 1.75rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.splash-status {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    letter-spacing: 0.05em;
+    animation: blinkText 1.5s infinite;
+}
+
+/* Animations */
+@keyframes rotateOrbit {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes pulseIcon {
+    0%, 100% {
+        transform: scale(0.9);
+        opacity: 0.7;
+        filter: drop-shadow(0 0 4px rgba(0, 242, 254, 0.3));
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 1;
+        filter: drop-shadow(0 0 15px rgba(0, 242, 254, 0.8));
+    }
+}
+
+@keyframes blinkText {
+    0%, 100% {
+        opacity: 0.6;
+    }
+    50% {
+        opacity: 1;
+    }
+}

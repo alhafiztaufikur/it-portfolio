@@ -1,0 +1,233 @@
+/* Keyframes */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 8px var(--color-accent-1);
+        transform: scale(0.95);
+    }
+    100% {
+        box-shadow: 0 0 20px rgba(0, 242, 254, 0.8);
+        transform: scale(1.05);
+    }
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+@keyframes mouseWheel {
+    0% {
+        top: 6px;
+        opacity: 1;
+    }
+    50% {
+        top: 18px;
+        opacity: 0.4;
+    }
+    100% {
+        top: 6px;
+        opacity: 1;
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Scroll Animation classes */
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.scroll-reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsiveness Media Queries */
+@media (max-width: 1024px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .section {
+        padding: 5rem 0 3rem;
+    }
+
+    .navbar {
+        padding: 1rem 0;
+    }
+
+    .logo {
+        font-size: 1.15rem;
+    }
+
+    .menu-toggle {
+        display: block;
+        font-size: 1.5rem;
+        z-index: 1001;
+    }
+
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        max-width: 300px;
+        height: 100vh;
+        background: #080b11;
+        border-left: 1px solid var(--border-glass);
+        flex-direction: column;
+        justify-content: center;
+        gap: 2rem;
+        transition: right var(--transition-normal);
+        z-index: 999;
+        padding: 2rem;
+    }
+
+    .nav-menu.active {
+        right: 0;
+    }
+
+    .btn-connect {
+        display: none;
+    }
+
+    .btn-connect-mobile {
+        display: inline-flex;
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+        background: var(--gradient-primary);
+        color: #030712 !important;
+        border-radius: 50px;
+        font-weight: 700;
+        padding: 0.8rem;
+    }
+
+    .hero-section {
+        align-items: center;
+        text-align: center;
+    }
+
+    .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .hero-left {
+        max-width: 100%;
+    }
+
+    .hero-right {
+        display: none;
+    }
+
+    .scroll-indicator {
+        display: none;
+    }
+
+    .hero-description {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
+    }
+
+    .about-card {
+        padding: 2rem;
+    }
+
+    .about-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .certifications-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cert-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .contact-form-panel {
+        padding: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        font-size: 1.02rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .stat-number {
+        font-size: 2rem;
+    }
+}
+
+/* Cybernetic Scan Sweep Transitions */
+@keyframes scanSweep {
+    0% {
+        top: 0;
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        top: 100%;
+        opacity: 0;
+    }
+}
+
+.section-flash {
+    position: relative;
+    overflow: hidden;
+}
+
+.section-flash::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, transparent 0%, var(--color-accent-1) 50%, transparent 100%);
+    box-shadow: 0 0 15px var(--color-accent-1), 0 0 5px var(--color-accent-1);
+    z-index: 999;
+    pointer-events: none;
+    animation: scanSweep 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+

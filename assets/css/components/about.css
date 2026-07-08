@@ -1,0 +1,323 @@
+/* ==========================================================================
+   ABOUT ME SECTION WITH FUTURISTIC PORTAL
+   ========================================================================== */
+.about-grid {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.about-profile-col {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* Tech Portal Container */
+.tech-profile-portal {
+    position: relative;
+    width: 300px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Concentric Marching SVG Frames */
+.portal-svg-rings {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.ring-outer {
+    animation: marchOuter 8s linear infinite;
+}
+
+.ring-middle {
+    animation: marchMiddle 6s linear infinite reverse;
+}
+
+.ring-inner {
+    animation: marchInner 4s linear infinite;
+}
+
+@keyframes marchOuter {
+    to {
+        stroke-dashoffset: -320;
+    }
+}
+
+@keyframes marchMiddle {
+    to {
+        stroke-dashoffset: -240;
+    }
+}
+
+@keyframes marchInner {
+    to {
+        stroke-dashoffset: -160;
+    }
+}
+
+/* Profile Photo Rounded Square Container */
+.portal-img-container {
+    width: 220px;
+    height: 320px;
+    border-radius: 18px;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid rgba(16, 185, 129, 0.15);
+    box-shadow: 0 0 30px rgba(16, 185, 129, 0.1);
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s, box-shadow 0.3s;
+}
+
+.tech-profile-portal:hover .portal-img-container {
+    transform: scale(1.04);
+    border-color: var(--color-accent-1);
+    box-shadow: 0 0 40px rgba(16, 185, 129, 0.3);
+}
+
+.portal-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.tech-profile-portal:hover .portal-img {
+    transform: scale(1.05);
+}
+
+/* Green Neon Scanning Bar */
+.portal-scan-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(to right, transparent, var(--color-accent-1), transparent);
+    box-shadow: 0 0 10px var(--color-accent-1);
+    opacity: 0.8;
+    animation: scanVertical 3.5s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes scanVertical {
+    0%, 100% {
+        top: 0%;
+    }
+    50% {
+        top: 100%;
+    }
+}
+
+/* Digital Grid Matrix Overlay */
+.portal-grid-overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle, transparent 50%, rgba(5, 12, 24, 0.4) 100%),
+                linear-gradient(rgba(16, 185, 129, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(16, 185, 129, 0.03) 1px, transparent 1px);
+    background-size: 100% 100%, 15px 15px, 15px 15px;
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+/* Corner Decor Angles */
+.portal-corner {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(16, 185, 129, 0.3);
+    pointer-events: none;
+    transition: border-color 0.3s;
+}
+
+.tech-profile-portal:hover .portal-corner {
+    border-color: var(--color-accent-1);
+}
+
+.top-left {
+    top: 15px;
+    left: 15px;
+    border-right: none;
+    border-bottom: none;
+}
+
+.top-right {
+    top: 15px;
+    right: 15px;
+    border-left: none;
+    border-bottom: none;
+}
+
+.bottom-left {
+    bottom: 15px;
+    left: 15px;
+    border-right: none;
+    border-top: none;
+}
+
+.bottom-right {
+    bottom: 15px;
+    right: 15px;
+    border-left: none;
+    border-top: none;
+}
+
+/* Right Column: Bio Content */
+.about-content-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.about-sub-title {
+    font-size: 1.75rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+}
+
+.about-desc-text {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    font-size: 0.98rem;
+    margin-bottom: 1.5rem;
+}
+
+.about-desc-text strong {
+    color: var(--color-accent-1);
+}
+
+/* Stats Row */
+.about-stats-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 2.5rem;
+}
+
+.about-stat-box {
+    padding: 1.25rem 1rem;
+    border-radius: 12px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.about-stat-box:hover {
+    transform: translateY(-4px);
+    border-color: var(--color-accent-1);
+}
+
+.about-stat-val {
+    font-size: 1.65rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+}
+
+.about-stat-lbl {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+/* Quote Box Row */
+.about-quote-row {
+    width: 100%;
+}
+
+.about-quote-card {
+    padding: 2.25rem;
+    border-radius: 16px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    border-left: 3px solid var(--color-accent-1) !important;
+}
+
+.quote-icon {
+    position: absolute;
+    top: 0.75rem;
+    left: 1.5rem;
+    font-size: 3.5rem;
+    font-family: serif;
+    color: var(--color-accent-1);
+    opacity: 0.12;
+    line-height: 1;
+}
+
+.quote-text {
+    font-size: 1rem;
+    line-height: 1.65;
+    font-style: italic;
+    color: var(--text-primary);
+    margin-bottom: 1.25rem;
+    position: relative;
+    z-index: 2;
+}
+
+.quote-author {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--color-accent-1);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Light theme overrides for rotating rings */
+[data-theme="light"] .tech-profile-portal .ring-outer {
+    stroke: var(--color-accent-1);
+}
+
+[data-theme="light"] .tech-profile-portal .ring-middle {
+    stroke: var(--color-accent-2);
+}
+
+[data-theme="light"] .tech-profile-portal .ring-inner {
+    stroke: var(--color-accent-2);
+}
+
+[data-theme="light"] .portal-scan-line {
+    background: linear-gradient(to right, transparent, var(--color-accent-2), transparent);
+    box-shadow: 0 0 10px var(--color-accent-2);
+}
+
+[data-theme="light"] .portal-grid-overlay {
+    background: radial-gradient(circle, transparent 50%, rgba(15, 16, 19, 0.4) 100%),
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
+
+/* Responsive details */
+@media (max-width: 992px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 3.5rem;
+    }
+    
+    .about-profile-col {
+        margin-bottom: 1.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .about-stats-container {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+}

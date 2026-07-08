@@ -1,0 +1,367 @@
+.hero-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 8rem 0 4rem;
+    max-width: var(--container-width);
+    margin: 0 auto;
+    position: relative;
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 4rem;
+    width: 100%;
+    align-items: center;
+    padding: 0 1.5rem;
+}
+
+.hero-left {
+    max-width: 700px;
+    z-index: 10;
+}
+
+.hero-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 10;
+}
+
+.hero-graphic-container {
+    width: 100%;
+    max-width: 420px;
+    position: relative;
+}
+
+.hero-animated-graphic {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 0 30px rgba(0, 242, 254, 0.15));
+    animation: floatHero 6s ease-in-out infinite;
+}
+
+@keyframes floatHero {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-15px) rotate(1deg);
+    }
+}
+
+.hero-content {
+    z-index: 10;
+}
+
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(0, 242, 254, 0.05);
+    border: 1px solid rgba(0, 242, 254, 0.15);
+    padding: 0.45rem 1rem;
+    border-radius: 50px;
+    margin-bottom: 2rem;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--color-accent-1);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--color-accent-1);
+}
+
+.status-text {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--color-accent-1);
+    letter-spacing: 0.02em;
+}
+
+.hero-title {
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
+}
+
+.hero-subtitle {
+    font-size: clamp(1.25rem, 2.5vw, 1.85rem);
+    font-weight: 500;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    min-height: 2.2rem;
+}
+
+.cursor {
+    color: var(--color-accent-1);
+    font-weight: 300;
+}
+
+.hero-description {
+    font-size: clamp(1rem, 1.5vw, 1.15rem);
+    color: var(--text-secondary);
+    margin-bottom: 2.5rem;
+    line-height: 1.7;
+    max-width: 650px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+}
+
+/* ==========================================================================
+   HERO ANIMATED WORKSTATION SVG
+   ========================================================================== */
+.hero-svg-wrapper {
+    width: 100%;
+    max-width: 480px;
+    position: relative;
+    z-index: 10;
+}
+
+.hero-svg-graphic {
+    width: 100%;
+    height: auto;
+    overflow: visible;
+}
+
+/* 1. Gears Rotation */
+.svg-gear-cw {
+    animation: rotateCW 20s linear infinite;
+}
+
+.svg-gear-ccw {
+    animation: rotateCCW 24s linear infinite;
+}
+
+@keyframes rotateCW {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes rotateCCW {
+    from {
+        transform: rotate(360deg);
+    }
+    to {
+        transform: rotate(0deg);
+    }
+}
+
+/* 2. Floating Modules */
+.svg-monitor-group {
+    animation: floatMonitor 6.5s ease-in-out infinite;
+}
+
+@keyframes floatMonitor {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+.svg-phone-group {
+    animation: floatPhone 6s ease-in-out infinite;
+}
+
+@keyframes floatPhone {
+    0%, 100% {
+        transform: translate(0, 0);
+    }
+    50% {
+        transform: translate(3px, -10px);
+    }
+}
+
+.svg-badge-code {
+    animation: floatBadgeCode 5.5s ease-in-out infinite;
+}
+
+@keyframes floatBadgeCode {
+    0%, 100% {
+        transform: translate(0, 0);
+    }
+    50% {
+        transform: translate(-3px, -9px);
+    }
+}
+
+.svg-badge-gears {
+    animation: floatBadgeGears 6.8s ease-in-out infinite;
+}
+
+@keyframes floatBadgeGears {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-6px);
+    }
+}
+
+.svg-cloud-group {
+    animation: floatCloud 5s ease-in-out infinite;
+}
+
+@keyframes floatCloud {
+    0%, 100% {
+        transform: translate(0, 0);
+    }
+    50% {
+        transform: translate(-4px, -8px);
+    }
+}
+
+/* 3. Micro-animations inside modules */
+.svg-cloud-arrow {
+    animation: arrowBounce 1.5s ease-in-out infinite;
+}
+
+@keyframes arrowBounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(3px);
+    }
+}
+
+.svg-power-led {
+    animation: ledBlink 3s ease-in-out infinite;
+}
+
+@keyframes ledBlink {
+    0%, 100% {
+        opacity: 0.4;
+        fill: rgba(0, 242, 254, 0.4);
+    }
+    50% {
+        opacity: 1;
+        fill: var(--color-accent-1);
+    }
+}
+
+.svg-code-lines line {
+    animation: codePulse 2.5s ease-in-out infinite alternate;
+}
+
+.svg-code-lines line:nth-child(even) {
+    animation-delay: 0.8s;
+}
+
+.svg-code-lines line:nth-child(3n) {
+    animation-delay: 1.5s;
+}
+
+@keyframes codePulse {
+    0% {
+        opacity: 0.55;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* ==========================================
+   Live Running Text Ticker (Marquee)
+   ========================================== */
+.hero-marquee-ticker {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    background: rgba(5, 12, 24, 0.45);
+    border-top: 1px solid var(--border-glass);
+    border-bottom: 1px solid var(--border-glass);
+    padding: 1.25rem 0;
+    overflow: hidden;
+    margin-top: 6rem;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    display: flex;
+}
+
+[data-theme="light"] .hero-marquee-ticker {
+    background: rgba(15, 16, 19, 0.45);
+}
+
+.marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marqueeFlow 25s linear infinite;
+}
+
+.marquee-content {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding-right: 2rem;
+}
+
+/* Items formatting (alternating bold sans and italic serif for a premium look) */
+.ticker-item {
+    font-size: 0.95rem;
+    letter-spacing: 0.15em;
+    color: var(--text-primary);
+    text-transform: uppercase;
+    white-space: nowrap;
+    opacity: 0.75;
+    transition: opacity 0.3s ease, color 0.3s ease;
+}
+
+.ticker-item.bold {
+    font-weight: 800;
+    font-family: 'Outfit', 'Inter', sans-serif;
+}
+
+.ticker-item.italic {
+    font-weight: 400;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic;
+    text-transform: capitalize; /* Mixed visual dynamic */
+}
+
+.ticker-bullet {
+    color: var(--color-accent-1);
+    font-size: 1.2rem;
+    filter: drop-shadow(0 0 4px var(--color-accent-1));
+}
+
+[data-theme="light"] .ticker-bullet {
+    color: #ffffff;
+    filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.5));
+}
+
+/* Hover effects */
+.hero-marquee-ticker:hover .marquee-track {
+    animation-play-state: paused;
+}
+
+.hero-marquee-ticker:hover .ticker-item {
+    opacity: 1;
+}
+
+@keyframes marqueeFlow {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+    100% {
+        transform: translate3d(-50%, 0, 0);
+    }
+}

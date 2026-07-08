@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Al Hafiz Taufikur Rohman — CV</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap');
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: #ffffff;
+            color: #1e293b;
+            font-size: 10pt;
+            line-height: 1.6;
+        }
+
+        .cv-wrap {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 3rem 2.5rem;
+        }
+
+        /* Header */
+        .cv-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px solid #0ea5e9;
+            margin-bottom: 1.75rem;
+        }
+
+        .cv-name {
+            font-family: 'Outfit', sans-serif;
+            font-size: 26pt;
+            font-weight: 800;
+            color: #0f172a;
+            line-height: 1.1;
+        }
+
+        .cv-title {
+            font-size: 11pt;
+            font-weight: 500;
+            color: #0ea5e9;
+            margin-top: 0.3rem;
+        }
+
+        .cv-contacts {
+            text-align: right;
+            font-size: 8.5pt;
+            color: #475569;
+            line-height: 1.8;
+        }
+
+        .cv-contacts a { color: #0ea5e9; text-decoration: none; }
+
+        /* Section */
+        .cv-section { margin-bottom: 1.75rem; }
+
+        .cv-section-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 10pt;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #0ea5e9;
+            padding-bottom: 0.35rem;
+            border-bottom: 1px solid #e2e8f0;
+            margin-bottom: 1rem;
+        }
+
+        /* Summary */
+        .cv-summary { color: #475569; line-height: 1.7; }
+
+        /* Experience */
+        .exp-item { margin-bottom: 1.25rem; }
+        .exp-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; }
+        .exp-role { font-weight: 700; color: #0f172a; font-size: 10.5pt; }
+        .exp-company { font-weight: 600; color: #0ea5e9; font-size: 9.5pt; }
+        .exp-date { font-size: 8.5pt; color: #94a3b8; white-space: nowrap; }
+        .exp-desc { color: #475569; margin-top: 0.4rem; }
+        .exp-desc ul { padding-left: 1.25rem; }
+        .exp-desc li { margin-bottom: 0.25rem; }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.75rem;
+        }
+        .skill-group { }
+        .skill-group-title { font-weight: 700; color: #0f172a; font-size: 9pt; margin-bottom: 0.3rem; }
+        .skill-list { color: #475569; font-size: 8.5pt; line-height: 1.7; }
+
+        /* Certifications */
+        .cert-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.6rem;
+        }
+        .cert-dot {
+            width: 6px; height: 6px;
+            border-radius: 50%;
+            background: #0ea5e9;
+            flex-shrink: 0;
+        }
+        .cert-name { font-weight: 600; color: #0f172a; }
+        .cert-issuer { color: #64748b; font-size: 8.5pt; }
+
+        /* Education */
+        .edu-item { margin-bottom: 0.75rem; }
+        .edu-degree { font-weight: 700; color: #0f172a; }
+        .edu-school { color: #0ea5e9; font-size: 9.5pt; }
+        .edu-date { color: #94a3b8; font-size: 8.5pt; }
+
+        /* Print */
+        @media print {
+            body { font-size: 9.5pt; }
+            .cv-wrap { padding: 2rem 1.5rem; max-width: 100%; }
+            .cv-name { font-size: 22pt; }
+        }
+
+        @media screen {
+            body { background: #f1f5f9; }
+            .cv-wrap { background: #fff; margin: 2rem auto; box-shadow: 0 4px 24px rgba(0,0,0,0.08); border-radius: 8px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="cv-wrap">
+        <!-- Header -->
+        <header class="cv-header">
+            <div>
+                <div class="cv-name">Al Hafiz Taufikur Rohman</div>
+                <div class="cv-title">Network Automation & Systems Engineer</div>
+            </div>
+            <div class="cv-contacts">
+                <div>📧 <a href="mailto:hafiz.taufik33@gmail.com">hafiz.taufik33@gmail.com</a></div>
+                <div>📱 +62 896-9750-5769</div>
+                <div>🔗 <a href="https://www.linkedin.com/in/al-hafiz-taufikur-rohman">LinkedIn</a></div>
+                <div>🐙 <a href="https://github.com/alhafiztaufikur">github.com/alhafiztaufikur</a></div>
+                <div>📸 <a href="https://www.instagram.com/hafiztaufikur">@hafiztaufikur</a></div>
+            </div>
+        </header>
+
+        <!-- Professional Summary -->
+        <section class="cv-section">
+            <div class="cv-section-title">Professional Summary</div>
+            <p class="cv-summary">
+                Dedicated Network Automation &amp; Systems Engineer specializing in designing, deploying, and automating enterprise-scale network infrastructures. Proficient in Python scripting with Netmiko and NAPALM, Ansible orchestration, and Cisco routing/switching technologies. Passionate about bridging traditional network engineering with modern NetDevOps methodologies to achieve high uptime, rapid deployment cycles, and auditable infrastructure-as-code workflows.
+            </p>
+        </section>
+
+        <!-- Experience -->
+        <section class="cv-section">
+            <div class="cv-section-title">Professional Experience</div>
+
+            <div class="exp-item">
+                <div class="exp-header">
+                    <div>
+                        <div class="exp-role">Network Engineer & Lab Administrator</div>
+                        <div class="exp-company">Universitas Bani Saleh</div>
+                    </div>
+                    <div class="exp-date">2025 – Present</div>
+                </div>
+                <div class="exp-desc">
+                    <ul>
+                        <li>Design, deploy, and maintain multi-VLAN enterprise network environments for 3 computer labs serving 200+ active users</li>
+                        <li>Developed a Python/Netmiko script automating configuration backups for 50+ Cisco routers/switches with Git-based versioning and drift detection</li>
+                        <li>Established OSPF routing configurations, VLAN segmentation policies, and firewall ACLs to enforce network security boundaries</li>
+                        <li>Reduced manual maintenance overhead by 70% through automation tooling</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="exp-item">
+                <div class="exp-header">
+                    <div>
+                        <div class="exp-role">IT Support & Systems Engineer</div>
+                        <div class="exp-company">STMIK Bani Saleh</div>
+                    </div>
+                    <div class="exp-date">2024 – 2025</div>
+                </div>
+                <div class="exp-desc">
+                    <ul>
+                        <li>Provided hardware and software diagnostics and repairs for 80+ lab computers</li>
+                        <li>Deployed and configured Windows Server and Linux servers with DHCP, DNS, and Active Directory services</li>
+                        <li>Supported students in troubleshooting network configuration issues and resolved an average of 15 tickets per week</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Skills -->
+        <section class="cv-section">
+            <div class="cv-section-title">Technical Skills</div>
+            <div class="skills-grid">
+                <div class="skill-group">
+                    <div class="skill-group-title">Network Engineering</div>
+                    <div class="skill-list">Cisco IOS · VLANs (802.1Q)<br>OSPF · BGP (fundamentals)<br>ACLs · NAT/PAT<br>STP · EtherChannel<br>Subnetting · IPv4/IPv6</div>
+                </div>
+                <div class="skill-group">
+                    <div class="skill-group-title">Automation & Scripting</div>
+                    <div class="skill-list">Python 3 · Netmiko<br>NAPALM · Ansible<br>Jinja2 Templates<br>REST APIs · RESTCONF<br>SNMP · Git · GitHub</div>
+                </div>
+                <div class="skill-group">
+                    <div class="skill-group-title">Systems & Tools</div>
+                    <div class="skill-list">Linux (Ubuntu/CentOS)<br>Windows Server<br>GNS3 · Packet Tracer<br>Wireshark · Nmap<br>Docker (basics)</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications -->
+        <section class="cv-section">
+            <div class="cv-section-title">Certifications</div>
+
+            <div class="cert-item">
+                <div class="cert-dot"></div>
+                <div>
+                    <span class="cert-name">CCNA: Introduction to Networks</span>
+                    <span class="cert-issuer"> — Cisco Networking Academy, 2024</span>
+                </div>
+            </div>
+            <div class="cert-item">
+                <div class="cert-dot"></div>
+                <div>
+                    <span class="cert-name">CCNA: Switching, Routing and Wireless Essentials</span>
+                    <span class="cert-issuer"> — Cisco Networking Academy, 2024</span>
+                </div>
+            </div>
+            <div class="cert-item">
+                <div class="cert-dot"></div>
+                <div>
+                    <span class="cert-name">Network Automation with Python</span>
+                    <span class="cert-issuer"> — Udemy, 2024</span>
+                </div>
+            </div>
+            <div class="cert-item">
+                <div class="cert-dot"></div>
+                <div>
+                    <span class="cert-name">Linux Essentials (LPI)</span>
+                    <span class="cert-issuer"> — Linux Professional Institute, 2023</span>
+                </div>
+            </div>
+            <div class="cert-item">
+                <div class="cert-dot"></div>
+                <div>
+                    <span class="cert-name">Certificate of Competence – Computer &amp; Network Engineering (KKNI Level II)</span>
+                    <span class="cert-issuer"> — BNSP / LSP SMK Yadika 13 Tambun Bekasi, Oct 2022</span>
+                </div>
+            </div>
+            <div class="cert-item">
+                <div class="cert-dot"></div>
+                <div>
+                    <span class="cert-name">Certificate of Competence – Intermediate Computer Operator (Office Application)</span>
+                    <span class="cert-issuer"> — BNSP / LSP BPPTIK, Jul 2024</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects -->
+        <section class="cv-section">
+            <div class="cv-section-title">Notable Projects</div>
+
+            <div class="exp-item">
+                <div class="exp-header">
+                    <div>
+                        <div class="exp-role">Automated Network Configuration Backup & Audit</div>
+                    </div>
+                    <div class="exp-date">Python · Netmiko · Git</div>
+                </div>
+                <div class="exp-desc">
+                    Production script that periodically connects via SSH to 50+ Cisco devices, pulls running configurations, detects config drift, and pushes versioned backups to a Git repository. Reduced manual backup time from 4 hours to under 2 minutes.
+                </div>
+            </div>
+
+            <div class="exp-item">
+                <div class="exp-header">
+                    <div>
+                        <div class="exp-role">Real-time Interface Monitor & Telegram Alert System</div>
+                    </div>
+                    <div class="exp-date">Python · SNMP · REST API</div>
+                </div>
+                <div class="exp-desc">
+                    Monitoring system using SNMP polling and RESTCONF APIs to track WAN link utilization. Automatically sends Telegram channel alerts on packet loss &gt; threshold or link-down events.
+                </div>
+            </div>
+        </section>
+
+        <!-- Education -->
+        <section class="cv-section">
+            <div class="cv-section-title">Education</div>
+            <div class="edu-item">
+                <div class="edu-degree">Bachelor of Informatics Engineering (S.Kom.)</div>
+                <div class="edu-school">STMIK Bani Saleh, Bekasi</div>
+                <div class="edu-date">2021 – Present · GPA: 3.7/4.0</div>
+            </div>
+        </section>
+
+        <p style="text-align:center; color:#94a3b8; font-size:8pt; margin-top:2rem;">
+            References available upon request · Portfolio: <a href="https://github.com/alhafiztaufikur" style="color:#0ea5e9;">github.com/alhafiztaufikur</a>
+        </p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,158 @@
+/* ==========================================================================
+   SKILLS & PROFILE LAYOUT
+   ========================================================================== */
+.skills-grid-new {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 3rem;
+    align-items: stretch;
+    margin-top: 3.5rem;
+}
+
+/* Left Column: Profile Card */
+.skills-profile-card {
+    padding: 3rem 2.25rem;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.profile-card-header {
+    margin-bottom: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.profile-avatar-wrapper {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--color-accent-1);
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.25);
+    margin-bottom: 1.5rem;
+    transition: transform 0.4s ease;
+}
+
+.skills-profile-card:hover .profile-avatar-wrapper {
+    transform: scale(1.05);
+}
+
+.profile-avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-card-name {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.profile-card-badge {
+    display: inline-block;
+    padding: 0.45rem 1rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-glass);
+    border-radius: 30px;
+    font-size: 0.76rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+    letter-spacing: 0.02em;
+}
+
+/* Profile Card Table */
+.profile-card-meta {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.15rem;
+    border-top: 1px solid var(--border-glass);
+    padding-top: 2rem;
+}
+
+.meta-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.meta-item-label {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-weight: 600;
+}
+
+.meta-item-val {
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    font-weight: 700;
+    text-align: right;
+}
+
+/* Right Column: Skills Blocks Grid */
+.skills-blocks-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+}
+
+.skill-block {
+    padding: 1.75rem 2rem;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-left: 3px solid transparent !important;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s, box-shadow 0.3s;
+}
+
+.skill-block:hover {
+    transform: translateY(-3px) translateX(3px);
+    border-left-color: var(--color-accent-1) !important;
+    border-color: var(--border-glass-hover);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.skill-block-title {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 0.45rem;
+}
+
+.skill-block-sub {
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .skills-grid-new {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .skills-blocks-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .skills-profile-card {
+        padding: 2rem 1.5rem;
+    }
+    
+    .skill-block {
+        padding: 1.5rem;
+    }
+}

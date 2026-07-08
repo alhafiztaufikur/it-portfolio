@@ -1,0 +1,173 @@
+:root {
+    /* ==========================================
+       THEME 1: DEFAULT (Dark Mode - "Navy Green")
+       ========================================== */
+    --bg-primary: #050c18; /* Deep Navy Blue base */
+    --bg-secondary: #0a1426; /* Darker Navy Card bg */
+    --bg-glass: rgba(10, 20, 38, 0.7);
+    --border-glass: rgba(16, 185, 129, 0.12);
+    --border-glass-hover: rgba(52, 211, 153, 0.3);
+    
+    --text-primary: #f3f4f6;
+    --text-secondary: #9ca3af;
+    --text-muted: #6b7280;
+    
+    /* Neon Green / Emerald / Mint Accents */
+    --color-accent-1: #10b981; /* Emerald Green */
+    --color-accent-2: #059669; /* Medium Green */
+    --color-accent-3: #34d399; /* Mint Green */
+    --color-accent-4: #0284c7; /* Classic Navy Blue Accent */
+    
+    --gradient-primary: linear-gradient(135deg, var(--color-accent-1) 0%, var(--color-accent-3) 100%);
+    --gradient-purple: linear-gradient(135deg, var(--color-accent-3) 0%, var(--color-accent-4) 100%);
+    --gradient-pink: linear-gradient(135deg, var(--color-accent-4) 0%, #10b981 100%);
+    --gradient-dark: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+    
+    /* Glow Shadows */
+    --glow-primary: 0 0 20px rgba(16, 185, 129, 0.4);
+    --glow-secondary: 0 0 20px rgba(52, 211, 153, 0.25);
+    --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+
+    /* Canvas Particle Colors */
+    --canvas-particle: rgba(16, 185, 129, 0.5);
+    --canvas-line: 52, 211, 153;
+    --canvas-line-hover: 16, 185, 129;
+    
+    /* Typography */
+    --font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    
+    /* Transitions */
+    --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    --container-width: 1200px;
+}
+
+/* ==========================================
+   THEME 2: ALTERNATE (Light Mode - "Charcoal Monochrome Grid")
+   ========================================== */
+[data-theme="light"] {
+    --bg-primary: #0f1013; /* Charcoal Base */
+    --bg-secondary: #17181c; /* Charcoal Card bg */
+    --bg-glass: rgba(23, 24, 28, 0.75);
+    --border-glass: rgba(255, 255, 255, 0.08);
+    --border-glass-hover: rgba(255, 255, 255, 0.25);
+
+    --text-primary: #ffffff;
+    --text-secondary: #a3a3a3;
+    --text-muted: #525252;
+
+    /* Accent Gradients (monochrome high-contrast) */
+    --color-accent-1: #ffffff; /* White Accent */
+    --color-accent-2: #d4d4d4; 
+    --color-accent-3: #737373;
+    --color-accent-4: #ffffff;
+
+    --gradient-primary: linear-gradient(135deg, #ffffff 0%, #a3a3a3 100%);
+    --gradient-purple: linear-gradient(135deg, #a3a3a3 0%, #525252 100%);
+    --gradient-pink: linear-gradient(135deg, #525252 0%, #ffffff 100%);
+
+    --glow-primary: 0 0 20px rgba(255, 255, 255, 0.25);
+    --glow-secondary: 0 0 20px rgba(200, 200, 200, 0.15);
+    --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+
+    /* Canvas Colors */
+    --canvas-particle: rgba(255, 255, 255, 0.4);
+    --canvas-line: 255, 255, 255;
+    --canvas-line-hover: 255, 255, 255;
+}
+
+/* Default navy theme background body */
+body {
+    background: var(--bg-primary);
+}
+
+/* Charcoal Grid background on body */
+[data-theme="light"] body {
+    background-color: var(--bg-primary);
+    background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+    background-size: 50px 50px;
+    background-position: center;
+}
+
+/* Navbar */
+.navbar {
+    background: rgba(5, 12, 24, 0.65);
+}
+.navbar.scrolled {
+    background: rgba(5, 12, 24, 0.85);
+}
+
+[data-theme="light"] .navbar {
+    background: rgba(15, 16, 19, 0.65);
+}
+[data-theme="light"] .navbar.scrolled {
+    background: rgba(15, 16, 19, 0.85);
+}
+
+/* Canvas opacity */
+#network-canvas {
+    opacity: 0.4;
+    transition: opacity var(--transition-normal);
+}
+[data-theme="light"] #network-canvas {
+    opacity: 0.3;
+}
+
+/* Glass card styling overrides */
+.glass {
+    background: var(--bg-glass);
+    border: 1px solid var(--border-glass);
+}
+
+/* Nav links active state */
+.nav-link:hover,
+.nav-link.active {
+    color: var(--color-accent-1) !important;
+}
+
+/* Connect button dark theme style (white text on green) */
+.btn-connect {
+    border-color: var(--color-accent-1);
+    color: var(--text-primary);
+}
+.btn-connect:hover {
+    background: var(--gradient-primary);
+    color: #050c18 !important;
+}
+
+/* Connect button charcoal theme style (solid white on hover) */
+[data-theme="light"] .btn-connect:hover {
+    background: #ffffff;
+    color: #0f1013 !important;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+/* Skill tags & Project badges */
+.project-badge,
+.skill-tag {
+    background: rgba(16, 185, 129, 0.06);
+    border: 1px solid rgba(16, 185, 129, 0.15);
+    color: var(--color-accent-3);
+}
+
+[data-theme="light"] .project-badge,
+[data-theme="light"] .skill-tag {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+}
+
+/* Footer background overrides */
+.footer {
+    background: #030810;
+    border-color: var(--border-glass);
+}
+[data-theme="light"] .footer {
+    background: #0a0a0c;
+    border-color: var(--border-glass);
+}

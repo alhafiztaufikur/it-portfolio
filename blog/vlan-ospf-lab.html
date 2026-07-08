@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VLAN Segmentation & OSPF Routing: A Full Lab Walkthrough | Al Hafiz</title>
+    <meta name="description" content="From an empty GNS3 canvas to a fully-segmented, inter-VLAN routed network. Covers 802.1Q trunking, OSPF Area 0, and real CLI outputs at every step.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        :root {
+            --bg: #07090e; --bg-card: #0c0f17; --text: #f3f4f6; --text-muted: #9ca3af;
+            --accent: #00f2fe; --accent-2: #4facfe; --border: rgba(255,255,255,0.07);
+            --code-bg: #0d1117; --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+            --font-head: 'Outfit', sans-serif; --font-body: 'Plus Jakarta Sans', sans-serif;
+        }
+        body { background: var(--bg); color: var(--text); font-family: var(--font-body); line-height: 1.75; min-height: 100vh; }
+        .topbar { position: sticky; top: 0; background: rgba(7,9,14,0.88); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 1rem 2rem; display: flex; align-items: center; gap: 1.5rem; z-index: 100; }
+        .back-link { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.85rem; font-weight: 600; color: var(--accent); text-decoration: none; }
+        .back-link:hover { opacity: 0.75; }
+        .topbar-title { font-size: 0.9rem; color: var(--text-muted); font-family: var(--font-head); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .article-wrap { max-width: 760px; margin: 0 auto; padding: 3rem 2rem 6rem; }
+        .article-hero { margin-bottom: 2.5rem; }
+        .tag-row { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.25rem; }
+        .tag { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; padding: 0.25rem 0.65rem; border-radius: 20px; border: 1px solid currentColor; }
+        .tag-cisco { color: #f97316; background: rgba(249,115,22,0.08); }
+        .tag-ospf  { color: #a78bfa; background: rgba(167,139,250,0.08); }
+        .tag-vlan  { color: #34d399; background: rgba(52,211,153,0.08); }
+        .article-title { font-family: var(--font-head); font-size: clamp(1.75rem,5vw,2.5rem); font-weight: 800; line-height: 1.2; background: linear-gradient(135deg, #fff 0%, #4facfe 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 1rem; }
+        .article-meta { display: flex; align-items: center; gap: 1.5rem; font-size: 0.85rem; color: var(--text-muted); padding-bottom: 1.5rem; border-bottom: 1px solid var(--border); }
+        .meta-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--text-muted); }
+        .article-content h2 { font-family: var(--font-head); font-size: 1.4rem; font-weight: 700; color: var(--text); margin: 2.5rem 0 1rem; padding-left: 1rem; border-left: 3px solid var(--accent-2); }
+        .article-content h3 { font-family: var(--font-head); font-size: 1.1rem; font-weight: 600; color: var(--accent-2); margin: 1.75rem 0 0.75rem; }
+        .article-content p { color: var(--text-muted); margin-bottom: 1rem; }
+        .article-content strong { color: var(--text); }
+        .article-content ul, .article-content ol { color: var(--text-muted); padding-left: 1.5rem; margin-bottom: 1rem; }
+        .article-content li { margin-bottom: 0.4rem; }
+        .code-block { background: var(--code-bg); border: 1px solid var(--border); border-radius: 10px; margin: 1.25rem 0; overflow: hidden; }
+        .code-header { display: flex; align-items: center; justify-content: space-between; padding: 0.6rem 1rem; background: rgba(255,255,255,0.02); border-bottom: 1px solid var(--border); }
+        .code-lang { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; color: var(--accent-2); letter-spacing: 0.08em; }
+        .code-body { padding: 1.25rem 1.5rem; font-family: var(--font-mono); font-size: 0.83rem; line-height: 1.7; color: #cdd6f4; overflow-x: auto; white-space: pre; }
+        .kw { color: #cba6f7; } .fn { color: #89b4fa; } .st { color: #a6e3a1; }
+        .cm { color: #585b70; font-style: italic; } .nm { color: #fab387; }
+        .info-box { background: rgba(79,172,254,0.05); border: 1px solid rgba(79,172,254,0.2); border-radius: 10px; padding: 1.25rem 1.5rem; margin: 1.5rem 0; font-size: 0.9rem; color: var(--text-muted); }
+        .info-box strong { color: var(--accent-2); }
+        .topology-img { width: 100%; border-radius: 12px; border: 1px solid var(--border); margin: 1.5rem 0; display: block; }
+        .vlan-table { width: 100%; border-collapse: collapse; margin: 1.25rem 0; font-size: 0.88rem; }
+        .vlan-table th { background: rgba(255,255,255,0.04); color: var(--text-muted); font-weight: 600; text-align: left; padding: 0.6rem 1rem; border-bottom: 1px solid var(--border); }
+        .vlan-table td { padding: 0.6rem 1rem; border-bottom: 1px solid rgba(255,255,255,0.03); color: var(--text-muted); }
+        .vlan-table td:first-child { color: var(--text); font-weight: 600; }
+        hr { border: none; border-top: 1px solid var(--border); margin: 2.5rem 0; }
+        .article-footer-nav { margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; }
+        .footer-nav-link { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; font-weight: 600; color: var(--accent-2); text-decoration: none; }
+        .footer-nav-link:hover { opacity: 0.75; }
+    </style>
+</head>
+<body>
+    <div class="topbar">
+        <a href="../index.html#blog" class="back-link">← Back to Portfolio</a>
+        <span class="topbar-title">VLAN Segmentation & OSPF Routing: A Full Lab Walkthrough</span>
+    </div>
+
+    <article class="article-wrap">
+        <header class="article-hero">
+            <div class="tag-row">
+                <span class="tag tag-cisco">Cisco IOS</span>
+                <span class="tag tag-ospf">OSPF</span>
+                <span class="tag tag-vlan">VLANs</span>
+            </div>
+            <h1 class="article-title">VLAN Segmentation & OSPF Routing: A Full Lab Walkthrough</h1>
+            <div class="article-meta">
+                <span>Al Hafiz Taufikur Rohman</span>
+                <span class="meta-dot"></span>
+                <span>May 2025</span>
+                <span class="meta-dot"></span>
+                <span>12 min read</span>
+            </div>
+        </header>
+
+        <div class="article-content">
+            <h2>Lab Topology Overview</h2>
+            <p>
+                This lab simulates an enterprise campus network with a three-tier hierarchy: <strong>Core, Distribution, and Access</strong> layers. All devices are Cisco IOS running in GNS3.
+            </p>
+            <img src="../assets/images/network_topology.png" alt="Lab Network Topology Diagram" class="topology-img">
+
+            <h3>VLAN Design</h3>
+            <table class="vlan-table">
+                <thead>
+                    <tr><th>VLAN ID</th><th>Name</th><th>Subnet</th><th>Purpose</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>VLAN 10</td><td>Management</td><td>10.10.10.0/24</td><td>Network device management</td></tr>
+                    <tr><td>VLAN 20</td><td>Servers</td><td>10.20.20.0/24</td><td>Internal server farm</td></tr>
+                    <tr><td>VLAN 30</td><td>Users</td><td>10.30.30.0/24</td><td>Staff workstations</td></tr>
+                    <tr><td>VLAN 40</td><td>Security</td><td>10.40.40.0/24</td><td>Security cameras & IoT</td></tr>
+                </tbody>
+            </table>
+
+            <h2>Step 1 — Configure VLANs on Distribution Switches</h2>
+            <p>On both <strong>Dist-SW1</strong> and <strong>Dist-SW2</strong>, create the VLAN database:</p>
+            <div class="code-block">
+                <div class="code-header"><span class="code-lang">Cisco IOS — Dist-SW1</span></div>
+                <div class="code-body">Dist-SW1# configure terminal
+Dist-SW1(config)# vlan 10
+Dist-SW1(config-vlan)# name Management
+Dist-SW1(config-vlan)# exit
+Dist-SW1(config)# vlan 20
+Dist-SW1(config-vlan)# name Servers
+Dist-SW1(config-vlan)# exit
+Dist-SW1(config)# vlan 30
+Dist-SW1(config-vlan)# name Users
+Dist-SW1(config-vlan)# exit
+Dist-SW1(config)# vlan 40
+Dist-SW1(config-vlan)# name Security
+Dist-SW1(config-vlan)# exit</div>
+            </div>
+
+            <h2>Step 2 — Configure 802.1Q Trunk Links</h2>
+            <p>The uplink from each distribution switch to Core-R1 must carry all VLANs as a trunk:</p>
+            <div class="code-block">
+                <div class="code-header"><span class="code-lang">Cisco IOS — Dist-SW1 Uplink to Core-R1</span></div>
+                <div class="code-body">Dist-SW1(config)# interface GigabitEthernet0/1
+Dist-SW1(config-if)# description Trunk to Core-R1
+Dist-SW1(config-if)# switchport mode trunk
+Dist-SW1(config-if)# switchport trunk encapsulation dot1q
+Dist-SW1(config-if)# switchport trunk allowed vlan 10,20,30,40
+Dist-SW1(config-if)# no shutdown</div>
+            </div>
+
+            <div class="info-box">
+                <strong>Verify trunk status:</strong> Use <code>show interfaces trunk</code> to confirm the port is in trunk mode and all 4 VLANs appear in the "VLANs allowed and active" column.
+            </div>
+
+            <h2>Step 3 — Router-on-a-Stick (Inter-VLAN Routing)</h2>
+            <p>
+                Core-R1 uses <strong>subinterfaces</strong> on a single physical trunk link to route between all VLANs. Each subinterface is assigned a VLAN encapsulation and acts as the default gateway for that VLAN.
+            </p>
+            <div class="code-block">
+                <div class="code-header"><span class="code-lang">Cisco IOS — Core-R1 Subinterfaces</span></div>
+                <div class="code-body">Core-R1(config)# interface GigabitEthernet0/0.10
+Core-R1(config-subif)# encapsulation dot1q 10
+Core-R1(config-subif)# ip address 10.10.10.1 255.255.255.0
+Core-R1(config-subif)# description Gateway_VLAN10_Management
+
+Core-R1(config)# interface GigabitEthernet0/0.20
+Core-R1(config-subif)# encapsulation dot1q 20
+Core-R1(config-subif)# ip address 10.20.20.1 255.255.255.0
+Core-R1(config-subif)# description Gateway_VLAN20_Servers
+
+Core-R1(config)# interface GigabitEthernet0/0.30
+Core-R1(config-subif)# encapsulation dot1q 30
+Core-R1(config-subif)# ip address 10.30.30.1 255.255.255.0
+Core-R1(config-subif)# description Gateway_VLAN30_Users
+
+Core-R1(config)# interface GigabitEthernet0/0.40
+Core-R1(config-subif)# encapsulation dot1q 40
+Core-R1(config-subif)# ip address 10.40.40.1 255.255.255.0
+Core-R1(config-subif)# description Gateway_VLAN40_Security</div>
+            </div>
+
+            <h2>Step 4 — OSPF Area 0 Configuration</h2>
+            <p>All routers participate in <strong>OSPF Area 0 (backbone)</strong> to share routing information dynamically:</p>
+            <div class="code-block">
+                <div class="code-header"><span class="code-lang">Cisco IOS — Core-R1 OSPF</span></div>
+                <div class="code-body">Core-R1(config)# router ospf 1
+Core-R1(config-router)# router-id 1.1.1.1
+Core-R1(config-router)# network 10.10.10.0 0.0.0.255 area 0
+Core-R1(config-router)# network 10.20.20.0 0.0.0.255 area 0
+Core-R1(config-router)# network 10.30.30.0 0.0.0.255 area 0
+Core-R1(config-router)# network 10.40.40.0 0.0.0.255 area 0
+Core-R1(config-router)# passive-interface default
+Core-R1(config-router)# no passive-interface GigabitEthernet0/1
+<span class="cm"># Only the WAN-facing interface sends OSPF hellos</span></div>
+            </div>
+
+            <h2>Step 5 — Verify Reachability</h2>
+            <p>A PC in VLAN 30 (Users) should now be able to reach a server in VLAN 20 (Servers) through Core-R1:</p>
+            <div class="code-block">
+                <div class="code-header"><span class="code-lang">CLI Output — Ping Test</span></div>
+                <div class="code-body">PC-Users> ping 10.20.20.100
+84 bytes from 10.20.20.100 icmp_seq=1 ttl=63 time=2.1 ms
+84 bytes from 10.20.20.100 icmp_seq=2 ttl=63 time=1.9 ms
+84 bytes from 10.20.20.100 icmp_seq=3 ttl=63 time=2.0 ms
+
+Core-R1# show ip ospf neighbor
+Neighbor ID    Pri   State    Dead Time   Address         Interface
+2.2.2.2          1   FULL/DR  00:00:38    10.10.10.2      GigabitEthernet0/0.10</div>
+            </div>
+
+            <h2>Key Takeaways</h2>
+            <ul>
+                <li>VLAN segmentation limits broadcast domains and improves security between user groups</li>
+                <li>802.1Q trunks must be configured on both ends of a link before VLANs can traverse it</li>
+                <li>OSPF <code>passive-interface default</code> is a best practice — only advertise OSPF where needed</li>
+                <li>TTL of 63 (instead of 64) in ping output confirms traffic is being routed through Core-R1</li>
+            </ul>
+
+            <hr>
+            <p>Have questions about this topology or want to see the full GNS3 project file? Reach out on <a href="https://github.com/alhafiztaufikur" target="_blank" style="color:var(--accent-2);">GitHub</a>.</p>
+        </div>
+
+        <nav class="article-footer-nav">
+            <a href="cisco-backup-python.html" class="footer-nav-link">← Previous: Cisco Backup with Python</a>
+            <a href="../index.html#blog" class="footer-nav-link">Back to Blog →</a>
+        </nav>
+    </article>
+</body>
+</html>

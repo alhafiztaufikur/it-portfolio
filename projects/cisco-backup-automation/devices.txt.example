@@ -1,0 +1,10 @@
+# Cisco Device Inventory Template
+# Format: ip_address,username,password,device_type,hostname
+# Lines starting with '#' are ignored.
+#
+# device_type options for Netmiko: cisco_ios, cisco_xe, cisco_asa, juniper_junos, arista_eos, etc.
+
+192.168.1.1, admin, cisco123, cisco_ios, CoreRouter01
+192.168.1.2, admin, cisco123, cisco_ios, EdgeRouter02
+192.168.2.10, admin, cisco123, cisco_ios, DistSwitch01
+192.168.2.11, admin, cisco123, cisco_ios, AccessSwitch02

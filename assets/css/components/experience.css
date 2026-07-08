@@ -1,0 +1,176 @@
+/* ==========================================================================
+   JOURNEY / EXPERIENCE VERTICAL ALTERNATING TIMELINE
+   ========================================================================== */
+.journey-container {
+    position: relative;
+    max-width: 1000px;
+    margin: 4rem auto 0;
+    padding: 2rem 0;
+}
+
+/* Central Vertical Line */
+.journey-line {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    background: linear-gradient(to bottom, var(--color-accent-1) 0%, var(--color-accent-3) 50%, var(--color-accent-4) 100%);
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.2);
+}
+
+.journey-item {
+    position: relative;
+    width: 100%;
+    margin-bottom: 4rem;
+    display: flex;
+}
+
+.journey-item:last-child {
+    margin-bottom: 0;
+}
+
+/* Timeline center Node circle */
+.journey-node {
+    position: absolute;
+    left: 50%;
+    top: 1.5rem;
+    transform: translate(-50%, -50%);
+    width: 18px;
+    height: 18px;
+    background: var(--bg-secondary);
+    border: 3px solid var(--color-accent-1);
+    border-radius: 50%;
+    box-shadow: 0 0 12px var(--color-accent-1);
+    z-index: 10;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.journey-item:hover .journey-node {
+    transform: translate(-50%, -50%) scale(1.3);
+    background: var(--color-accent-1);
+}
+
+/* Card placement left and right */
+.journey-content-wrapper {
+    width: 45%;
+    position: relative;
+}
+
+/* Left aligned items */
+.journey-item.left {
+    justify-content: flex-start;
+}
+
+/* Right aligned items */
+.journey-item.right {
+    justify-content: flex-end;
+}
+
+/* Card Body */
+.journey-card {
+    padding: 2rem 2.25rem;
+    border-radius: 16px;
+    position: relative;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s, box-shadow 0.3s;
+}
+
+.journey-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--border-glass-hover);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.journey-tag {
+    display: inline-block;
+    background: rgba(16, 185, 129, 0.08);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    color: var(--color-accent-1);
+    padding: 0.35rem 0.85rem;
+    border-radius: 50px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+[data-theme="light"] .journey-tag {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+}
+
+.journey-title {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 0.35rem;
+}
+
+.journey-sub {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--color-accent-2);
+    margin-bottom: 1.15rem;
+    display: block;
+}
+
+.journey-desc {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.65;
+}
+
+/* Arrow pointer indicators */
+.journey-card::after {
+    content: '';
+    position: absolute;
+    top: 1.25rem;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    z-index: 10;
+}
+
+.journey-item.left .journey-card::after {
+    right: -10px;
+    border-width: 8px 0 8px 10px;
+    border-color: transparent transparent transparent var(--border-glass);
+}
+
+.journey-item.right .journey-card::after {
+    left: -10px;
+    border-width: 8px 10px 8px 0;
+    border-color: transparent var(--border-glass) transparent transparent;
+}
+
+/* Responsive details */
+@media (max-width: 768px) {
+    .journey-line {
+        left: 20px;
+        transform: none;
+    }
+    
+    .journey-node {
+        left: 20px;
+    }
+    
+    .journey-content-wrapper {
+        width: calc(100% - 45px);
+        margin-left: 45px;
+    }
+    
+    .journey-item.left,
+    .journey-item.right {
+        justify-content: flex-start;
+    }
+    
+    .journey-item.left .journey-card::after,
+    .journey-item.right .journey-card::after {
+        left: -10px;
+        border-width: 8px 10px 8px 0;
+        border-color: transparent var(--border-glass) transparent transparent;
+    }
+}

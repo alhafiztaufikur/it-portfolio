@@ -1,0 +1,37 @@
+/* Custom Native SVG Cursor (Desktop Only) */
+@media (min-width: 992px) {
+    html, body {
+        /* Standard pointer arrow - Green for default dark theme */
+        cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M5.5 3.2L18.8 11.8L12.7 13.1L16.2 19.3L13.8 20.7L10.3 14.5L5.5 18.2V3.2Z" fill="%2310b981" stroke="%23065f46" stroke-width="1.2"/></svg>') 5 3, auto;
+    }
+
+    a, button, input, select, textarea, [onclick], .glass, .network-card, .cert-card, .blog-card, .project-card, .btn-connect, .sitemap-links a, .nav-link {
+        /* Brighter green arrow for hover/links */
+        cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M5.5 3.2L18.8 11.8L12.7 13.1L16.2 19.3L13.8 20.7L10.3 14.5L5.5 18.2V3.2Z" fill="%2334d399" stroke="%23047857" stroke-width="1.2"/></svg>') 5 3, pointer;
+    }
+
+    /* Light Theme Overrides (Charcoal Grid) */
+    [data-theme="light"] html,
+    [data-theme="light"] body {
+        /* Standard pointer arrow - White for light theme */
+        cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M5.5 3.2L18.8 11.8L12.7 13.1L16.2 19.3L13.8 20.7L10.3 14.5L5.5 18.2V3.2Z" fill="%23ffffff" stroke="%23737373" stroke-width="1.2"/></svg>') 5 3, auto;
+    }
+
+    [data-theme="light"] a,
+    [data-theme="light"] button,
+    [data-theme="light"] input,
+    [data-theme="light"] select,
+    [data-theme="light"] textarea,
+    [data-theme="light"] [onclick],
+    [data-theme="light"] .glass,
+    [data-theme="light"] .network-card,
+    [data-theme="light"] .cert-card,
+    [data-theme="light"] .blog-card,
+    [data-theme="light"] .project-card,
+    [data-theme="light"] .btn-connect,
+    [data-theme="light"] .sitemap-links a,
+    [data-theme="light"] .nav-link {
+        /* Grey/white arrow for light theme hover/links */
+        cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M5.5 3.2L18.8 11.8L12.7 13.1L16.2 19.3L13.8 20.7L10.3 14.5L5.5 18.2V3.2Z" fill="%23d4d4d4" stroke="%23525252" stroke-width="1.2"/></svg>') 5 3, pointer;
+    }
+}

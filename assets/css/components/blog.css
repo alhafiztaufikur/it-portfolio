@@ -1,0 +1,179 @@
+/* ==========================================
+   Blog / Technical Notes Section
+   ========================================== */
+
+.blog-section {
+    position: relative;
+}
+
+.section-subtitle {
+    color: var(--text-secondary);
+    margin-top: 0.75rem;
+    font-size: 1rem;
+    max-width: 600px;
+}
+
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.blog-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    padding: 2rem;
+    border-radius: 16px;
+    text-decoration: none;
+    color: inherit;
+    border: 1px solid var(--border-glass);
+    transition: all var(--transition-normal);
+    position: relative;
+    overflow: hidden;
+}
+
+.blog-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--gradient-primary);
+    opacity: 0;
+    transition: opacity var(--transition-normal);
+    border-radius: 16px;
+    z-index: 0;
+}
+
+.blog-card:hover {
+    border-color: var(--border-glass-hover);
+    transform: translateY(-4px);
+    box-shadow: var(--glow-primary);
+}
+
+.blog-card:hover::before {
+    opacity: 0.04;
+}
+
+.blog-card > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* Header Row */
+.blog-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.blog-tag-row {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.blog-tag {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.2rem 0.6rem;
+    border-radius: 20px;
+    border: 1px solid currentColor;
+}
+
+.tag-python  { color: #3b82f6; background: rgba(59,130,246,0.08); }
+.tag-netmiko { color: #00f2fe; background: rgba(0,242,254,0.08); }
+.tag-cisco   { color: #f97316; background: rgba(249,115,22,0.08); }
+.tag-ospf    { color: #a78bfa; background: rgba(167,139,250,0.08); }
+.tag-vlan    { color: #34d399; background: rgba(52,211,153,0.08); }
+.tag-ansible { color: #fb923c; background: rgba(251,146,60,0.08); }
+
+.blog-read-time {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+/* Card Body */
+.blog-card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    flex: 1;
+}
+
+.blog-icon-box {
+    --blog-icon-color: var(--color-accent-1);
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: rgba(0, 242, 254, 0.08);
+    border: 1px solid rgba(0, 242, 254, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.blog-icon {
+    width: 22px;
+    height: 22px;
+    color: var(--blog-icon-color, var(--color-accent-1));
+}
+
+.blog-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.4;
+    font-family: var(--font-heading);
+}
+
+.blog-excerpt {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
+
+/* Card Footer */
+.blog-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-glass);
+}
+
+.blog-date {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+}
+
+.blog-read-more {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--color-accent-1);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: gap var(--transition-fast);
+}
+
+.blog-card:hover .blog-read-more {
+    gap: 0.6rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .blog-grid {
+        grid-template-columns: 1fr;
+    }
+}

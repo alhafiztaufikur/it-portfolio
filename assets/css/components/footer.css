@@ -1,0 +1,59 @@
+.footer {
+    border-top: 1px solid var(--border-glass);
+    padding: 2.5rem 0;
+    background: #05070a;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.copyright {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.back-to-top {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    transition: color var(--transition-fast);
+}
+
+.back-to-top:hover {
+    color: var(--color-accent-1);
+}
+
+/* ==========================================
+   Visitor Counter
+   ========================================== */
+.visitor-counter {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.counter-dot {
+    width: 7px;
+    height: 7px;
+    background: var(--color-accent-1);
+    border-radius: 50%;
+    display: inline-block;
+    box-shadow: 0 0 6px var(--color-accent-1);
+    animation: counterPulse 2s ease-in-out infinite;
+}
+
+@keyframes counterPulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.7); }
+}
+
