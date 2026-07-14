@@ -1,0 +1,218 @@
+/* ==========================================================================
+   SUBPAGES - focused multi-page portfolio shell
+   ========================================================================== */
+
+.subpage-body {
+    min-height: 100vh;
+    background:
+        linear-gradient(120deg, rgba(16, 185, 129, 0.075) 0%, transparent 22%, transparent 76%, rgba(2, 132, 199, 0.055) 100%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.034), transparent 20rem),
+        repeating-linear-gradient(118deg, transparent 0 72px, rgba(16, 185, 129, 0.035) 72px 73px, transparent 73px 164px),
+        repeating-linear-gradient(28deg, transparent 0 132px, rgba(2, 132, 199, 0.03) 132px 133px, transparent 133px 240px),
+        var(--bg-primary);
+    background-size: auto;
+    background-attachment: scroll;
+}
+
+.subpage-main {
+    padding-top: 6.25rem;
+    position: relative;
+    z-index: 1;
+}
+
+.subpage-main::before {
+    content: '';
+    position: fixed;
+    inset: 4.5rem 0 auto;
+    height: 24rem;
+    pointer-events: none;
+    background:
+        linear-gradient(105deg, transparent 0%, rgba(16, 185, 129, 0.11) 34%, transparent 58%),
+        linear-gradient(75deg, transparent 10%, rgba(2, 132, 199, 0.07) 42%, transparent 70%);
+    opacity: 0.52;
+    z-index: -1;
+}
+
+.subpage-hero {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: clamp(3.25rem, 7vw, 6rem) 1.5rem 2.75rem;
+}
+
+.subpage-hero-panel {
+    min-height: 310px;
+    padding: clamp(1rem, 4vw, 2.4rem) 0 clamp(1.5rem, 4vw, 2.6rem) clamp(1.4rem, 4vw, 3rem);
+    position: relative;
+    overflow: hidden;
+    border-left: 2px solid rgba(16, 185, 129, 0.34);
+}
+
+.subpage-hero-panel::before {
+    content: '';
+    position: absolute;
+    right: 2%;
+    top: 14%;
+    width: min(38vw, 430px);
+    height: 68%;
+    border-top: 1px solid rgba(16, 185, 129, 0.32);
+    border-right: 1px solid rgba(16, 185, 129, 0.26);
+    border-bottom: 1px solid rgba(2, 132, 199, 0.24);
+    border-radius: 0 140px 140px 0;
+    opacity: 0.72;
+    pointer-events: none;
+}
+
+.subpage-hero-panel::after {
+    content: '';
+    position: absolute;
+    right: 7%;
+    top: 34%;
+    width: min(28vw, 300px);
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(16, 185, 129, 0.48), transparent);
+    box-shadow: 0 48px 0 rgba(2, 132, 199, 0.18), 0 96px 0 rgba(16, 185, 129, 0.18);
+    pointer-events: none;
+}
+
+.subpage-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    color: var(--color-accent-1);
+    font-size: 0.76rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 1.15rem;
+    position: relative;
+    z-index: 1;
+}
+
+.subpage-kicker::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--color-accent-1);
+    box-shadow: 0 0 14px var(--color-accent-1);
+}
+
+.subpage-title {
+    max-width: 820px;
+    font-size: clamp(2.35rem, 6vw, 4.7rem);
+    font-weight: 850;
+    line-height: 1.04;
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 1;
+}
+
+.subpage-desc {
+    max-width: 650px;
+    color: var(--text-secondary);
+    font-size: clamp(0.96rem, 1.6vw, 1.08rem);
+    line-height: 1.75;
+    position: relative;
+    z-index: 1;
+}
+
+.subpage-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.subpage-home-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.55rem;
+    min-height: 42px;
+    padding: 0 1.15rem;
+    border-radius: 999px;
+    color: #04120e !important;
+    background: var(--gradient-primary);
+    border: 1px solid transparent;
+    font-size: 0.82rem;
+    font-weight: 850;
+    letter-spacing: 0.02em;
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.subpage-home-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(16, 185, 129, 0.18);
+}
+
+.subpage-home-btn svg {
+    width: 16px;
+    height: 16px;
+}
+
+.subpage-content {
+    position: relative;
+}
+
+.subpage-content .section {
+    padding-top: 4.5rem;
+}
+
+.subpage-content .section:first-child {
+    border-top: 0;
+}
+
+.subpage-footer-spacer {
+    height: 2rem;
+}
+
+[data-theme="light"] .subpage-hero-panel {
+    border-left-color: rgba(5, 150, 105, 0.36);
+}
+
+[data-theme="light"] .subpage-hero-panel::before {
+    border-top-color: rgba(5, 150, 105, 0.28);
+    border-right-color: rgba(5, 150, 105, 0.22);
+    border-bottom-color: rgba(2, 132, 199, 0.2);
+}
+
+[data-theme="light"] .subpage-body {
+    background:
+        linear-gradient(120deg, rgba(5, 150, 105, 0.09) 0%, transparent 22%, transparent 76%, rgba(2, 132, 199, 0.065) 100%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.78), transparent 18rem),
+        repeating-linear-gradient(118deg, transparent 0 72px, rgba(5, 150, 105, 0.105) 72px 74px, transparent 74px 164px),
+        repeating-linear-gradient(28deg, transparent 0 132px, rgba(2, 132, 199, 0.08) 132px 134px, transparent 134px 240px),
+        #f1f5f9;
+    background-size: auto;
+    background-attachment: scroll;
+}
+
+[data-theme="light"] .subpage-main::before {
+    background:
+        linear-gradient(105deg, transparent 0%, rgba(5, 150, 105, 0.11) 34%, transparent 58%),
+        linear-gradient(75deg, transparent 10%, rgba(2, 132, 199, 0.07) 42%, transparent 70%);
+    opacity: 0.5;
+}
+
+@media (max-width: 768px) {
+    .subpage-main {
+        padding-top: 5.5rem;
+    }
+
+    .subpage-hero {
+        padding-top: 2.25rem;
+    }
+
+    .subpage-hero-panel {
+        min-height: auto;
+        border-left-width: 1.5px;
+    }
+
+    .subpage-hero-panel::before,
+    .subpage-hero-panel::after {
+        display: none;
+    }
+}

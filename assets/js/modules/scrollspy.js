@@ -72,4 +72,7 @@ export function initScrollSpy() {
             }
         });
     });
+
+    // Trigger scroll check on load to highlight the active section
+    window.dispatchEvent(new Event('scroll'));
 }

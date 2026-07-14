@@ -11,44 +11,27 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap"
         rel="stylesheet">
+    <script>
+        (function() {
+            document.documentElement.classList.add('page-loading');
+            try {
+                const saved = localStorage.getItem('portfolio-theme') || 'dark';
+                if (saved === 'light') document.documentElement.setAttribute('data-theme', 'light');
+            } catch (error) {}
+        })();
+    </script>
     <!-- CSS Stylesheet -->
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css?v=2.4.6">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/img/brand-mark.png?v=1.0.0">
+
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 
-<body>
-
-    <!-- Splash Screen Overlay -->
-    <div id="splash-screen">
-        <div class="splash-content">
-            <div class="network-loader">
-                <div class="loader-circle"></div>
-                <div class="loader-nodes">
-                    <span class="node n1"></span>
-                    <span class="node n2"></span>
-                    <span class="node n3"></span>
-                    <span class="node n4"></span>
-                </div>
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="lucide lucide-network loader-center-icon">
-                    <rect x="16" y="16" width="6" height="6" rx="1" />
-                    <rect x="2" y="16" width="6" height="6" rx="1" />
-                    <rect x="9" y="2" width="6" height="6" rx="1" />
-                    <path d="M12 8v8" />
-                    <path d="M12 12H5v4" />
-                    <path d="M12 12h7v4" />
-                </svg>
-            </div>
-            <div class="splash-text">
-                <span class="splash-title">HAFIZ.NET</span>
-                <span class="splash-status">Establishing Secure Connection...</span>
-            </div>
-        </div>
-    </div>
+<body class="home-body">
 
     <!-- Canvas for Network Animation -->
     <canvas id="network-canvas"></canvas>
@@ -56,25 +39,30 @@
     <!-- Header Navigation -->
     <header class="navbar">
         <div class="nav-container">
-            <a href="#" class="logo">
-                HAFIZDEV
+            <a href="index.html" class="logo-new">
+                <span class="logo-badge" aria-hidden="true"><span class="logo-symbol"></span></span>
+                <div class="logo-info">
+                    <span class="logo-name">Al Hafiz T. Rohman</span>
+                    <span class="logo-sub">Network Specialist</span>
+                </div>
             </a>
             <nav class="nav-menu" id="nav-menu">
-                <a href="#hero" class="nav-link active">Beranda</a>
-                <a href="#about" class="nav-link">Tentang Saya</a>
-                <a href="#experience" class="nav-link">Pengalaman</a>
-                <a href="#skills" class="nav-link">Keahlian</a>
-                <a href="#certifications" class="nav-link">Sertifikasi</a>
-                <a href="#projects" class="nav-link">Proyek</a>
-                <a href="#blog" class="nav-link">Blog</a>
-                <a href="#contact" class="nav-link btn-connect-mobile">Hubungi Saya</a>
+                <a href="index.html" class="nav-link active">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="experience.html" class="nav-link">Experience</a>
+                <a href="skills.html" class="nav-link">Skills</a>
+                <a href="certifications.html" class="nav-link">Certifications</a>
+                <a href="projects.html" class="nav-link">Projects</a>
+                <a href="articles.html" class="nav-link">Articles</a>
+                <a href="contact.html" class="nav-link btn-connect-mobile">Contact</a>
             </nav>
             <div class="nav-actions">
                 <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle Theme">
-                    <i data-lucide="sun"></i>
+                    <i data-lucide="sun" class="sun-icon"></i>
+                    <i data-lucide="moon" class="moon-icon"></i>
                 </button>
-                <a href="#contact" class="btn-connect">
-                    <span>Hubungi Saya</span>
+                <a href="contact.html" class="btn-connect">
+                    <span>Contact Me</span>
                     <span class="btn-arrow-circle">
                         <i data-lucide="arrow-up-right"></i>
                     </span>
@@ -106,13 +94,17 @@
         <!-- Projects Section Component -->
         <div id="projects-component"></div>
 
-        <!-- Blog / Technical Notes Section Component -->
+        <!-- Articles Section Component -->
         <div id="blog-component"></div>
 
-        <!-- Contact Section Component -->
+        <!-- Ask Hafiz AI Section Component -->
+        <div id="ask-ai-component"></div>
+
+        <!-- Contact Footer Component -->
         <div id="contact-component"></div>
+
     </main>
- 
+
     <!-- Certificate Detail Modal Overlay -->
     <div id="cert-modal" class="cert-modal-overlay">
         <div class="cert-modal-container glass">
@@ -120,28 +112,24 @@
                 <i data-lucide="x"></i>
             </button>
             <div class="cert-modal-body">
-                <!-- Left Side: Image Preview -->
                 <div class="cert-modal-left">
                     <img id="cert-modal-img" src="" alt="Certificate Image Preview">
                 </div>
-                <!-- Right Side: Details Content -->
                 <div class="cert-modal-right">
                     <span id="cert-modal-issuer" class="cert-issuer"></span>
                     <h3 id="cert-modal-title" class="cert-title"></h3>
                     <div class="cert-modal-divider"></div>
                     <p id="cert-modal-desc" class="cert-desc"></p>
-                    
                     <div class="cert-modal-meta-grid">
                         <div>
-                           <span class="meta-label">STATUS VERIFIKASI</span>
-                           <span id="cert-modal-status" class="meta-value">Sertifikasi Aktif</span>
+                            <span class="meta-label">STATUS VERIFIKASI</span>
+                            <span id="cert-modal-status" class="meta-value">Completed</span>
                         </div>
                         <div>
-                           <span class="meta-label">PENERBIT</span>
-                           <span id="cert-modal-issuer-short" class="meta-value">Cisco Academy</span>
+                            <span class="meta-label">PENERBIT</span>
+                            <span id="cert-modal-issuer-short" class="meta-value">Cisco Academy</span>
                         </div>
                     </div>
-                    
                     <a id="cert-modal-link" href="" target="_blank" class="btn-verify">
                         <span>Lihat Dokumen Asli</span>
                         <i data-lucide="external-link"></i>
@@ -150,8 +138,14 @@
             </div>
         </div>
     </div>
- 
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="back-to-top-btn" aria-label="Back to Top">
+        <i data-lucide="arrow-up"></i>
+    </button>
+
     <!-- Orchestrator Script file -->
-    <script type="module" src="assets/js/main.js"></script>
+    <script type="module" src="assets/js/main.js?v=2.0.9"></script>
 </body>
+
 </html>

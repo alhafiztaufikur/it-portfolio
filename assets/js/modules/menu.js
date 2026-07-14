@@ -33,12 +33,31 @@ export function initMobileMenu(toggleId, menuId, linksClass) {
     // Sticky navbar header scroll effect
     const navbar = document.querySelector('.navbar');
     if (navbar) {
+        let ticking = false;
+        let isScrolled = window.scrollY > 50;
+        let scrollClassTimer = null;
+        navbar.classList.toggle('scrolled', isScrolled);
+
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
+            if (!document.body.classList.contains('is-scrolling')) {
+                document.body.classList.add('is-scrolling');
             }
-        });
+            window.clearTimeout(scrollClassTimer);
+            scrollClassTimer = window.setTimeout(() => {
+                document.body.classList.remove('is-scrolling');
+            }, 140);
+
+            if (ticking) return;
+            ticking = true;
+
+            requestAnimationFrame(() => {
+                const nextState = window.scrollY > 50;
+                if (nextState !== isScrolled) {
+                    navbar.classList.toggle('scrolled', nextState);
+                    isScrolled = nextState;
+                }
+                ticking = false;
+            });
+        }, { passive: true });
     }
 }

@@ -1,77 +1,191 @@
 <section class="section projects-section" id="projects">
     <div class="container">
-        <div class="section-header scroll-reveal">
-            <span class="section-tag">05 // PROYEK</span>
-            <h2 class="section-title">Proyek Pilihan</h2>
+        <div class="section-header projects-heading scroll-reveal">
+            <span class="section-tag">05 // PROJECTS</span>
+            <h2 class="section-title">Selected Project Archive</h2>
+            <p class="section-subtitle">Clean, practical systems from my GitHub and design work: web apps, mobile UI, IoT monitoring, portfolio, and UI/UX case studies.</p>
             <div class="title-line"></div>
         </div>
- 
-        <div class="projects-grid">
-            <!-- Project 1 — Active -->
-            <div class="project-card glass scroll-reveal">
-                <div class="project-media">
-                    <div class="project-placeholder-visual" style="background: radial-gradient(circle at center, rgba(0, 242, 254, 0.1) 0%, rgba(15, 23, 42, 0.95) 100%);">
-                        <i data-lucide="shield-check" class="media-icon" style="color: var(--color-accent-1); filter: drop-shadow(0 0 8px var(--color-accent-1));"></i>
-                        <span class="placeholder-tag" style="background: rgba(0, 242, 254, 0.1); border-color: var(--color-accent-1); color: var(--color-accent-1);">Otomatisasi Aktif</span>
-                    </div>
+
+        <div class="projects-archive" aria-label="Project list">
+            <article class="archive-card archive-card--active scroll-reveal">
+                <div class="archive-icon archive-icon--biskita"><img src="assets/images/projects/biskita-logo.jpg" alt="BisKita logo"><span></span></div>
+                <div class="archive-body">
+                    <span class="archive-type">Flutter Mobile App</span>
+                    <h3>BisKita Transit App</h3>
+                    <p>A public transport app concept with route search, route timelines, QR tickets, and e-wallet payment flows.</p>
                 </div>
-                <div class="project-info">
-                    <div class="project-meta">
-                        <span class="project-badge">Python</span>
-                        <span class="project-badge">Netmiko</span>
-                    </div>
-                    <h3 class="project-title">Otomatisasi Backup & Audit Konfigurasi Jaringan</h3>
-                    <p class="project-description">Script Python untuk mengumpulkan file konfigurasi secara otomatis dari 50+ router/switch Cisco, mendeteksi perubahan konfigurasi antara snapshot, dan melakukan push backup ke Git server internal — memastikan setiap perubahan terdokumentasi dan dapat diaudit.</p>
-                    <a href="https://github.com/alhafiztaufikur" target="_blank" class="project-link">
-                        <span>Lihat Kode Proyek</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
-                    </a>
+                <div class="archive-actions">
+                    <button type="button" class="archive-detail-btn" data-project-open="biskita"><i data-lucide="link"></i><span>View Details</span></button>
+                    <a href="https://github.com/alhafiztaufikur/BisKita" target="_blank" rel="noopener noreferrer" class="archive-repo-btn" aria-label="Open BisKita repository"><i data-lucide="github"></i></a>
                 </div>
-            </div>
- 
-            <!-- Project 2 -->
-            <div class="project-card glass scroll-reveal">
-                <div class="project-media">
-                    <div class="project-placeholder-visual">
-                        <i data-lucide="cpu" class="media-icon"></i>
-                        <span class="placeholder-tag">Tahap Pengembangan</span>
-                    </div>
+            </article>
+
+            <article class="archive-card scroll-reveal">
+                <div class="archive-icon archive-icon--pos"><span></span><span></span><span></span></div>
+                <div class="archive-body">
+                    <span class="archive-type">PHP + MySQL</span>
+                    <h3>jusPOS Web Point of Sale</h3>
+                    <p>A juice shop cashier system with cart, member, promo, receipt, recap, admin CRUD, and export flows.</p>
                 </div>
-                <div class="project-info">
-                    <div class="project-meta">
-                        <span class="project-badge">Ansible</span>
-                        <span class="project-badge">Cisco IOS</span>
-                    </div>
-                    <h3 class="project-title">Multi-VLAN & OSPF Provisioning Playbooks</h3>
-                    <p class="project-description">Kumpulan Ansible Playbooks untuk penyediaan switch baru secara mandiri tanpa interaksi manual (Zero-Touch Provisioning) — secara dinamis menetapkan VLAN, mengonfigurasi routing OSPF, dan memverifikasi integritas link pasca penerapan.</p>
-                    <a href="https://github.com/alhafiztaufikur" target="_blank" class="project-link">
-                        <span>Lihat di GitHub</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
-                    </a>
+                <div class="archive-actions">
+                    <button type="button" class="archive-detail-btn" data-project-open="juspos"><i data-lucide="link"></i><span>View Details</span></button>
+                    <a href="https://github.com/alhafiztaufikur/jusPOS" target="_blank" rel="noopener noreferrer" class="archive-repo-btn" aria-label="Open jusPOS repository"><i data-lucide="github"></i></a>
                 </div>
-            </div>
- 
-            <!-- Project 3 -->
-            <div class="project-card glass scroll-reveal">
-                <div class="project-media">
-                    <div class="project-placeholder-visual">
-                        <i data-lucide="activity" class="media-icon"></i>
-                        <span class="placeholder-tag">Tahap Pengembangan</span>
-                    </div>
+            </article>
+
+            <article class="archive-card scroll-reveal">
+                <div class="archive-icon archive-icon--inventory"><span></span><span></span><span></span></div>
+                <div class="archive-body">
+                    <span class="archive-type">Inventory System</span>
+                    <h3>Input Barang Management</h3>
+                    <p>A PHP inventory application for item CRUD, search, stock reports, margin calculation, and print pages.</p>
                 </div>
-                <div class="project-info">
-                    <div class="project-meta">
-                        <span class="project-badge">Python</span>
-                        <span class="project-badge">REST API</span>
-                    </div>
-                    <h3 class="project-title">Monitoring Interface Real-Time & Sistem Peringatan</h3>
-                    <p class="project-description">Menggunakan SNMP polling dan RESTCONF API perangkat untuk memantau utilitas bandwidth link WAN secara real-time. Sistem ini mengirimkan peringatan otomatis ke channel Telegram saat packet loss melebihi ambang batas atau link terputus.</p>
-                    <a href="https://github.com/alhafiztaufikur" target="_blank" class="project-link">
-                        <span>Lihat di GitHub</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
-                    </a>
+                <div class="archive-actions">
+                    <button type="button" class="archive-detail-btn" data-project-open="inventory"><i data-lucide="link"></i><span>View Details</span></button>
+                    <a href="https://github.com/alhafiztaufikur/input-barang" target="_blank" rel="noopener noreferrer" class="archive-repo-btn" aria-label="Open Input Barang repository"><i data-lucide="github"></i></a>
                 </div>
-            </div>
+            </article>
+
+            <article class="archive-card scroll-reveal">
+                <div class="archive-icon archive-icon--iot"><span></span><span></span><span></span></div>
+                <div class="archive-body">
+                    <span class="archive-type">ESP32 + Blynk</span>
+                    <h3>Water Level Monitoring</h3>
+                    <p>An ESP32 prototype that reads water height with HC-SR04 and sends percentage/status data to Blynk.</p>
+                </div>
+                <div class="archive-actions">
+                    <button type="button" class="archive-detail-btn" data-project-open="water"><i data-lucide="link"></i><span>View Details</span></button>
+                    <a href="https://github.com/alhafiztaufikur/Sistem-Monitoring-Ketinggian-Air-Berbasis-ESP32-dan-Water-Level-Sensor" target="_blank" rel="noopener noreferrer" class="archive-repo-btn" aria-label="Open Water Level Monitoring repository"><i data-lucide="github"></i></a>
+                </div>
+            </article>
+
+            <article class="archive-card scroll-reveal">
+                <div class="archive-icon archive-icon--portfolio"><span></span><i></i><i></i></div>
+                <div class="archive-body">
+                    <span class="archive-type">Personal Website</span>
+                    <h3>IT Portfolio Website</h3>
+                    <p>A modular portfolio with page navigation, component loading, dark mode, articles, certificates, and Ask AI.</p>
+                </div>
+                <div class="archive-actions">
+                    <button type="button" class="archive-detail-btn" data-project-open="portfolio"><i data-lucide="link"></i><span>View Details</span></button>
+                    <a href="https://github.com/alhafiztaufikur/it-portfolio" target="_blank" rel="noopener noreferrer" class="archive-repo-btn" aria-label="Open IT Portfolio repository"><i data-lucide="github"></i></a>
+                </div>
+            </article>
+
+            <article class="archive-card scroll-reveal">
+                <div class="archive-icon archive-icon--figma"><span></span><span></span><span></span><span></span><span></span></div>
+                <div class="archive-body">
+                    <span class="archive-type">UI/UX Case Study</span>
+                    <h3>Project IMK - Mobile UI/UX</h3>
+                    <p>A Figma UI/UX case study with mobile interface design, wireframes, interaction flow, and interactive prototype.</p>
+                </div>
+                <div class="archive-actions">
+                    <button type="button" class="archive-detail-btn" data-project-open="imk"><i data-lucide="link"></i><span>View Details</span></button>
+                    <a href="https://www.figma.com/proto/KRoiGrM2XdVtlaaJVIiHPp/Project-IMK?node-id=167-2&t=713Q44otaxrBKk11-1" target="_blank" rel="noopener noreferrer" class="archive-repo-btn" aria-label="Open Project IMK prototype"><i data-lucide="figma"></i></a>
+                </div>
+            </article>
+        </div>
+
+        <div class="projects-more-wrap">
+            <a href="projects.html" class="projects-more-btn"><span>See More Projects</span><i data-lucide="arrow-right"></i></a>
+        </div>
+    </div>
+
+    <div class="project-detail-modal" id="project-detail-modal" aria-hidden="true">
+        <div class="project-detail-backdrop" data-project-close></div>
+        <div class="project-detail-dialog" role="dialog" aria-modal="true" aria-label="Project detail">
+            <button type="button" class="project-detail-close" data-project-close aria-label="Close project detail"><i data-lucide="x"></i></button>
+
+            <article class="project-detail-panel is-active" data-project-panel="biskita">
+                <div class="case-study">
+                    <div class="case-hero">
+                        <div><span class="case-kicker">Mobile App Case Study</span><h3>BisKita Transit App</h3><p>A public transport mobile concept for route search, trip planning, QR tickets, and e-wallet payment flows.</p></div>
+                        <div class="case-visual case-phone"><img src="assets/images/projects/biskita-logo.jpg" alt="BisKita logo"><span>Route ready</span><small>Search - Ticket - Payment</small></div>
+                    </div>
+                    <div class="case-meta-grid"><div class="case-meta-card"><i data-lucide="user"></i><span>Role</span><strong>Flutter Developer</strong></div><div class="case-meta-card"><i data-lucide="calendar"></i><span>Project Type</span><strong>Mobile transport prototype</strong></div><div class="case-meta-card"><i data-lucide="code-2"></i><span>Main Stack</span><strong>Flutter, Dart, UI Flow, Mock Data</strong></div></div>
+                    <section class="case-summary"><h4><i data-lucide="list-checks"></i>Case Study Summary</h4><p>Built a commuter-focused interface that turns route discovery, ticket readiness, and digital payment into a simple end-to-end journey.</p></section>
+                    <section class="case-section"><h4>Background</h4><p>Public transport users need quick route visibility, clear stop information, and a frictionless ticket flow before starting a trip.</p></section>
+                    <section class="case-section"><h4>What Was Built</h4><p>Home search, favorite route, route detail, ticket, wallet, payment method, notification, profile, and help screens with reusable Flutter components.</p></section>
+                    <section class="case-section"><h4>Result</h4><p>A coherent mobile app foundation that helps users move from planning to active ticket in a few taps.</p></section>
+                    <div class="case-actions"><a href="https://github.com/alhafiztaufikur/BisKita" target="_blank" rel="noopener noreferrer">Repository <i data-lucide="github"></i></a></div>
+                </div>
+            </article>
+
+            <article class="project-detail-panel" data-project-panel="juspos">
+                <div class="case-study">
+                    <div class="case-hero">
+                        <div><span class="case-kicker">Web App Case Study</span><h3>jusPOS Web Point of Sale</h3><p>A cashier workflow for juice shop operations with cart, promo, member, receipt, recap, and admin modules.</p></div>
+                        <div class="case-visual case-pos"><b>POS</b><span>Cart + payment</span><span>Receipt recap</span><strong>Rp 48.000</strong></div>
+                    </div>
+                    <div class="case-meta-grid"><div class="case-meta-card"><i data-lucide="user"></i><span>Role</span><strong>Web Developer</strong></div><div class="case-meta-card"><i data-lucide="calendar"></i><span>Project Type</span><strong>Cashier management system</strong></div><div class="case-meta-card"><i data-lucide="code-2"></i><span>Main Stack</span><strong>PHP, MySQL/MariaDB, JSON API</strong></div></div>
+                    <section class="case-summary"><h4><i data-lucide="list-checks"></i>Case Study Summary</h4><p>Designed a POS foundation that separates cashier, leader, and admin workflows while keeping sales data easier to track.</p></section>
+                    <section class="case-section"><h4>Background</h4><p>Small food and beverage operations need faster ordering, cleaner receipt generation, and clear recap data without relying on manual notes.</p></section>
+                    <section class="case-section"><h4>What Was Built</h4><p>Authentication, product/category CRUD, cart calculation, payment flow, member and promotion data, receipt pages, sales recap, and export support.</p></section>
+                    <section class="case-section"><h4>Result</h4><p>A practical cashier system base that reduces manual tracking and keeps admin data organized.</p></section>
+                    <div class="case-actions"><a href="https://github.com/alhafiztaufikur/jusPOS" target="_blank" rel="noopener noreferrer">Repository <i data-lucide="github"></i></a></div>
+                </div>
+            </article>
+
+            <article class="project-detail-panel" data-project-panel="inventory">
+                <div class="case-study">
+                    <div class="case-hero">
+                        <div><span class="case-kicker">Inventory Case Study</span><h3>Input Barang Management</h3><p>A PHP inventory application for item CRUD, search, stock reports, margin calculation, and print-ready pages.</p></div>
+                        <div class="case-visual case-table"><strong>Stock Board</strong><span>Items: 128</span><span>Margin tracked</span><span>Print report ready</span></div>
+                    </div>
+                    <div class="case-meta-grid"><div class="case-meta-card"><i data-lucide="user"></i><span>Role</span><strong>Web Developer</strong></div><div class="case-meta-card"><i data-lucide="calendar"></i><span>Project Type</span><strong>Inventory CRUD system</strong></div><div class="case-meta-card"><i data-lucide="code-2"></i><span>Main Stack</span><strong>PHP, MySQL, Bootstrap, Print View</strong></div></div>
+                    <section class="case-summary"><h4><i data-lucide="list-checks"></i>Case Study Summary</h4><p>Created a structured inventory workflow for item data, supplier/group data, stock visibility, margin calculation, and reporting.</p></section>
+                    <section class="case-section"><h4>Background</h4><p>Inventory data becomes difficult to maintain when item input, stock recap, and margin calculation are scattered across manual files.</p></section>
+                    <section class="case-section"><h4>What Was Built</h4><p>Dashboard, item input and edit pages, item list, search, stock report, supplier/group modules, sales support pages, and printable report views.</p></section>
+                    <section class="case-section"><h4>Result</h4><p>A cleaner inventory workflow that replaces spreadsheet-heavy tracking with structured database screens.</p></section>
+                    <div class="case-actions"><a href="https://github.com/alhafiztaufikur/input-barang" target="_blank" rel="noopener noreferrer">Repository <i data-lucide="github"></i></a></div>
+                </div>
+            </article>
+
+            <article class="project-detail-panel" data-project-panel="water">
+                <div class="case-study">
+                    <div class="case-hero">
+                        <div><span class="case-kicker">IoT Prototype Case Study</span><h3>Water Level Monitoring</h3><p>An ESP32 prototype that reads ultrasonic distance, converts it to water percentage, and sends status data to Blynk.</p></div>
+                        <div class="case-visual case-water"><div><span></span></div><section><small>Water level</small><strong>78%</strong><p>Status: Normal</p></section></div>
+                    </div>
+                    <div class="case-meta-grid"><div class="case-meta-card"><i data-lucide="user"></i><span>Role</span><strong>IoT Developer</strong></div><div class="case-meta-card"><i data-lucide="calendar"></i><span>Project Type</span><strong>ESP32 monitoring prototype</strong></div><div class="case-meta-card"><i data-lucide="code-2"></i><span>Main Stack</span><strong>ESP32, HC-SR04, Blynk, C++</strong></div></div>
+                    <section class="case-summary"><h4><i data-lucide="list-checks"></i>Case Study Summary</h4><p>Built a remote-readable water condition prototype with local LED indicators and cloud telemetry.</p></section>
+                    <section class="case-section"><h4>Background</h4><p>Water level monitoring is easier to react to when local indicators and remote dashboard data are available together.</p></section>
+                    <section class="case-section"><h4>What Was Built</h4><p>Sensor reading loop, distance-to-percentage calculation, normal/high classification, LED states, and Blynk virtual pin publishing.</p></section>
+                    <section class="case-section"><h4>Result</h4><p>A working prototype that publishes percentage, height, and condition status to a mobile-accessible dashboard.</p></section>
+                    <div class="case-actions"><a href="https://github.com/alhafiztaufikur/Sistem-Monitoring-Ketinggian-Air-Berbasis-ESP32-dan-Water-Level-Sensor" target="_blank" rel="noopener noreferrer">Repository <i data-lucide="github"></i></a></div>
+                </div>
+            </article>
+
+            <article class="project-detail-panel" data-project-panel="portfolio">
+                <div class="case-study">
+                    <div class="case-hero">
+                        <div><span class="case-kicker">Personal Website Case Study</span><h3>IT Portfolio Website</h3><p>A modular portfolio with page navigation, component loading, dark mode, articles, certificates, projects, and Ask AI.</p></div>
+                        <div class="case-visual case-browser"><b aria-hidden="true"></b><strong>Portfolio System</strong><span>Home - Pages - Projects - Contact</span></div>
+                    </div>
+                    <div class="case-meta-grid"><div class="case-meta-card"><i data-lucide="user"></i><span>Role</span><strong>Frontend Developer</strong></div><div class="case-meta-card"><i data-lucide="calendar"></i><span>Project Type</span><strong>Personal portfolio website</strong></div><div class="case-meta-card"><i data-lucide="code-2"></i><span>Main Stack</span><strong>HTML, CSS, JavaScript, Components</strong></div></div>
+                    <section class="case-summary"><h4><i data-lucide="list-checks"></i>Case Study Summary</h4><p>Built the portfolio as a modular product surface so sections can appear on the homepage and expand into dedicated pages.</p></section>
+                    <section class="case-section"><h4>Background</h4><p>A portfolio needs to communicate technical direction quickly while still giving recruiters deeper pages for projects, certificates, and background.</p></section>
+                    <section class="case-section"><h4>What Was Built</h4><p>Reusable component loader, subpage navigation, project archive, project details, certificate modal, articles, theme switching, and contact footer.</p></section>
+                    <section class="case-section"><h4>Result</h4><p>A more structured portfolio that feels closer to an interactive product than a static resume page.</p></section>
+                    <div class="case-actions"><a href="https://github.com/alhafiztaufikur/it-portfolio" target="_blank" rel="noopener noreferrer">Repository <i data-lucide="github"></i></a></div>
+                </div>
+            </article>
+
+            <article class="project-detail-panel" data-project-panel="imk">
+                <div class="case-study">
+                    <div class="case-hero">
+                        <div><span class="case-kicker">UI/UX Case Study</span><h3>Project IMK - Mobile UI/UX</h3><p>A Figma design and prototype for a mobile application interface with clear navigation, structured content, and interaction flow.</p></div>
+                        <div class="case-visual case-imk"><div><span></span><span></span><span></span></div><strong>Project IMK</strong><small>Wireframe - UI Kit - Prototype</small></div>
+                    </div>
+                    <div class="case-meta-grid"><div class="case-meta-card"><i data-lucide="user"></i><span>Role</span><strong>UI/UX Designer</strong></div><div class="case-meta-card"><i data-lucide="calendar"></i><span>Period</span><strong>Agustus 2026</strong></div><div class="case-meta-card"><i data-lucide="code-2"></i><span>Main Stack</span><strong>Figma, Wireframing, Prototyping</strong></div></div>
+                    <section class="case-summary"><h4><i data-lucide="list-checks"></i>Case Study Summary</h4><p>Created mobile screens, interface structure, navigation flow, high-fidelity visuals, and an interactive prototype in Figma.</p></section>
+                    <section class="case-section"><h4>Background</h4><p>The project focuses on presenting mobile information architecture and interaction design in a format that is easy to follow and validate.</p></section>
+                    <section class="case-section"><h4>What Was Built</h4><p>Screen structure, navigation flow, visual components, wireframe direction, high-fidelity mobile UI, and clickable prototype flow.</p></section>
+                    <section class="case-section"><h4>Result</h4><p>A presentable Figma case study that can support user-flow validation and future app development.</p></section>
+                    <div class="case-actions"><a href="https://www.figma.com/design/KRoiGrM2XdVtlaaJVIiHPp/Project-IMK?node-id=167-2&m=dev&t=wBwwTArsDMm9DlNw-1" target="_blank" rel="noopener noreferrer">Figma Design <i data-lucide="figma"></i></a><a href="https://www.figma.com/proto/KRoiGrM2XdVtlaaJVIiHPp/Project-IMK?node-id=167-2&t=713Q44otaxrBKk11-1" target="_blank" rel="noopener noreferrer">Prototype <i data-lucide="external-link"></i></a></div>
+                </div>
+            </article>
         </div>
     </div>
 </section>

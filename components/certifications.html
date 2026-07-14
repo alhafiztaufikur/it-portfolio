@@ -1,107 +1,132 @@
 <section class="section certifications-section" id="certifications">
     <div class="container">
-        <div class="section-header scroll-reveal">
-            <span class="section-tag">04 // SERTIFIKASI</span>
-            <h2 class="section-title">Sertifikasi</h2>
-            <div class="title-line"></div>
+        <div class="section-header scroll-reveal" style="text-align:center;">
+            <span class="section-tag">04 // CERTIFICATIONS</span>
+            <h2 class="section-title">Credentials that support the work</h2>
+            <p class="section-subtitle" style="color:var(--text-secondary);font-size:0.95rem;max-width:620px;margin:0.75rem auto 0;line-height:1.65;text-align:center;">A focused credential vault for networking fundamentals, infrastructure support, database design, and Indonesian competency certification.</p>
+            <div class="title-line" style="margin:1.5rem auto 0;"></div>
         </div>
- 
-        <div class="certifications-grid">
-            <!-- Cert 1: CCNA Switching, Routing, and Wireless Essentials -->
-            <a href="assets/docs/cert-ccna-switching.pdf" target="_blank" class="cert-card glass scroll-reveal">
-                <div class="cert-image-container">
-                    <img src="assets/images/cert-ccna-switching.png" alt="CCNA: Switching, Routing, and Wireless Essentials">
-                    <div class="cert-hover-overlay">
-                        <i data-lucide="eye"></i>
+
+        <div class="cert-vault scroll-reveal">
+            <article class="cert-vault-card primary">
+                <span class="cert-vault-label">Cisco Path</span>
+                <h3>CCNA Networking Foundation</h3>
+                <p>Introduction to Networks plus Switching, Routing &amp; Wireless Essentials for practical router, switch, WLAN, subnetting, and troubleshooting knowledge.</p>
+                <div class="cert-vault-meta">
+                    <span>2022 - 2023</span>
+                    <span>2 Credentials</span>
+                </div>
+            </article>
+
+            <article class="cert-vault-card">
+                <span class="cert-vault-label">National Competence</span>
+                <h3>BNSP Professional Validation</h3>
+                <p>Computer &amp; Network Engineering and Intermediate Computer Operator certificates validating applied competency in technical and office environments.</p>
+                <div class="cert-vault-meta">
+                    <span>2022 - 2024</span>
+                    <span>2 Credentials</span>
+                </div>
+            </article>
+
+            <article class="cert-vault-card">
+                <span class="cert-vault-label">Support Skills</span>
+                <h3>IT Essentials &amp; Database Design</h3>
+                <p>PC hardware, operating systems, Linux/Windows troubleshooting, relational database design, ERD structure, and schema thinking.</p>
+                <div class="cert-vault-meta">
+                    <span>Cisco / Oracle</span>
+                    <span>2 Credentials</span>
+                </div>
+            </article>
+        </div>
+
+        <div class="cert-toggle-row scroll-reveal">
+            <button class="btn-view-certs" id="btn-view-certs" data-action="toggle-certs">
+                <i data-lucide="layout-grid"></i>
+                View Certificate Gallery
+                <i data-lucide="chevron-down"></i>
+            </button>
+        </div>
+
+        <div class="certs-gallery-wrapper" id="certs-gallery">
+            <div class="certifications-grid">
+                <a href="assets/docs/cert-ccna-switching.pdf" target="_blank" class="cert-card scroll-reveal">
+                    <div class="cert-image-container">
+                        <img src="assets/images/cert-ccna-switching.png" alt="CCNA: Switching, Routing, and Wireless Essentials">
+                        <div class="cert-hover-overlay"><i data-lucide="eye"></i></div>
                     </div>
-                </div>
-                <div class="cert-content">
-                    <span class="cert-issuer">Cisco Networking Academy</span>
-                    <h3 class="cert-title">CCNA: Switching, Routing, and Wireless Essentials</h3>
-                    <p class="cert-desc">Membuktikan kemampuan mengonfigurasi router, switch, wireless networks (WLAN), serta memecahkan masalah dasar pada jaringan berskala enterprise.</p>
-                    <span class="cert-status badge-active">Selesai</span>
-                </div>
-            </a>
- 
-            <!-- Cert 2: CCNA Introduction to Networks -->
-            <a href="assets/docs/cert-ccna-intro.pdf" target="_blank" class="cert-card glass scroll-reveal">
-                <div class="cert-image-container">
-                    <img src="assets/images/cert-ccna-intro.png" alt="CCNA: Introduction to Networks">
-                    <div class="cert-hover-overlay">
-                        <i data-lucide="eye"></i>
+                    <div class="cert-content">
+                        <span class="cert-issuer">Cisco Networking Academy</span>
+                        <h3 class="cert-title">CCNA: Switching, Routing, and Wireless Essentials</h3>
+                        <p class="cert-desc">Router, switch, WLAN, and enterprise network troubleshooting fundamentals.</p>
+                        <span class="cert-status badge-active">Completed</span>
                     </div>
-                </div>
-                <div class="cert-content">
-                    <span class="cert-issuer">Cisco Networking Academy</span>
-                    <h3 class="cert-title">CCNA: Introduction to Networks</h3>
-                    <p class="cert-desc">Membuktikan pemahaman arsitektur jaringan dasar, protokol komunikasi, pengalamatan IP (IPv4/IPv6), subnetting, serta dasar-dasar perutean.</p>
-                    <span class="cert-status badge-active">Selesai</span>
-                </div>
-            </a>
- 
-            <!-- Cert 3: Oracle Database Design -->
-            <a href="assets/images/cert-oracle-database.png" target="_blank" class="cert-card glass scroll-reveal">
-                <div class="cert-image-container">
-                    <img src="assets/images/cert-oracle-database.png" alt="Oracle Academy: Database Design">
-                    <div class="cert-hover-overlay">
-                        <i data-lucide="eye"></i>
+                </a>
+
+                <a href="assets/docs/cert-ccna-intro.pdf" target="_blank" class="cert-card scroll-reveal">
+                    <div class="cert-image-container">
+                        <img src="assets/images/cert-ccna-intro.png" alt="CCNA: Introduction to Networks">
+                        <div class="cert-hover-overlay"><i data-lucide="eye"></i></div>
                     </div>
-                </div>
-                <div class="cert-content">
-                    <span class="cert-issuer">Oracle Academy</span>
-                    <h3 class="cert-title">Oracle Academy: Database Design</h3>
-                    <p class="cert-desc">Membuktikan kompetensi dalam menganalisis kebutuhan data bisnis, merancang diagram hubungan entitas (ERD), dan menyusun skema database relasional.</p>
-                    <span class="cert-status badge-active">Selesai</span>
-                </div>
-            </a>
- 
-            <!-- Cert 4: IT Essentials -->
-            <a href="assets/docs/cert-it-essentials.pdf" target="_blank" class="cert-card glass scroll-reveal">
-                <div class="cert-image-container">
-                    <img src="assets/images/cert-it-essentials.png" alt="Cisco IT Essentials">
-                    <div class="cert-hover-overlay">
-                        <i data-lucide="eye"></i>
+                    <div class="cert-content">
+                        <span class="cert-issuer">Cisco Networking Academy</span>
+                        <h3 class="cert-title">CCNA: Introduction to Networks</h3>
+                        <p class="cert-desc">Network architecture, protocols, IPv4/IPv6 addressing, subnetting, and routing basics.</p>
+                        <span class="cert-status badge-active">Completed</span>
                     </div>
-                </div>
-                <div class="cert-content">
-                    <span class="cert-issuer">Cisco Networking Academy</span>
-                    <h3 class="cert-title">IT Essentials: PC Hardware & Software</h3>
-                    <p class="cert-desc">Mengonfirmasi keterampilan merakit komputer, melakukan instalasi dan pemecahan masalah OS (Windows, Linux), serta pemahaman dasar keamanan IT.</p>
-                    <span class="cert-status badge-active">Selesai</span>
-                </div>
-            </a>
- 
-            <!-- Cert 5: BNSP – Computer and Network Engineering -->
-            <a href="assets/images/cert-bnsp-network.png" target="_blank" class="cert-card glass scroll-reveal">
-                <div class="cert-image-container">
-                    <img src="assets/images/cert-bnsp-network.png" alt="BNSP Certificate of Competence – Computer and Network Engineering">
-                    <div class="cert-hover-overlay">
-                        <i data-lucide="eye"></i>
+                </a>
+
+                <a href="assets/images/cert-oracle-database.png" target="_blank" class="cert-card scroll-reveal">
+                    <div class="cert-image-container">
+                        <img src="assets/images/cert-oracle-database.png" alt="Oracle Academy: Database Design">
+                        <div class="cert-hover-overlay"><i data-lucide="eye"></i></div>
                     </div>
-                </div>
-                <div class="cert-content">
-                    <span class="cert-issuer">BNSP · LSP SMK Yadika 13 Tambun Bekasi</span>
-                    <h3 class="cert-title">Sertifikat Kompetensi – Teknik Komputer & Jaringan</h3>
-                    <p class="cert-desc">Kualifikasi KKNI Level II — membuktikan kompetensi profesional di bidang Teknik Komputer & Jaringan (TKJ), berlaku selama 3 tahun sejak Oktober 2022.</p>
-                    <span class="cert-status badge-active">BNSP · Okt 2022</span>
-                </div>
-            </a>
- 
-            <!-- Cert 6: BNSP – Office Application / Intermediate Computer Operator -->
-            <a href="assets/images/cert-bnsp-office.png" target="_blank" class="cert-card glass scroll-reveal">
-                <div class="cert-image-container">
-                    <img src="assets/images/cert-bnsp-office.png" alt="BNSP Certificate of Competence – Office Application">
-                    <div class="cert-hover-overlay">
-                        <i data-lucide="eye"></i>
+                    <div class="cert-content">
+                        <span class="cert-issuer">Oracle Academy</span>
+                        <h3 class="cert-title">Oracle Academy: Database Design</h3>
+                        <p class="cert-desc">Business data requirements, ERD modeling, and relational schema design.</p>
+                        <span class="cert-status badge-active">Completed</span>
                     </div>
-                </div>
-                <div class="cert-content">
-                    <span class="cert-issuer">BNSP · LSP BPPTIK</span>
-                    <h3 class="cert-title">Sertifikat Kompetensi – Operator Komputer Madya</h3>
-                    <p class="cert-desc">Sertifikasi kompetensi resmi dalam Aplikasi Perkantoran sebagai Operator Komputer Madya — diterbitkan oleh LSP BPPTIK, berlaku selama 3 tahun sejak Juli 2024.</p>
-                    <span class="cert-status badge-active">BNSP · Jul 2024</span>
-                </div>
-            </a>
+                </a>
+
+                <a href="assets/docs/cert-it-essentials.pdf" target="_blank" class="cert-card scroll-reveal">
+                    <div class="cert-image-container">
+                        <img src="assets/images/cert-it-essentials.png" alt="Cisco IT Essentials">
+                        <div class="cert-hover-overlay"><i data-lucide="eye"></i></div>
+                    </div>
+                    <div class="cert-content">
+                        <span class="cert-issuer">Cisco Networking Academy</span>
+                        <h3 class="cert-title">IT Essentials: PC Hardware &amp; Software</h3>
+                        <p class="cert-desc">Computer assembly, OS installation, troubleshooting, and foundational IT security.</p>
+                        <span class="cert-status badge-active">Completed</span>
+                    </div>
+                </a>
+
+                <a href="assets/images/cert-bnsp-network.png" target="_blank" class="cert-card scroll-reveal">
+                    <div class="cert-image-container">
+                        <img src="assets/images/cert-bnsp-network.png" alt="BNSP Certificate of Competence - Computer and Network Engineering">
+                        <div class="cert-hover-overlay"><i data-lucide="eye"></i></div>
+                    </div>
+                    <div class="cert-content">
+                        <span class="cert-issuer">BNSP · LSP SMK Yadika 13 Tambun Bekasi</span>
+                        <h3 class="cert-title">Certificate of Competence - Computer &amp; Network Engineering</h3>
+                        <p class="cert-desc">KKNI Level II qualification in Computer &amp; Network Engineering.</p>
+                        <span class="cert-status badge-active">BNSP · Oct 2022</span>
+                    </div>
+                </a>
+
+                <a href="assets/images/cert-bnsp-office.png" target="_blank" class="cert-card scroll-reveal">
+                    <div class="cert-image-container">
+                        <img src="assets/images/cert-bnsp-office.png" alt="BNSP Certificate of Competence - Office Application">
+                        <div class="cert-hover-overlay"><i data-lucide="eye"></i></div>
+                    </div>
+                    <div class="cert-content">
+                        <span class="cert-issuer">BNSP · LSP BPPTIK</span>
+                        <h3 class="cert-title">Certificate of Competence - Intermediate Computer Operator</h3>
+                        <p class="cert-desc">Official office application competency certified by LSP BPPTIK.</p>
+                        <span class="cert-status badge-active">BNSP · Jul 2024</span>
+                    </div>
+                </a>
+            </div>
         </div>
     </div>
 </section>

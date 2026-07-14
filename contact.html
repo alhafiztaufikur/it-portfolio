@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Al Hafiz Taufikur Rohman</title>
+    <meta name="description" content="Contact Al Hafiz Taufikur Rohman through email, LinkedIn, GitHub, Instagram, or the local profile assistant.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        (function() {
+            document.documentElement.classList.add('page-loading');
+            try {
+                const saved = localStorage.getItem('portfolio-theme') || 'dark';
+                if (saved === 'light') document.documentElement.setAttribute('data-theme', 'light');
+            } catch (error) {}
+        })();
+    </script>
+    <link rel="stylesheet" href="assets/css/style.css?v=2.4.6">
+    <link rel="icon" type="image/png" href="assets/img/brand-mark.png?v=1.0.0">
+    <script>(function(){const saved=localStorage.getItem('portfolio-theme')||'dark';if(saved==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body class="subpage-body" data-page="contact" data-components="components/ask-ai.html,components/contact.html">
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo-new"><span class="logo-badge" aria-hidden="true"><span class="logo-symbol"></span></span><div class="logo-info"><span class="logo-name">Al Hafiz T. Rohman</span><span class="logo-sub">Network Specialist</span></div></a>
+            <nav class="nav-menu" id="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="experience.html" class="nav-link">Experience</a>
+                <a href="skills.html" class="nav-link">Skills</a>
+                <a href="certifications.html" class="nav-link">Certifications</a>
+                <a href="projects.html" class="nav-link">Projects</a>
+                <a href="articles.html" class="nav-link">Articles</a>
+                <a href="contact.html" class="nav-link btn-connect-mobile">Contact</a>
+            </nav>
+            <div class="nav-actions">
+                <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle Theme"><i data-lucide="sun" class="sun-icon"></i><i data-lucide="moon" class="moon-icon"></i></button>
+                <a href="contact.html" class="btn-connect"><span>Contact Me</span><span class="btn-arrow-circle"><i data-lucide="arrow-up-right"></i></span></a>
+                <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu"><i data-lucide="menu"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <main class="subpage-main">
+        <section class="subpage-hero">
+            <div class="subpage-hero-panel">
+                <span class="subpage-kicker">Contact</span>
+                <h1 class="subpage-title">Ask quickly, then reach out directly.</h1>
+                <p class="subpage-desc">Use the local profile assistant to scan Hafiz's fit, or jump straight to GitHub, LinkedIn, Instagram, and email.</p>
+                <div class="subpage-actions"><a href="index.html" class="subpage-home-btn"><i data-lucide="arrow-left"></i><span>Back to Home</span></a></div>
+            </div>
+        </section>
+        <div class="subpage-content" id="page-component"></div>
+        <div class="subpage-footer-spacer"></div>
+    </main>
+
+    <button id="back-to-top" class="back-to-top-btn" aria-label="Back to Top"><i data-lucide="arrow-up"></i></button>
+    <script type="module" src="assets/js/page.js?v=2.0.6"></script>
+</body>
+
+</html>

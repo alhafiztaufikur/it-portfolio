@@ -1,4 +1,5 @@
 export async function loadComponents() {
+    const componentVersion = '2.3.8';
     const components = [
         { id: 'hero-component', url: 'components/hero.html' },
         { id: 'about-component', url: 'components/about.html' },
@@ -7,6 +8,7 @@ export async function loadComponents() {
         { id: 'certifications-component', url: 'components/certifications.html' },
         { id: 'projects-component', url: 'components/projects.html' },
         { id: 'blog-component', url: 'components/blog.html' },
+        { id: 'ask-ai-component', url: 'components/ask-ai.html' },
         { id: 'contact-component', url: 'components/contact.html' }
     ];
 
@@ -14,7 +16,7 @@ export async function loadComponents() {
         const container = document.getElementById(comp.id);
         if (!container) return;
         try {
-            const response = await fetch(comp.url);
+            const response = await fetch(`${comp.url}?v=${componentVersion}`);
             if (!response.ok) throw new Error(`HTTP error! status: ${response.status} for ${comp.url}`);
             const html = await response.text();
             container.innerHTML = html;

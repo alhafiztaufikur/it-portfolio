@@ -34,8 +34,8 @@
     --canvas-line-hover: 16, 185, 129;
     
     /* Typography */
-    --font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --font-heading: 'Sora', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     
     /* Transitions */
     --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
@@ -46,53 +46,92 @@
 }
 
 /* ==========================================
-   THEME 2: ALTERNATE (Light Mode - "Charcoal Monochrome Grid")
+   THEME 2: ALTERNATE (Light Mode - "Clean Emerald White")
    ========================================== */
 [data-theme="light"] {
-    --bg-primary: #0f1013; /* Charcoal Base */
-    --bg-secondary: #17181c; /* Charcoal Card bg */
-    --bg-glass: rgba(23, 24, 28, 0.75);
-    --border-glass: rgba(255, 255, 255, 0.08);
-    --border-glass-hover: rgba(255, 255, 255, 0.25);
+    --bg-primary: #f1f5f9; /* Premium Soft Slate Gray */
+    --bg-secondary: #ffffff; /* Elevated Card Bg */
+    --bg-glass: rgba(255, 255, 255, 0.85);
+    --border-glass: rgba(16, 185, 129, 0.08);
+    --border-glass-hover: rgba(16, 185, 129, 0.2);
 
-    --text-primary: #ffffff;
-    --text-secondary: #a3a3a3;
-    --text-muted: #525252;
+    --text-primary: #0f172a; /* Slate 900 */
+    --text-secondary: #475569; /* Slate 600 */
+    --text-muted: #64748b; /* Slate 500 */
 
     /* Accent Gradients (monochrome high-contrast) */
-    --color-accent-1: #ffffff; /* White Accent */
-    --color-accent-2: #d4d4d4; 
-    --color-accent-3: #737373;
-    --color-accent-4: #ffffff;
+    --color-accent-1: #059669; /* Emerald 600 */
+    --color-accent-2: #047857; /* Emerald 700 */
+    --color-accent-3: #10b981; /* Emerald 500 */
+    --color-accent-4: #0284c7; /* Sky 600 */
 
-    --gradient-primary: linear-gradient(135deg, #ffffff 0%, #a3a3a3 100%);
-    --gradient-purple: linear-gradient(135deg, #a3a3a3 0%, #525252 100%);
-    --gradient-pink: linear-gradient(135deg, #525252 0%, #ffffff 100%);
+    --gradient-primary: linear-gradient(135deg, var(--color-accent-1) 0%, var(--color-accent-3) 100%);
+    --gradient-purple: linear-gradient(135deg, var(--color-accent-1) 0%, var(--color-accent-4) 100%);
+    --gradient-pink: linear-gradient(135deg, var(--color-accent-4) 0%, var(--color-accent-3) 100%);
 
-    --glow-primary: 0 0 20px rgba(255, 255, 255, 0.25);
-    --glow-secondary: 0 0 20px rgba(200, 200, 200, 0.15);
-    --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    --glow-primary: 0 4px 20px rgba(5, 150, 105, 0.1);
+    --glow-secondary: 0 4px 20px rgba(16, 185, 129, 0.06);
+    --shadow-glass: 0 10px 30px rgba(0, 0, 0, 0.02);
 
     /* Canvas Colors */
-    --canvas-particle: rgba(255, 255, 255, 0.4);
-    --canvas-line: 255, 255, 255;
-    --canvas-line-hover: 255, 255, 255;
+    --canvas-particle: rgba(5, 150, 105, 0.12);
+    --canvas-line: 5, 150, 105;
+    --canvas-line-hover: 16, 185, 129;
 }
+
 
 /* Default navy theme background body */
 body {
-    background: var(--bg-primary);
+    background-color: var(--bg-primary);
+    background:
+        linear-gradient(120deg, rgba(16, 185, 129, 0.075) 0%, transparent 22%, transparent 76%, rgba(2, 132, 199, 0.055) 100%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.035), transparent 20rem),
+        repeating-linear-gradient(118deg, transparent 0 72px, rgba(16, 185, 129, 0.035) 72px 73px, transparent 73px 164px),
+        repeating-linear-gradient(28deg, transparent 0 132px, rgba(2, 132, 199, 0.03) 132px 133px, transparent 133px 240px),
+        var(--bg-primary);
+    background-size: auto;
+    background-attachment: scroll;
 }
 
 /* Charcoal Grid background on body */
 [data-theme="light"] body {
-    background-color: var(--bg-primary);
+    background-color: #f1f5f9;
     background-image: 
-        linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
-    background-size: 50px 50px;
+        linear-gradient(120deg, rgba(5, 150, 105, 0.09) 0%, transparent 22%, transparent 76%, rgba(2, 132, 199, 0.065) 100%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.78), transparent 18rem),
+        repeating-linear-gradient(118deg, transparent 0 72px, rgba(5, 150, 105, 0.105) 72px 74px, transparent 74px 164px),
+        repeating-linear-gradient(28deg, transparent 0 132px, rgba(2, 132, 199, 0.08) 132px 134px, transparent 134px 240px);
+    background-size: auto;
     background-position: center;
+    background-attachment: scroll;
 }
+
+.home-body .experience-section,
+.home-body .skills-section,
+.home-body .certifications-section {
+    background: transparent;
+}
+
+.home-body .experience-section::before,
+.home-body .skills-section::before,
+.home-body .certifications-section::before {
+    background:
+        linear-gradient(180deg, rgba(5, 12, 24, 0.86), rgba(5, 12, 24, 0.78)),
+        repeating-linear-gradient(118deg, transparent 0 90px, rgba(16, 185, 129, 0.035) 90px 91px, transparent 91px 180px);
+    border-top: 1px solid rgba(16, 185, 129, 0.08);
+    border-bottom: 1px solid rgba(16, 185, 129, 0.06);
+}
+
+[data-theme="light"] .home-body .experience-section::before,
+[data-theme="light"] .home-body .skills-section::before,
+[data-theme="light"] .home-body .certifications-section::before {
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(248, 250, 252, 0.74)),
+        repeating-linear-gradient(118deg, transparent 0 90px, rgba(5, 150, 105, 0.09) 90px 92px, transparent 92px 180px);
+    border-top: 1px solid rgba(5, 150, 105, 0.12);
+    border-bottom: 1px solid rgba(5, 150, 105, 0.1);
+}
+
 
 /* Navbar */
 .navbar {
@@ -103,10 +142,12 @@ body {
 }
 
 [data-theme="light"] .navbar {
-    background: rgba(15, 16, 19, 0.65);
+    background: rgba(255, 255, 255, 0.96);
+    border-bottom: 1px solid rgba(16, 185, 129, 0.06);
 }
 [data-theme="light"] .navbar.scrolled {
-    background: rgba(15, 16, 19, 0.85);
+    background: rgba(255, 255, 255, 0.98);
+    border-bottom: 1px solid rgba(16, 185, 129, 0.12);
 }
 
 /* Canvas opacity */
@@ -115,7 +156,7 @@ body {
     transition: opacity var(--transition-normal);
 }
 [data-theme="light"] #network-canvas {
-    opacity: 0.3;
+    opacity: 0.35;
 }
 
 /* Glass card styling overrides */
@@ -142,9 +183,9 @@ body {
 
 /* Connect button charcoal theme style (solid white on hover) */
 [data-theme="light"] .btn-connect:hover {
-    background: #ffffff;
-    color: #0f1013 !important;
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+    background: var(--gradient-primary);
+    color: #ffffff !important;
+    box-shadow: 0 4px 15px rgba(5, 150, 105, 0.2);
 }
 
 /* Skill tags & Project badges */
@@ -157,9 +198,9 @@ body {
 
 [data-theme="light"] .project-badge,
 [data-theme="light"] .skill-tag {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    color: #ffffff;
+    background: rgba(16, 185, 129, 0.04);
+    border: 1px solid rgba(16, 185, 129, 0.12);
+    color: var(--color-accent-1);
 }
 
 /* Footer background overrides */
@@ -168,6 +209,6 @@ body {
     border-color: var(--border-glass);
 }
 [data-theme="light"] .footer {
-    background: #0a0a0c;
-    border-color: var(--border-glass);
+    background: #f8fafc;
+    border-color: rgba(16, 185, 129, 0.08);
 }

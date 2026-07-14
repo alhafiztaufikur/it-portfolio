@@ -7,6 +7,11 @@
 html {
     scroll-behavior: smooth;
     font-size: 16px;
+    background: #050c18;
+}
+
+html[data-theme="light"] {
+    background: #f1f5f9;
 }
 
 body {
@@ -16,6 +21,32 @@ body {
     line-height: 1.6;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 2147483000;
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    background:
+        linear-gradient(120deg, rgba(16, 185, 129, 0.075) 0%, transparent 28%, transparent 72%, rgba(2, 132, 199, 0.055) 100%),
+        var(--bg-primary);
+    transition: opacity 0.18s ease, visibility 0.18s ease;
+}
+
+html.page-loading body::before,
+body.page-exit::before {
+    opacity: 1;
+    visibility: visible;
+}
+
+[data-theme="light"] body::before {
+    background:
+        linear-gradient(120deg, rgba(5, 150, 105, 0.08) 0%, transparent 28%, transparent 72%, rgba(2, 132, 199, 0.06) 100%),
+        #f1f5f9;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -73,6 +104,15 @@ button {
     width: 100vw;
     height: 100vh;
     z-index: -1;
-    pointer-events: all;
-    background-color: var(--bg-primary);
+    pointer-events: none;
+    background: transparent;
+    contain: strict;
+    transform: translateZ(0);
+    will-change: transform;
+}
+
+@media (max-width: 768px), (prefers-reduced-motion: reduce) {
+    #network-canvas {
+        display: none;
+    }
 }

@@ -41,13 +41,49 @@
 /* Scroll Animation classes */
 .scroll-reveal {
     opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    transform: translateY(18px);
+    transition: opacity 0.45s ease-out, transform 0.45s ease-out;
+    will-change: opacity, transform;
 }
 
 .scroll-reveal.revealed {
     opacity: 1;
     transform: translateY(0);
+    will-change: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .scroll-reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+        will-change: auto;
+    }
+}
+
+body.is-scrolling .hero-animated-graphic,
+body.is-scrolling .tech-card,
+body.is-scrolling .svg-gear-cw,
+body.is-scrolling .svg-gear-ccw,
+body.is-scrolling .svg-monitor-group,
+body.is-scrolling .svg-phone-group,
+body.is-scrolling .svg-badge-code,
+body.is-scrolling .svg-badge-gears,
+body.is-scrolling .svg-cloud-group,
+body.is-scrolling .svg-cloud-arrow,
+body.is-scrolling .svg-power-led,
+body.is-scrolling .svg-code-lines line,
+body.is-scrolling .marquee-track,
+body.is-scrolling .about-avatar-ring,
+body.is-scrolling .about-avatar-ring-inner,
+body.is-scrolling .scanner-line,
+body.is-scrolling .status-dot,
+body.is-scrolling .footer-status-dot {
+    animation-play-state: paused !important;
 }
 
 /* Responsiveness Media Queries */
@@ -68,7 +104,7 @@
     }
 
     .navbar {
-        padding: 1rem 0;
+        padding: 0.75rem 0;
     }
 
     .logo {
@@ -79,27 +115,6 @@
         display: block;
         font-size: 1.5rem;
         z-index: 1001;
-    }
-
-    .nav-menu {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 80%;
-        max-width: 300px;
-        height: 100vh;
-        background: #080b11;
-        border-left: 1px solid var(--border-glass);
-        flex-direction: column;
-        justify-content: center;
-        gap: 2rem;
-        transition: right var(--transition-normal);
-        z-index: 999;
-        padding: 2rem;
-    }
-
-    .nav-menu.active {
-        right: 0;
     }
 
     .btn-connect {
@@ -230,4 +245,3 @@
     pointer-events: none;
     animation: scanSweep 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
 }
-

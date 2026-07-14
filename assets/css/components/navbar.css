@@ -7,17 +7,17 @@
     left: 0;
     width: 100%;
     z-index: 1000;
-    background: rgba(5, 12, 24, 0.75);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    background: rgba(5, 12, 24, 0.94);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
     border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-    transition: padding var(--transition-normal), background var(--transition-normal);
-    padding: 1.1rem 0;
+    transition: background var(--transition-normal), border-color var(--transition-normal);
+    padding: 0.75rem 0;
 }
 
 .navbar.scrolled {
-    padding: 0.65rem 0;
-    background: rgba(5, 12, 24, 0.9);
+    padding: 0.75rem 0;
+    background: rgba(5, 12, 24, 0.98);
     border-bottom-color: rgba(255, 255, 255, 0.06);
 }
 
@@ -28,6 +28,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    min-height: 40px;
 }
 
 /* 1. Left Logo Pill */
@@ -57,10 +58,11 @@
 .nav-menu {
     display: flex;
     align-items: center;
-    gap: 1rem;
-    border: 1px solid rgba(255, 255, 255, 0.07);
+    height: 38px;
+    gap: 0.35rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 50px;
-    padding: 0.35rem 1.15rem;
+    padding: 0 0.85rem;
     background: rgba(255, 255, 255, 0.01);
     transition: all var(--transition-normal);
 }
@@ -72,12 +74,15 @@
 .nav-link {
     font-size: 0.72rem;
     font-weight: 700;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.05em;
     text-transform: uppercase;
     color: var(--text-secondary);
     transition: all var(--transition-fast);
-    padding: 0.35rem 0.65rem;
+    padding: 0.3rem 0.6rem;
     border-radius: 50px;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
 }
 
 .nav-link:hover {
@@ -94,18 +99,20 @@
 .nav-actions {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
+    gap: 0.85rem;
 }
 
 /* Premium Let's Talk Button (Solid White with Arrow Circle) */
 .btn-connect {
     display: inline-flex;
     align-items: center;
-    gap: 0.65rem;
-    padding: 0.4rem 0.45rem 0.4rem 1.25rem;
-    border-radius: 50px;
+    justify-content: center;
+    height: 34px;
+    gap: 0.55rem;
+    padding: 0 0.35rem 0 0.95rem;
+    border-radius: 6px;
     background: #ffffff;
-    border: 1px solid #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.94);
     font-family: var(--font-heading);
     font-size: 0.75rem;
     font-weight: 800;
@@ -125,17 +132,17 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 26px;
-    height: 26px;
-    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    border-radius: 6px;
     background: var(--color-accent-1); /* Accent color circle */
     color: #050c18 !important;
     transition: all var(--transition-normal);
 }
 
 .btn-arrow-circle i {
-    width: 13px;
-    height: 13px;
+    width: 14px;
+    height: 14px;
     stroke-width: 3.5;
 }
 
@@ -147,7 +154,7 @@
 }
 
 .btn-connect:hover .btn-arrow-circle {
-    transform: rotate(45deg);
+    transform: translate(1px, -1px);
     background: var(--color-accent-2);
     color: #ffffff !important;
 }
@@ -155,67 +162,248 @@
 /* ==========================================
    Theme Toggle Button (Fits the design)
    ========================================== */
-.theme-toggle-btn {
-    display: flex;
+/* Logo styles */
+.logo-new {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    text-decoration: none !important;
+    transition: transform var(--transition-fast);
+    min-height: 40px;
+}
+
+.logo-new:hover {
+    transform: translateY(-1px);
+}
+
+.logo-badge {
+    display: inline-flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+    isolation: isolate;
+    overflow: visible;
     width: 34px;
     height: 34px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.07);
-    color: var(--text-secondary);
-    cursor: pointer;
-    transition: all var(--transition-normal);
+    border-radius: 0;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
     flex-shrink: 0;
 }
 
+.logo-badge::before,
+.logo-badge::after {
+    display: none;
+}
+
+.logo-badge::before {
+    content: none;
+}
+
+.logo-badge::after {
+    content: none;
+}
+
+.logo-symbol {
+    position: relative;
+    z-index: 1;
+    width: 32px;
+    height: 32px;
+    background: url('../../img/brand-mark.png?v=1.0.0') center / contain no-repeat;
+    filter: none;
+}
+
+.navbar.scrolled .logo-badge {
+    width: 34px;
+    height: 34px;
+}
+
+.navbar.scrolled .logo-symbol {
+    width: 32px;
+    height: 32px;
+}
+
+[data-theme="light"] .logo-badge {
+    background: transparent;
+    border-color: transparent;
+    box-shadow: none;
+}
+
+.logo-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.15rem;
+    line-height: 1.1;
+}
+
+.logo-name {
+    font-family: var(--font-heading);
+    font-size: 0.88rem;
+    font-weight: 800;
+    color: #ffffff; /* White in dark mode */
+    letter-spacing: -0.01em;
+    transition: color var(--transition-normal);
+}
+
+[data-theme="light"] .logo-name {
+    color: #0f172a; /* Slate-900 in light mode */
+}
+
+.logo-sub {
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: #94a3b8; /* Muted text */
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+[data-theme="light"] .logo-sub {
+    color: #64748b;
+}
+
+/* Light Mode Nav Links active & hover states override */
+[data-theme="light"] .nav-link {
+    color: #475569;
+}
+
+[data-theme="light"] .nav-link:hover {
+    color: var(--color-accent-1) !important;
+    background: rgba(16, 185, 129, 0.05) !important;
+}
+
+[data-theme="light"] .nav-link.active {
+    color: var(--color-accent-1) !important;
+    background: rgba(16, 185, 129, 0.08) !important;
+}
+
+/* Compact Theme Switch */
+.theme-toggle-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 102px;
+    height: 34px;
+    padding: 0 8px;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid rgba(15, 23, 42, 0.12);
+    color: #111827;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.14);
+    transition: border-color var(--transition-normal), box-shadow var(--transition-normal), transform var(--transition-normal);
+}
+
+.theme-toggle-btn::before {
+    content: '';
+    position: absolute;
+    right: 6px;
+    top: 6px;
+    width: 34px;
+    height: 22px;
+    border-radius: 6px;
+    background: #e5e7eb;
+    transition: background var(--transition-normal);
+}
+
+.theme-toggle-btn::after {
+    content: 'Theme';
+    position: relative;
+    z-index: 2;
+    color: #111827;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0;
+}
+
 .theme-toggle-btn:hover {
-    background: rgba(255, 255, 255, 0.05);
-    border-color: rgba(255, 255, 255, 0.15);
-    color: #ffffff;
+    border-color: var(--color-accent-1);
+    box-shadow: 0 4px 14px rgba(16, 185, 129, 0.2);
+    transform: translateY(-1px);
 }
 
+[data-theme="light"] .theme-toggle-btn {
+    background: #ffffff;
+    border-color: rgba(15, 23, 42, 0.14);
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.12);
+}
+
+[data-theme="light"] .theme-toggle-btn::before {
+    background: #e5e7eb;
+}
+
+[data-theme="light"] .theme-toggle-btn:hover {
+    border-color: var(--color-accent-1);
+    box-shadow: 0 0 12px rgba(5, 150, 105, 0.15);
+}
+
+/* Sun & Moon Icon Transitions (targets both original i and replaced svg) */
+.theme-toggle-btn svg,
 .theme-toggle-btn i {
-    width: 15px;
-    height: 15px;
+    width: 14px;
+    height: 14px;
+    position: absolute;
+    top: 10px;
+    z-index: 2;
+    border-radius: 4px;
+    transition: opacity var(--transition-normal), transform var(--transition-normal), background var(--transition-normal);
 }
 
-/* ==========================================
-   Light Theme Overrides (Charcoal Grid)
-   ========================================== */
-[data-theme="light"] .navbar {
-    background: rgba(15, 16, 19, 0.75);
-    border-bottom-color: rgba(255, 255, 255, 0.04);
+.theme-toggle-btn .sun-icon {
+    right: 24px;
+    opacity: 0;
+    color: transparent;
+    background: #0891b2;
+    transform: translateX(16px);
 }
 
-[data-theme="light"] .navbar.scrolled {
-    background: rgba(15, 16, 19, 0.9);
+.theme-toggle-btn .moon-icon {
+    right: 10px;
+    opacity: 1;
+    color: transparent;
+    background: #0891b2;
+    transform: translateX(0);
 }
 
-[data-theme="light"] .logo {
-    border-color: rgba(255, 255, 255, 0.08);
+[data-theme="light"] .theme-toggle-btn .sun-icon {
+    opacity: 1;
+    color: transparent;
+    background: #0891b2;
+    transform: translateX(0);
+}
+
+[data-theme="light"] .theme-toggle-btn .moon-icon {
+    opacity: 0;
+    color: transparent;
+    background: #0891b2;
+    transform: translateX(-16px);
+}
+
+[data-theme="light"] .btn-connect {
+    background: var(--text-primary);
+    border-color: var(--text-primary);
+    color: var(--bg-primary) !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .btn-connect:hover {
+    background: var(--gradient-primary);
+    border-color: var(--color-accent-1);
     color: #ffffff !important;
-}
-[data-theme="light"] .logo:hover {
-    border-color: #ffffff;
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.25);
-    background: rgba(255, 255, 255, 0.05);
-}
-
-[data-theme="light"] .nav-menu {
-    border-color: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 6px 20px rgba(5, 150, 105, 0.2);
 }
 
 [data-theme="light"] .btn-arrow-circle {
-    background: #ffffff;
-    color: #0c1017 !important;
-    border: 1px solid rgba(0, 0, 0, 0.15);
+    background: var(--color-accent-1);
+    color: #ffffff !important;
 }
 
 [data-theme="light"] .btn-connect:hover .btn-arrow-circle {
-    background: #000000;
-    color: #ffffff !important;
+    background: #ffffff;
+    color: var(--color-accent-1) !important;
 }
 
 /* ==========================================
@@ -225,12 +413,25 @@
     display: none;
     background: none;
     border: none;
-    color: #ffffff;
+    color: var(--text-primary);
     cursor: pointer;
     padding: 0.5rem;
 }
 
+/* For dark mode default, toggle is white */
+html:not([data-theme="light"]) .menu-toggle {
+    color: #ffffff;
+}
+
 @media (max-width: 992px) {
+    .nav-actions {
+        gap: 0.55rem;
+    }
+
+    .theme-toggle-btn {
+        width: 92px;
+    }
+
     .menu-toggle {
         display: block;
     }
@@ -243,7 +444,7 @@
         margin: 0 1.5rem;
         height: auto;
         background: rgba(10, 20, 38, 0.98);
-        border: 1px solid rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(16, 185, 129, 0.15);
         flex-direction: column;
         border-radius: 24px;
         padding: 2rem 1.5rem;
@@ -255,7 +456,8 @@
     }
 
     [data-theme="light"] .nav-menu {
-        background: rgba(23, 24, 28, 0.98);
+        background: rgba(255, 255, 255, 0.98);
+        border-color: rgba(16, 185, 129, 0.15);
     }
     
     .nav-menu.active {
@@ -270,24 +472,19 @@
     }
     
     .btn-connect {
-        display: none; /* Hide on mobile desktop area, menu items handles connection */
+        display: none;
     }
     
     .btn-connect-mobile {
         display: block !important;
         margin-top: 1.5rem;
-        background: #ffffff;
-        color: #0c1017 !important;
-        font-weight: 850;
-        border-radius: 50px;
+        background: var(--gradient-primary);
+        color: #ffffff !important;
+        font-weight: 800;
+        border-radius: 8px;
         text-align: center;
         padding: 0.75rem 1.5rem;
-        border: 1px solid #ffffff;
-        box-shadow: 0 4px 12px rgba(255, 255, 255, 0.15);
-    }
-    
-    [data-theme="light"] .btn-connect-mobile {
-        background: #ffffff;
-        color: #0c1017 !important;
+        border: 1px solid var(--color-accent-1);
+        box-shadow: 0 4px 12px rgba(5, 150, 105, 0.2);
     }
 }

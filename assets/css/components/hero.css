@@ -2,7 +2,7 @@
     min-height: 100vh;
     display: flex;
     align-items: center;
-    padding: 8rem 0 4rem;
+    padding: 8rem 0 2rem;
     max-width: var(--container-width);
     margin: 0 auto;
     position: relative;
@@ -83,38 +83,105 @@
     letter-spacing: 0.02em;
 }
 
+.hero-role-badge {
+    display: inline-flex;
+    align-items: center;
+    font-family: var(--font-body);
+    font-size: 0.76rem;
+    font-weight: 700;
+    color: #0d9488; /* Teal-600 */
+    background: #f0fdfa; /* Teal-50 */
+    border: 1px solid #ccfbf1; /* Teal-100 */
+    padding: 0.4rem 1rem;
+    border-radius: 6px;
+    letter-spacing: 0.02em;
+    box-shadow: 0 2px 6px rgba(13, 148, 136, 0.05);
+}
+
+html:not([data-theme="light"]) .hero-role-badge {
+    color: #2dd4bf; /* Teal-400 */
+    background: rgba(13, 148, 136, 0.12);
+    border-color: rgba(13, 148, 136, 0.25);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
 .hero-title {
-    font-size: clamp(2.5rem, 5vw, 4.5rem);
-    line-height: 1.1;
-    letter-spacing: -0.02em;
+    font-size: clamp(2.1rem, 4.8vw, 3.65rem);
+    font-weight: 850;
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+    color: #0f172a; /* Slate-900 */
     margin-bottom: 1.5rem;
 }
 
-.hero-subtitle {
-    font-size: clamp(1.25rem, 2.5vw, 1.85rem);
-    font-weight: 500;
-    color: var(--text-secondary);
-    margin-bottom: 1.5rem;
-    min-height: 2.2rem;
-}
-
-.cursor {
-    color: var(--color-accent-1);
-    font-weight: 300;
+html:not([data-theme="light"]) .hero-title {
+    color: #ffffff;
 }
 
 .hero-description {
-    font-size: clamp(1rem, 1.5vw, 1.15rem);
-    color: var(--text-secondary);
-    margin-bottom: 2.5rem;
+    font-size: clamp(0.95rem, 1.4vw, 1.08rem);
+    color: #475569; /* Slate-600 */
+    margin-bottom: 2.25rem;
     line-height: 1.7;
-    max-width: 650px;
+    max-width: 680px;
+}
+
+html:not([data-theme="light"]) .hero-description {
+    color: #94a3b8; /* Slate-400 */
 }
 
 .hero-buttons {
     display: flex;
     gap: 1.25rem;
     flex-wrap: wrap;
+}
+
+.hero-socials {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.social-icon-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    color: #475569;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+    transition: all var(--transition-normal);
+    cursor: pointer;
+    text-decoration: none !important;
+}
+
+.social-icon-btn:hover {
+    transform: translateY(-2px);
+    color: var(--color-accent-1);
+    border-color: var(--color-accent-1);
+    box-shadow: var(--glow-primary);
+}
+
+.social-icon-btn i, .social-icon-btn svg {
+    width: 17px;
+    height: 17px;
+}
+
+/* Dark theme support for social icon buttons */
+html:not([data-theme="light"]) .social-icon-btn {
+    background: rgba(255, 255, 255, 0.03);
+    border-color: rgba(255, 255, 255, 0.07);
+    color: #94a3b8;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+html:not([data-theme="light"]) .social-icon-btn:hover {
+    color: var(--color-accent-1);
+    border-color: var(--color-accent-1);
 }
 
 /* ==========================================================================
@@ -298,7 +365,9 @@
 }
 
 [data-theme="light"] .hero-marquee-ticker {
-    background: rgba(15, 16, 19, 0.45);
+    background: rgba(241, 245, 249, 0.65);
+    border-top-color: rgba(16, 185, 129, 0.08);
+    border-bottom-color: rgba(16, 185, 129, 0.08);
 }
 
 .marquee-track {
@@ -327,13 +396,13 @@
 
 .ticker-item.bold {
     font-weight: 800;
-    font-family: 'Outfit', 'Inter', sans-serif;
+    font-family: var(--font-heading);
 }
 
 .ticker-item.italic {
-    font-weight: 400;
-    font-family: 'Playfair Display', Georgia, serif;
-    font-style: italic;
+    font-weight: 600;
+    font-family: var(--font-body);
+    font-style: normal;
     text-transform: capitalize; /* Mixed visual dynamic */
 }
 
@@ -344,8 +413,8 @@
 }
 
 [data-theme="light"] .ticker-bullet {
-    color: #ffffff;
-    filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.5));
+    color: var(--color-accent-1);
+    filter: drop-shadow(0 0 4px rgba(5, 150, 105, 0.3));
 }
 
 /* Hover effects */
@@ -363,5 +432,223 @@
     }
     100% {
         transform: translate3d(-50%, 0, 0);
+    }
+}
+
+/* ==========================================================================
+   Tech Card Rotator (Hero Right)
+   ========================================================================== */
+.skills-card-container {
+    width: 100%;
+    max-width: 520px;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 10;
+}
+
+.tech-card {
+    width: 360px;
+    height: 360px;
+    border-radius: 32px;
+    background: #ffffff;
+    box-shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
+    border: 1px solid rgba(16, 185, 129, 0.08);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2.25rem;
+    transition: all var(--transition-normal);
+    animation: floatHero 6s ease-in-out infinite;
+}
+
+html:not([data-theme="light"]) .tech-card {
+    background: #ffffff;
+    border: 1px solid rgba(16, 185, 129, 0.15);
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.55), 0 0 45px rgba(16, 185, 129, 0.12);
+}
+
+.tech-card-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.tech-logo-box {
+    width: 170px;
+    height: 170px;
+    background: #ffffff;
+    border-radius: 22px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(16, 185, 129, 0.06);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.75rem;
+    transition: all 0.3s ease;
+}
+
+html:not([data-theme="light"]) .tech-logo-box {
+    background: #ffffff;
+    border-color: rgba(16, 185, 129, 0.12);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+.tech-logo-wrapper {
+    width: 104px;
+    height: 104px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tech-logo-wrapper.fade-out {
+    opacity: 0;
+    transform: scale(0.85) translateY(8px);
+}
+
+.tech-logo-wrapper svg {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.tech-name {
+    font-family: var(--font-heading);
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--color-accent-1);
+    margin: 0;
+    letter-spacing: 0.03em;
+    transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tech-name.fade-out {
+    opacity: 0;
+    transform: translateY(8px);
+}
+
+@media (max-width: 1100px) {
+    .skills-card-container {
+        max-width: 420px;
+        height: 420px;
+    }
+
+    .tech-card {
+        width: 320px;
+        height: 320px;
+    }
+
+    .tech-logo-box {
+        width: 150px;
+        height: 150px;
+    }
+
+    .tech-logo-wrapper {
+        width: 92px;
+        height: 92px;
+    }
+}
+
+/* ==========================================================================
+   COMPETENCY STRIP  (3 separate cards with gap below hero)
+   ========================================================================== */
+/* Full-width bg blocker — covers body grid lines completely */
+.competency-strip-bg {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    z-index: 1;
+}
+
+/* Light mode: solid white kills the body grid */
+[data-theme="light"] .competency-strip-bg {
+    background: #ffffff;
+}
+
+.competency-strip {
+    width: 100%;
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 1.5rem 1.5rem 3.5rem;
+}
+
+
+.competency-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+    /* No shared border or background — each card is standalone */
+}
+
+.competency-card {
+    padding: 2rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    border-radius: 14px;
+    /* Solid clean background — no grid bleed-through */
+    background: #ffffff;
+    border: 1px solid rgba(15, 23, 42, 0.07);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
+    transition: box-shadow var(--transition-normal),
+                transform var(--transition-normal);
+}
+
+.competency-card:hover {
+    box-shadow: 0 6px 24px rgba(16, 185, 129, 0.08);
+    transform: translateY(-2px);
+}
+
+/* Dark mode card */
+html:not([data-theme="light"]) .competency-card {
+    background: rgba(10, 20, 38, 0.7);
+    border-color: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+html:not([data-theme="light"]) .competency-card:hover {
+    box-shadow: 0 8px 32px rgba(16, 185, 129, 0.1);
+}
+
+.competency-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 9px;
+    background: rgba(16, 185, 129, 0.08);
+    border: 1px solid rgba(16, 185, 129, 0.18);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #10b981;
+    flex-shrink: 0;
+}
+
+.competency-text {
+    font-size: 0.875rem;
+    line-height: 1.8;
+    color: #64748b;
+    font-weight: 400;
+}
+
+html:not([data-theme="light"]) .competency-text {
+    color: #64748b;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .competency-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
     }
 }

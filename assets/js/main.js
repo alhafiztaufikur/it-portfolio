@@ -1,19 +1,18 @@
-const loadStartTime = Date.now();
- 
-import { loadComponents } from './modules/loader.js';
-import { hideSplashScreen } from './modules/splash.js';
-import { initNetworkCanvas } from './modules/canvas.js';
+import { loadComponents } from './modules/loader.js?v=2.3.8';
+import { initNetworkCanvas } from './modules/canvas.js?v=2.0.3';
 import { initTypingEffect } from './modules/typing.js';
 import { initScrollReveal } from './modules/scroll.js';
-import { initMobileMenu } from './modules/menu.js';
-import { initContactForm } from './modules/contact.js';
-import { initScrollSpy } from './modules/scrollspy.js';
+import { initMobileMenu } from './modules/menu.js?v=2.0.2';
 import { initTheme } from './modules/theme.js';
-import { initVisitorCounter } from './modules/counter.js';
 import { initCertificationsModal } from './modules/certifications.js';
+import { initTechRotator } from './modules/tech-rotator.js';
+import { initAskAI } from './modules/ask-ai.js?v=2.0.2';
+import { initBackToTop } from './modules/scroll-top.js?v=2.0.1';
+import { initProjectDetails } from './modules/projects.js';
+import { initPageTransitions } from './modules/page-transition.js';
  
 document.addEventListener('DOMContentLoaded', async () => {
-    // 1. Asynchronously load and inject HTML components (hero, about, experience, skills, certs, projects, contact)
+    // 1. Asynchronously load and inject homepage components
     await loadComponents();
  
     // 2. Initialize Lucide Icons after the HTML templates have been injected into the DOM
@@ -21,10 +20,28 @@ document.addEventListener('DOMContentLoaded', async () => {
         lucide.createIcons();
     }
  
-    // 3. Initialize Network Particle Canvas background
+    // 3. Initialize Mobile slide-out drawer menu
+    initMobileMenu('menu-toggle', 'nav-menu', '.nav-link');
+ 
+    // 4. Initialize Dark/Light Theme Toggle
+    initTheme();
+ 
+    // 5. Initialize Back to Top Button
+    initBackToTop();
+
+    // 5.5. Initialize homepage interactive modules
+    initCertificationsModal();
+    initAskAI();
+    initProjectDetails();
+    initPageTransitions();
+ 
+    // 6. Initialize ambient network animation
     initNetworkCanvas('network-canvas');
  
-    // 4. Initialize Hero dynamic typing text
+    // 7. Initialize Hero Tech Card Rotator
+    initTechRotator();
+
+    // 8. Initialize Hero dynamic typing text (if typing-text exists on page)
     const typingWords = [
         "Python Scripting",
         "Ansible Playbooks",
@@ -34,27 +51,42 @@ document.addEventListener('DOMContentLoaded', async () => {
     ];
     initTypingEffect('typing-text', typingWords);
  
-    // 5. Initialize Scroll reveal observation for loaded components
+    // 9. Initialize Scroll reveal observation for loaded components
     initScrollReveal('.scroll-reveal');
- 
-    // 6. Initialize Mobile slide-out drawer menu
-    initMobileMenu('menu-toggle', 'nav-menu', '.nav-link');
- 
-    // 7. Initialize Contact Form simulator and validations
-    initContactForm('portfolio-contact-form', 'form-status');
- 
-    // 8. Initialize ScrollSpy active link highlights and landing sweep transitions
-    initScrollSpy();
- 
-    // 9. Initialize Dark/Light Theme Toggle
-    initTheme();
- 
-    // 10. Initialize Visitor Counter in footer
-    initVisitorCounter();
- 
-    // 11. Initialize Certificate Details Modal
-    initCertificationsModal();
- 
-    // 12. Hide the splash screen loader overlay (forces minimum animation timeline of 1500ms)
-    hideSplashScreen(loadStartTime, 1500);
+
+    // 10. Animate skill progress bars when in viewport
+    const barObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const fill = entry.target;
+                const w = fill.style.getPropertyValue('--bar-w') || '1';
+                fill.style.transform = `scaleX(${w})`;
+                fill.classList.add('animated');
+                barObserver.unobserve(fill);
+            }
+        });
+    }, { threshold: 0.3 });
+
+    document.querySelectorAll('.skill-bar-fill').forEach(el => barObserver.observe(el));
+
+    // 11. Certificates gallery toggle
+    const btnViewCerts = document.getElementById('btn-view-certs');
+    if (btnViewCerts) {
+        btnViewCerts.addEventListener('click', () => {
+            const gallery = document.getElementById('certs-gallery');
+            if (!gallery) return;
+            const isOpen = gallery.classList.toggle('open');
+            btnViewCerts.classList.toggle('open', isOpen);
+            // Swap button text
+            const textNodes = [...btnViewCerts.childNodes].filter(n => n.nodeType === 3);
+            if (textNodes.length) {
+                textNodes[0].textContent = isOpen ? ' Hide Certificate Gallery ' : ' View Certificate Gallery ';
+            }
+            if (isOpen) {
+                // Re-run lucide icons in newly visible content
+                if (typeof lucide !== 'undefined') lucide.createIcons();
+                setTimeout(() => gallery.scrollIntoView({ behavior: 'smooth', block: 'start' }), 150);
+            }
+        });
+    }
 });

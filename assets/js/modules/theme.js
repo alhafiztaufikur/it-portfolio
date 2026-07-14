@@ -26,20 +26,8 @@ export function initTheme() {
     function applyTheme(theme) {
         if (theme === 'light') {
             html.setAttribute('data-theme', 'light');
-            updateIcon('moon');
         } else {
             html.removeAttribute('data-theme');
-            updateIcon('sun');
         }
-    }
-
-    function updateIcon(name) {
-        const btn = document.getElementById('theme-toggle');
-        if (!btn) return;
-        btn.innerHTML = '';
-        const i = document.createElement('i');
-        i.setAttribute('data-lucide', name);
-        btn.appendChild(i);
-        if (typeof lucide !== 'undefined') lucide.createIcons();
     }
 }

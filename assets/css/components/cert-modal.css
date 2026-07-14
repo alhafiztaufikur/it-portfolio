@@ -42,8 +42,18 @@
 }
 
 [data-theme="light"] .cert-modal-container {
-    background: rgba(23, 24, 28, 0.95);
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
+    background: #ffffff;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.12);
+    border: 1px solid rgba(16, 185, 129, 0.12);
+}
+
+[data-theme="light"] .cert-modal-close {
+    background: rgba(16, 185, 129, 0.05);
+    border-color: rgba(16, 185, 129, 0.15);
+    color: var(--text-primary);
+}
+[data-theme="light"] .cert-modal-close:hover {
+    background: rgba(16, 185, 129, 0.12);
 }
 
 /* Close Button */
@@ -92,7 +102,7 @@
 }
 
 [data-theme="light"] .cert-modal-left {
-    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.08) 0%, rgba(23, 24, 28, 0.98) 100%);
+    background: radial-gradient(circle at center, rgba(16, 185, 129, 0.08) 0%, #f8fafc 100%);
 }
 
 #cert-modal-img {

@@ -1,323 +1,289 @@
 /* ==========================================================================
-   ABOUT ME SECTION WITH FUTURISTIC PORTAL
+   ABOUT ME - Profile command center
    ========================================================================== */
-.about-grid {
+
+.about-section {
+    position: relative;
+    z-index: 1;
+}
+
+.about-showcase {
     display: grid;
-    grid-template-columns: 0.9fr 1.1fr;
-    gap: 4rem;
+    grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.75fr);
+    gap: clamp(2rem, 6vw, 5rem);
     align-items: center;
 }
 
-.about-profile-col {
+.about-copy {
+    max-width: 720px;
+}
+
+.about-headline {
+    font-size: clamp(2.15rem, 5vw, 4.15rem);
+    line-height: 1.04;
+    font-weight: 850;
+    letter-spacing: -0.02em;
+    margin: 0.6rem 0 1.35rem;
+}
+
+.about-lead,
+.about-body {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    line-height: 1.85;
+    max-width: 660px;
+}
+
+.about-body {
+    margin-top: 1rem;
+}
+
+.about-action-row {
     display: flex;
-    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-top: 2rem;
+}
+
+.about-action {
+    display: inline-flex;
     align-items: center;
-    position: relative;
-}
-
-/* Tech Portal Container */
-.tech-profile-portal {
-    position: relative;
-    width: 300px;
-    height: 400px;
-    display: flex;
     justify-content: center;
-    align-items: center;
+    gap: 0.55rem;
+    min-height: 42px;
+    padding: 0 1.15rem;
+    border-radius: 10px;
+    border: 1px solid rgba(16, 185, 129, 0.22);
+    color: var(--text-primary);
+    background: rgba(255, 255, 255, 0.035);
+    font-size: 0.85rem;
+    font-weight: 800;
+    transition: transform var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast);
 }
 
-/* Concentric Marching SVG Frames */
-.portal-svg-rings {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
+.about-action.primary {
+    background: var(--gradient-primary);
+    color: #03110d !important;
+    border-color: transparent;
 }
 
-.ring-outer {
-    animation: marchOuter 8s linear infinite;
-}
-
-.ring-middle {
-    animation: marchMiddle 6s linear infinite reverse;
-}
-
-.ring-inner {
-    animation: marchInner 4s linear infinite;
-}
-
-@keyframes marchOuter {
-    to {
-        stroke-dashoffset: -320;
-    }
-}
-
-@keyframes marchMiddle {
-    to {
-        stroke-dashoffset: -240;
-    }
-}
-
-@keyframes marchInner {
-    to {
-        stroke-dashoffset: -160;
-    }
-}
-
-/* Profile Photo Rounded Square Container */
-.portal-img-container {
-    width: 220px;
-    height: 320px;
-    border-radius: 18px;
-    position: relative;
-    overflow: hidden;
-    border: 2px solid rgba(16, 185, 129, 0.15);
-    box-shadow: 0 0 30px rgba(16, 185, 129, 0.1);
-    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s, box-shadow 0.3s;
-}
-
-.tech-profile-portal:hover .portal-img-container {
-    transform: scale(1.04);
+.about-action:hover {
+    transform: translateY(-2px);
     border-color: var(--color-accent-1);
-    box-shadow: 0 0 40px rgba(16, 185, 129, 0.3);
+    background: rgba(16, 185, 129, 0.08);
 }
 
-.portal-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
-
-.tech-profile-portal:hover .portal-img {
-    transform: scale(1.05);
-}
-
-/* Green Neon Scanning Bar */
-.portal-scan-line {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background: linear-gradient(to right, transparent, var(--color-accent-1), transparent);
-    box-shadow: 0 0 10px var(--color-accent-1);
-    opacity: 0.8;
-    animation: scanVertical 3.5s ease-in-out infinite;
-    pointer-events: none;
-}
-
-@keyframes scanVertical {
-    0%, 100% {
-        top: 0%;
-    }
-    50% {
-        top: 100%;
-    }
-}
-
-/* Digital Grid Matrix Overlay */
-.portal-grid-overlay {
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(circle, transparent 50%, rgba(5, 12, 24, 0.4) 100%),
-                linear-gradient(rgba(16, 185, 129, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(16, 185, 129, 0.03) 1px, transparent 1px);
-    background-size: 100% 100%, 15px 15px, 15px 15px;
-    pointer-events: none;
-    opacity: 0.6;
-}
-
-/* Corner Decor Angles */
-.portal-corner {
-    position: absolute;
+.about-action svg {
     width: 16px;
     height: 16px;
-    border: 2px solid rgba(16, 185, 129, 0.3);
-    pointer-events: none;
-    transition: border-color 0.3s;
 }
 
-.tech-profile-portal:hover .portal-corner {
-    border-color: var(--color-accent-1);
-}
-
-.top-left {
-    top: 15px;
-    left: 15px;
-    border-right: none;
-    border-bottom: none;
-}
-
-.top-right {
-    top: 15px;
-    right: 15px;
-    border-left: none;
-    border-bottom: none;
-}
-
-.bottom-left {
-    bottom: 15px;
-    left: 15px;
-    border-right: none;
-    border-top: none;
-}
-
-.bottom-right {
-    bottom: 15px;
-    right: 15px;
-    border-left: none;
-    border-top: none;
-}
-
-/* Right Column: Bio Content */
-.about-content-col {
+.about-visual {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
 }
 
-.about-sub-title {
-    font-size: 1.75rem;
-    font-weight: 800;
-    margin-bottom: 1.5rem;
-    color: var(--text-primary);
+.about-photo-shell {
+    width: min(100%, 360px);
+    position: relative;
+    padding: 0.75rem;
+    border-radius: 28px;
+    background:
+        linear-gradient(145deg, rgba(16, 185, 129, 0.24), rgba(2, 132, 199, 0.12)),
+        rgba(10, 20, 38, 0.72);
+    border: 1px solid rgba(16, 185, 129, 0.22);
+    box-shadow: 0 28px 80px rgba(0, 0, 0, 0.32), 0 0 36px rgba(16, 185, 129, 0.12);
 }
 
-.about-desc-text {
-    color: var(--text-secondary);
-    line-height: 1.8;
-    font-size: 0.98rem;
-    margin-bottom: 1.5rem;
+.about-photo-shell::before {
+    content: '';
+    position: absolute;
+    inset: 1.4rem -1rem auto auto;
+    width: 86px;
+    height: 86px;
+    border-radius: 18px;
+    border: 1px solid rgba(16, 185, 129, 0.24);
+    background-image:
+        linear-gradient(rgba(16, 185, 129, 0.16) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(16, 185, 129, 0.16) 1px, transparent 1px);
+    background-size: 14px 14px;
+    opacity: 0.8;
+    transform: rotate(8deg);
+    z-index: -1;
 }
 
-.about-desc-text strong {
+.about-portrait {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    object-position: center top;
+    border-radius: 22px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.about-signal-card {
+    position: absolute;
+    left: 50%;
+    bottom: -1.05rem;
+    transform: translateX(-50%);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    min-width: max-content;
+    padding: 0.55rem 1rem;
+    border-radius: 999px;
     color: var(--color-accent-1);
+    background: rgba(5, 12, 24, 0.92);
+    border: 1px solid rgba(16, 185, 129, 0.28);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.24);
+    font-size: 0.78rem;
+    font-weight: 800;
 }
 
-/* Stats Row */
-.about-stats-container {
+.about-signal-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--color-accent-1);
+    box-shadow: 0 0 12px var(--color-accent-1);
+}
+
+.about-dashboard {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr)) minmax(280px, 1.25fr);
     gap: 1rem;
-    margin-top: 1rem;
-    margin-bottom: 2.5rem;
+    margin-top: 3.5rem;
 }
 
-.about-stat-box {
-    padding: 1.25rem 1rem;
-    border-radius: 12px;
-    text-align: center;
+.about-metric,
+.about-note,
+.about-focus-panel {
+    border-radius: 16px;
+    border: 1px solid rgba(16, 185, 129, 0.16);
+    background: rgba(10, 20, 38, 0.7);
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.18);
+}
+
+.about-metric {
+    min-height: 132px;
+    padding: 1.4rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
-.about-stat-box:hover {
-    transform: translateY(-4px);
-    border-color: var(--color-accent-1);
-}
-
-.about-stat-val {
-    font-size: 1.65rem;
-    font-weight: 800;
-    color: var(--text-primary);
-    margin-bottom: 0.25rem;
-}
-
-.about-stat-lbl {
-    font-size: 0.7rem;
-    font-weight: 700;
-    color: var(--text-secondary);
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-}
-
-/* Quote Box Row */
-.about-quote-row {
-    width: 100%;
-}
-
-.about-quote-card {
-    padding: 2.25rem;
-    border-radius: 16px;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    border-left: 3px solid var(--color-accent-1) !important;
-}
-
-.quote-icon {
-    position: absolute;
-    top: 0.75rem;
-    left: 1.5rem;
-    font-size: 3.5rem;
-    font-family: serif;
-    color: var(--color-accent-1);
-    opacity: 0.12;
+.about-metric-value {
+    font-family: var(--font-heading);
+    font-size: 2.4rem;
     line-height: 1;
-}
-
-.quote-text {
-    font-size: 1rem;
-    line-height: 1.65;
-    font-style: italic;
+    font-weight: 850;
     color: var(--text-primary);
-    margin-bottom: 1.25rem;
-    position: relative;
-    z-index: 2;
 }
 
-.quote-author {
-    font-size: 0.8rem;
-    font-weight: 700;
+.about-metric-label,
+.about-note-label {
+    margin-top: 0.55rem;
     color: var(--color-accent-1);
+    font-size: 0.72rem;
+    font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.08em;
 }
 
-/* Light theme overrides for rotating rings */
-[data-theme="light"] .tech-profile-portal .ring-outer {
-    stroke: var(--color-accent-1);
+.about-note {
+    padding: 1.35rem 1.5rem;
 }
 
-[data-theme="light"] .tech-profile-portal .ring-middle {
-    stroke: var(--color-accent-2);
+.about-note p {
+    color: var(--text-secondary);
+    line-height: 1.65;
+    margin-top: 0.45rem;
+    font-size: 0.9rem;
 }
 
-[data-theme="light"] .tech-profile-portal .ring-inner {
-    stroke: var(--color-accent-2);
+.about-focus-panel {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 1.5rem;
+    align-items: start;
+    margin-top: 1rem;
+    padding: 1.5rem;
 }
 
-[data-theme="light"] .portal-scan-line {
-    background: linear-gradient(to right, transparent, var(--color-accent-2), transparent);
-    box-shadow: 0 0 10px var(--color-accent-2);
+.about-focus-title span {
+    display: block;
+    color: var(--text-primary);
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 850;
 }
 
-[data-theme="light"] .portal-grid-overlay {
-    background: radial-gradient(circle, transparent 50%, rgba(15, 16, 19, 0.4) 100%),
-                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+.about-focus-title p {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    line-height: 1.6;
+    margin-top: 0.35rem;
 }
 
-/* Responsive details */
-@media (max-width: 992px) {
-    .about-grid {
+.about-focus-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+}
+
+.focus-chip {
+    display: inline-flex;
+    align-items: center;
+    min-height: 32px;
+    padding: 0 0.8rem;
+    border-radius: 999px;
+    background: rgba(16, 185, 129, 0.07);
+    border: 1px solid rgba(16, 185, 129, 0.16);
+    color: var(--color-accent-1);
+    font-size: 0.76rem;
+    font-weight: 750;
+}
+
+[data-theme="light"] .about-action {
+    background: rgba(255, 255, 255, 0.84);
+    color: #0f172a;
+}
+
+[data-theme="light"] .about-photo-shell,
+[data-theme="light"] .about-metric,
+[data-theme="light"] .about-note,
+[data-theme="light"] .about-focus-panel {
+    background: rgba(255, 255, 255, 0.86);
+    border-color: rgba(15, 23, 42, 0.08);
+    box-shadow: 0 20px 50px rgba(15, 23, 42, 0.07);
+}
+
+[data-theme="light"] .about-signal-card {
+    background: #ffffff;
+}
+
+@media (max-width: 980px) {
+    .about-showcase,
+    .about-focus-panel {
         grid-template-columns: 1fr;
-        gap: 3.5rem;
     }
-    
-    .about-profile-col {
-        margin-bottom: 1.5rem;
+
+    .about-dashboard {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .about-note {
+        grid-column: 1 / -1;
     }
 }
 
-@media (max-width: 576px) {
-    .about-stats-container {
+@media (max-width: 640px) {
+    .about-dashboard {
         grid-template-columns: 1fr;
-        gap: 0.75rem;
+    }
+
+    .about-action {
+        width: 100%;
     }
 }
