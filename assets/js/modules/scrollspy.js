@@ -2,6 +2,17 @@ export function initScrollSpy() {
     const navLinks = document.querySelectorAll('.nav-menu a');
     const sections = document.querySelectorAll('main > div > section, header, main > section');
     const scrollDownBtn = document.querySelector('.scroll-indicator');
+    let ticking = false;
+    let sectionPositions = [];
+
+    function cacheSectionPositions() {
+        sectionPositions = Array.from(sections)
+            .map(section => ({
+                id: section.getAttribute('id'),
+                top: section.offsetTop
+            }))
+            .filter(section => section.id);
+    }
 
     // 1. Cyber scan line sweep trigger on click
     function triggerSectionFlash(targetId) {
@@ -52,15 +63,13 @@ export function initScrollSpy() {
     }
 
     // 4. Update active nav menu link on viewport scroll
-    window.addEventListener('scroll', () => {
+    function updateActiveLink() {
         let currentSectionId = '';
+        const scrollPosition = window.scrollY;
 
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.offsetHeight;
-            // Detect if section is in viewport focus
-            if (window.scrollY >= sectionTop - 120) {
-                currentSectionId = section.getAttribute('id');
+        sectionPositions.forEach(section => {
+            if (scrollPosition >= section.top - 120) {
+                currentSectionId = section.id;
             }
         });
 
@@ -71,8 +80,23 @@ export function initScrollSpy() {
                 link.classList.add('active');
             }
         });
+    }
+
+    window.addEventListener('scroll', () => {
+        if (ticking) return;
+        ticking = true;
+
+        requestAnimationFrame(() => {
+            updateActiveLink();
+            ticking = false;
+        });
+    }, { passive: true });
+
+    window.addEventListener('resize', () => {
+        cacheSectionPositions();
+        updateActiveLink();
     });
 
-    // Trigger scroll check on load to highlight the active section
-    window.dispatchEvent(new Event('scroll'));
+    cacheSectionPositions();
+    updateActiveLink();
 }

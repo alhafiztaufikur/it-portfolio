@@ -2,6 +2,7 @@
 <html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-store">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VLAN Segmentation & OSPF Routing: A Full Lab Walkthrough | Al Hafiz</title>
     <meta name="description" content="From an empty GNS3 canvas to a fully-segmented, inter-VLAN routed network. Covers 802.1Q trunking, OSPF Area 0, and real CLI outputs at every step.">
@@ -16,34 +17,65 @@
             --code-bg: #0d1117; --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
             --font-head: 'Outfit', sans-serif; --font-body: 'Plus Jakarta Sans', sans-serif;
         }
-        body { background: var(--bg); color: var(--text); font-family: var(--font-body); line-height: 1.75; min-height: 100vh; }
-        .topbar { position: sticky; top: 0; background: rgba(7,9,14,0.88); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 1rem 2rem; display: flex; align-items: center; gap: 1.5rem; z-index: 100; }
-        .back-link { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.85rem; font-weight: 600; color: var(--accent); text-decoration: none; }
-        .back-link:hover { opacity: 0.75; }
-        .topbar-title { font-size: 0.9rem; color: var(--text-muted); font-family: var(--font-head); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-        .article-wrap { max-width: 760px; margin: 0 auto; padding: 3rem 2rem 6rem; }
-        .article-hero { margin-bottom: 2.5rem; }
+        body {
+            background:
+                radial-gradient(circle at 18% 0%, rgba(79, 172, 254, 0.14), transparent 34rem),
+                radial-gradient(circle at 88% 12%, rgba(52, 211, 153, 0.1), transparent 30rem),
+                linear-gradient(135deg, #07090e 0%, #080d16 52%, #05070c 100%);
+            color: var(--text);
+            font-family: var(--font-body);
+            line-height: 1.75;
+            min-height: 100vh;
+            animation: articleIn 0.42s ease both;
+        }
+        body.article-leaving { opacity: 0; transform: translateX(-10px) scale(0.995); transition: opacity 0.3s ease, transform 0.3s ease; }
+        @keyframes articleIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            background-image:
+                linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+            background-size: 72px 72px;
+            mask-image: linear-gradient(to bottom, rgba(0,0,0,0.7), transparent 72%);
+        }
+        .topbar { position: sticky; top: 1rem; width: min(980px, calc(100% - 2rem)); margin: 1rem auto 0; background: rgba(7,9,14,0.74); backdrop-filter: blur(16px); border: 1px solid var(--border); border-radius: 999px; padding: 0.45rem; display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: 0.55rem; z-index: 100; box-shadow: 0 18px 50px rgba(0,0,0,0.22); }
+        .back-link { display: inline-flex; align-items: center; gap: 0.4rem; min-height: 38px; padding: 0 0.85rem; border: 1px solid rgba(79,172,254,0.18); border-radius: 999px; background: rgba(79,172,254,0.1); font-size: 0.85rem; font-weight: 800; color: var(--accent-2); text-decoration: none; transition: transform 0.2s ease, background 0.2s ease; }
+        .back-link:hover { transform: translateX(-2px); background: rgba(79,172,254,0.16); }
+        .topbar-title { font-size: 0.9rem; color: var(--text-muted); font-family: var(--font-head); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; padding: 0 0.8rem; }
+        .article-wrap { max-width: 980px; margin: 0 auto; padding: 3.5rem 2rem 6rem; position: relative; z-index: 1; }
+        .article-hero { margin-bottom: 2.5rem; padding: clamp(1.6rem, 4vw, 3rem); border: 1px solid rgba(79,172,254,0.18); border-radius: 22px; background: linear-gradient(135deg, rgba(79,172,254,0.13), transparent 46%), linear-gradient(180deg, rgba(255,255,255,0.035), transparent), rgba(12,15,23,0.84); box-shadow: 0 28px 90px rgba(0,0,0,0.32); overflow: hidden; position: relative; }
+        .article-hero::after { content: "Practical Lab"; position: absolute; right: clamp(1.3rem, 4vw, 3rem); top: clamp(1.2rem, 3vw, 2rem); color: rgba(79,172,254,0.82); font: 800 0.72rem var(--font-head); letter-spacing: 0.12em; text-transform: uppercase; pointer-events: none; }
         .tag-row { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.25rem; }
         .tag { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; padding: 0.25rem 0.65rem; border-radius: 20px; border: 1px solid currentColor; }
         .tag-cisco { color: #f97316; background: rgba(249,115,22,0.08); }
         .tag-ospf  { color: #a78bfa; background: rgba(167,139,250,0.08); }
         .tag-vlan  { color: #34d399; background: rgba(52,211,153,0.08); }
-        .article-title { font-family: var(--font-head); font-size: clamp(1.75rem,5vw,2.5rem); font-weight: 800; line-height: 1.2; background: linear-gradient(135deg, #fff 0%, #4facfe 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 1rem; }
-        .article-meta { display: flex; align-items: center; gap: 1.5rem; font-size: 0.85rem; color: var(--text-muted); padding-bottom: 1.5rem; border-bottom: 1px solid var(--border); }
+        .article-title { font-family: var(--font-head); font-size: clamp(2rem,5.6vw,3.35rem); font-weight: 800; line-height: 1.06; color: var(--text); margin-bottom: 1rem; max-width: 820px; position: relative; z-index: 1; }
+        .article-title span { color: var(--accent-2); }
+        .article-meta { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; font-size: 0.85rem; color: var(--text-muted); padding-top: 1.2rem; border-top: 1px solid var(--border); position: relative; z-index: 1; }
         .meta-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--text-muted); }
+        .article-brief { max-width: 820px; margin: -0.85rem auto 2.8rem; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+        .brief-card { min-height: 118px; padding: 1rem; border: 1px solid rgba(79,172,254,0.16); border-radius: 18px; background: linear-gradient(145deg, rgba(79,172,254,0.09), transparent), rgba(12,15,23,0.76); box-shadow: 0 18px 44px rgba(0,0,0,0.18); }
+        .brief-card span { display: block; margin-bottom: 0.42rem; color: var(--accent-2); font-size: 0.68rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
+        .brief-card strong { color: var(--text); font-family: var(--font-head); font-size: 1rem; line-height: 1.35; }
+        .article-content { max-width: 820px; margin-inline: auto; }
         .article-content h2 { font-family: var(--font-head); font-size: 1.4rem; font-weight: 700; color: var(--text); margin: 2.5rem 0 1rem; padding-left: 1rem; border-left: 3px solid var(--accent-2); }
         .article-content h3 { font-family: var(--font-head); font-size: 1.1rem; font-weight: 600; color: var(--accent-2); margin: 1.75rem 0 0.75rem; }
         .article-content p { color: var(--text-muted); margin-bottom: 1rem; }
         .article-content strong { color: var(--text); }
+        .article-content code:not(.code-body code) { padding: 0.12rem 0.35rem; border-radius: 6px; background: rgba(255,255,255,0.06); color: #dbeafe; font-family: var(--font-mono); font-size: 0.88em; }
         .article-content ul, .article-content ol { color: var(--text-muted); padding-left: 1.5rem; margin-bottom: 1rem; }
         .article-content li { margin-bottom: 0.4rem; }
-        .code-block { background: var(--code-bg); border: 1px solid var(--border); border-radius: 10px; margin: 1.25rem 0; overflow: hidden; }
+        .code-block { background: var(--code-bg); border: 1px solid var(--border); border-radius: 10px; margin: 1.25rem 0; overflow: hidden; box-shadow: 0 18px 50px rgba(0,0,0,0.22); }
         .code-header { display: flex; align-items: center; justify-content: space-between; padding: 0.6rem 1rem; background: rgba(255,255,255,0.02); border-bottom: 1px solid var(--border); }
         .code-lang { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; color: var(--accent-2); letter-spacing: 0.08em; }
         .code-body { padding: 1.25rem 1.5rem; font-family: var(--font-mono); font-size: 0.83rem; line-height: 1.7; color: #cdd6f4; overflow-x: auto; white-space: pre; }
         .kw { color: #cba6f7; } .fn { color: #89b4fa; } .st { color: #a6e3a1; }
         .cm { color: #585b70; font-style: italic; } .nm { color: #fab387; }
-        .info-box { background: rgba(79,172,254,0.05); border: 1px solid rgba(79,172,254,0.2); border-radius: 10px; padding: 1.25rem 1.5rem; margin: 1.5rem 0; font-size: 0.9rem; color: var(--text-muted); }
+        .info-box { background: rgba(79,172,254,0.05); border: 1px solid rgba(79,172,254,0.2); border-radius: 10px; padding: 1.25rem 1.5rem; margin: 1.5rem 0; font-size: 0.9rem; color: var(--text-muted); box-shadow: inset 3px 0 0 rgba(79,172,254,0.55); }
         .info-box strong { color: var(--accent-2); }
         .topology-img { width: 100%; border-radius: 12px; border: 1px solid var(--border); margin: 1.5rem 0; display: block; }
         .vlan-table { width: 100%; border-collapse: collapse; margin: 1.25rem 0; font-size: 0.88rem; }
@@ -51,14 +83,15 @@
         .vlan-table td { padding: 0.6rem 1rem; border-bottom: 1px solid rgba(255,255,255,0.03); color: var(--text-muted); }
         .vlan-table td:first-child { color: var(--text); font-weight: 600; }
         hr { border: none; border-top: 1px solid var(--border); margin: 2.5rem 0; }
-        .article-footer-nav { margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; }
-        .footer-nav-link { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; font-weight: 600; color: var(--accent-2); text-decoration: none; }
-        .footer-nav-link:hover { opacity: 0.75; }
+        .article-footer-nav { margin-top: 4rem; padding: 1rem; border: 1px solid var(--border); border-radius: 22px; background: linear-gradient(135deg, rgba(79,172,254,0.08), transparent), rgba(12,15,23,0.72); display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; }
+        .footer-nav-link { display: inline-flex; align-items: center; justify-content: space-between; gap: 0.5rem; min-height: 54px; flex: 1 1 240px; padding: 0.8rem 1rem; border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; background: rgba(255,255,255,0.035); font-size: 0.85rem; font-weight: 800; color: var(--accent-2); text-decoration: none; }
+        .footer-nav-link:hover { border-color: rgba(79,172,254,0.3); transform: translateY(-1px); }
+        @media (max-width: 720px) { .article-brief { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
     <div class="topbar">
-        <a href="../index.html#blog" class="back-link">← Back to Portfolio</a>
+        <a href="../articles.html" class="back-link">&larr; Back to Articles</a>
         <span class="topbar-title">VLAN Segmentation & OSPF Routing: A Full Lab Walkthrough</span>
     </div>
 
@@ -69,7 +102,7 @@
                 <span class="tag tag-ospf">OSPF</span>
                 <span class="tag tag-vlan">VLANs</span>
             </div>
-            <h1 class="article-title">VLAN Segmentation & OSPF Routing: A Full Lab Walkthrough</h1>
+            <h1 class="article-title">VLAN Segmentation, <span>OSPF Routing Lab</span></h1>
             <div class="article-meta">
                 <span>Al Hafiz Taufikur Rohman</span>
                 <span class="meta-dot"></span>
@@ -78,6 +111,12 @@
                 <span>12 min read</span>
             </div>
         </header>
+
+        <section class="article-brief" aria-label="Article quick summary">
+            <div class="brief-card"><span>Goal</span><strong>Segment campus traffic with VLANs and inter-VLAN routing.</strong></div>
+            <div class="brief-card"><span>Stack</span><strong>Cisco IOS, 802.1Q trunking, router-on-a-stick, OSPF.</strong></div>
+            <div class="brief-card"><span>Outcome</span><strong>A lab flow that is easier to validate from CLI output.</strong></div>
+        </section>
 
         <div class="article-content">
             <h2>Lab Topology Overview</h2>
@@ -203,9 +242,21 @@ Neighbor ID    Pri   State    Dead Time   Address         Interface
         </div>
 
         <nav class="article-footer-nav">
-            <a href="cisco-backup-python.html" class="footer-nav-link">← Previous: Cisco Backup with Python</a>
-            <a href="../index.html#blog" class="footer-nav-link">Back to Blog →</a>
+            <a href="cisco-backup-python.html?v=2.0.0" class="footer-nav-link">&larr; Previous: Cisco Backup</a>
+            <a href="network-automation-starter.html?v=1.0.0" class="footer-nav-link">Next: Network Automation &rarr;</a>
         </nav>
     </article>
+    <script>
+        document.querySelectorAll('a[href]').forEach(link => {
+            link.addEventListener('click', event => {
+                if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || link.target) return;
+                const url = new URL(link.href, window.location.href);
+                if (url.origin !== window.location.origin) return;
+                event.preventDefault();
+                document.body.classList.add('article-leaving');
+                window.setTimeout(() => { window.location.href = link.href; }, 260);
+            });
+        });
+    </script>
 </body>
 </html>

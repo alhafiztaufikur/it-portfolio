@@ -1,11 +1,11 @@
 import { initTheme } from './modules/theme.js';
-import { initMobileMenu } from './modules/menu.js?v=2.0.2';
+import { initMobileMenu } from './modules/menu.js?v=2.0.3';
 import { initScrollReveal } from './modules/scroll.js';
 import { initBackToTop } from './modules/scroll-top.js?v=2.0.1';
 import { initCertificationsModal } from './modules/certifications.js';
 import { initAskAI } from './modules/ask-ai.js?v=2.0.2';
-import { initProjectDetails } from './modules/projects.js';
-import { initPageTransitions } from './modules/page-transition.js';
+import { initProjectDetails } from './modules/projects.js?v=2.0.1';
+import { initPageTransitions } from './modules/page-transition.js?v=2.0.3';
 
 document.addEventListener('DOMContentLoaded', async () => {
     initTheme();
@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 
 async function loadPageComponents() {
-    const componentVersion = '2.3.8';
+    const componentVersion = '2.5.1';
     const target = document.getElementById('page-component');
     const urls = (document.body.dataset.components || document.body.dataset.component || '')
         .split(',')

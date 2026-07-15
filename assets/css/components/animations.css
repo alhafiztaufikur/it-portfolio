@@ -86,6 +86,15 @@ body.is-scrolling .footer-status-dot {
     animation-play-state: paused !important;
 }
 
+body.is-scrolling * {
+    animation-play-state: paused !important;
+}
+
+body.is-scrolling .scroll-reveal,
+body.is-scrolling .revealed {
+    will-change: auto;
+}
+
 /* Responsiveness Media Queries */
 @media (max-width: 1024px) {
     .about-grid {

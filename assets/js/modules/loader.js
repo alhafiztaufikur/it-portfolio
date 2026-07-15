@@ -1,5 +1,5 @@
 export async function loadComponents() {
-    const componentVersion = '2.3.8';
+    const componentVersion = '2.5.1';
     const components = [
         { id: 'hero-component', url: 'components/hero.html' },
         { id: 'about-component', url: 'components/about.html' },

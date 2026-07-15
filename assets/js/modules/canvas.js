@@ -33,7 +33,7 @@ export function initNetworkCanvas(canvasId) {
     }
 
     function resizeCanvas() {
-        const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+        const dpr = Math.min(window.devicePixelRatio || 1, 1.25);
         viewportWidth = window.innerWidth;
         viewportHeight = window.innerHeight;
         canvas.width = Math.floor(viewportWidth * dpr);
@@ -43,9 +43,9 @@ export function initNetworkCanvas(canvasId) {
         ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
         
         if (window.innerWidth < 768) {
-            particleCount = 6;
+            particleCount = 4;
         } else {
-            particleCount = 16;
+            particleCount = 10;
         }
         refreshThemeColors();
         initParticles();
@@ -173,7 +173,7 @@ export function initNetworkCanvas(canvasId) {
     window.addEventListener('touchend', () => {
         mouse.x = null;
         mouse.y = null;
-    });
+    }, { passive: true });
 
     window.addEventListener('scroll', () => {
         isScrolling = true;

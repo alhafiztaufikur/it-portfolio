@@ -1,6 +1,6 @@
 @import './components/variables.css?v=2.0.5';
-@import './components/base.css?v=2.0.4';
-@import './components/common.css?v=2.0.2';
+@import './components/base.css?v=2.0.7';
+@import './components/common.css?v=2.0.4';
 @import './components/subpage.css?v=2.0.3';
 @import './components/navbar.css?v=2.1.4';
 @import './components/hero.css?v=2.0.2';
@@ -11,10 +11,10 @@
 @import './components/skills.css?v=2.0.1';
 @import './components/certifications.css?v=2.0.1';
 @import './components/cert-modal.css?v=2.0.1';
-@import './components/projects.css?v=2.1.8';
-@import './components/blog.css?v=2.0.1';
+@import './components/projects.css?v=2.3.1';
+@import './components/blog.css?v=2.0.8';
 @import './components/contact.css?v=2.0.6';
 @import './components/ask-ai.css?v=2.0.8';
 @import './components/footer.css?v=2.0.1';
-@import './components/animations.css?v=2.0.5';
+@import './components/animations.css?v=2.0.6';
 @import './components/cursor.css?v=2.0.2';

@@ -169,6 +169,13 @@
     transform: translateY(0);
 }
 
+body.project-modal-open .back-to-top-btn {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(10px);
+}
+
 .back-to-top-btn:hover {
     background: var(--color-accent-1);
     color: #050c18 !important;

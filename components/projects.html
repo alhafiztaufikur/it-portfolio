@@ -2,8 +2,8 @@
     <div class="container">
         <div class="section-header projects-heading scroll-reveal">
             <span class="section-tag">05 // PROJECTS</span>
-            <h2 class="section-title">Selected Project Archive</h2>
-            <p class="section-subtitle">Clean, practical systems from my GitHub and design work: web apps, mobile UI, IoT monitoring, portfolio, and UI/UX case studies.</p>
+            <h2 class="section-title">Selected Projects</h2>
+            <p class="section-subtitle">A clean collection of mobile apps, web systems, IoT monitoring, SIEM security work, portfolio engineering, and UI/UX case studies.</p>
             <div class="title-line"></div>
         </div>
 
@@ -22,7 +22,20 @@
             </article>
 
             <article class="archive-card scroll-reveal">
-                <div class="archive-icon archive-icon--pos"><span></span><span></span><span></span></div>
+                <div class="archive-icon archive-icon--flutter"><i data-lucide="smartphone"></i><span></span></div>
+                <div class="archive-body">
+                    <span class="archive-type">Flutter Mobile App</span>
+                    <h3>Flutter Application</h3>
+                    <p>A Flutter mobile application repository focused on reusable screens, app structure, and mobile UI implementation.</p>
+                </div>
+                <div class="archive-actions">
+                    <button type="button" class="archive-detail-btn" data-project-open="flutterapp"><i data-lucide="link"></i><span>View Details</span></button>
+                    <a href="https://github.com/alhafiztaufikur/flutter_application" target="_blank" rel="noopener noreferrer" class="archive-repo-btn" aria-label="Open Flutter Application repository"><i data-lucide="github"></i></a>
+                </div>
+            </article>
+
+            <article class="archive-card scroll-reveal">
+                <div class="archive-icon archive-icon--asset archive-icon--php archive-icon--pos"><img src="assets/images/projects/php-logo-clean.png?v=1.0.0" alt="PHP logo"><span></span></div>
                 <div class="archive-body">
                     <span class="archive-type">PHP + MySQL</span>
                     <h3>jusPOS Web Point of Sale</h3>
@@ -35,7 +48,7 @@
             </article>
 
             <article class="archive-card scroll-reveal">
-                <div class="archive-icon archive-icon--inventory"><span></span><span></span><span></span></div>
+                <div class="archive-icon archive-icon--asset archive-icon--php archive-icon--inventory"><img src="assets/images/projects/php-logo-clean.png?v=1.0.0" alt="PHP logo"><span></span></div>
                 <div class="archive-body">
                     <span class="archive-type">Inventory System</span>
                     <h3>Input Barang Management</h3>
@@ -48,7 +61,7 @@
             </article>
 
             <article class="archive-card scroll-reveal">
-                <div class="archive-icon archive-icon--iot"><span></span><span></span><span></span></div>
+                <div class="archive-icon archive-icon--asset archive-icon--blynk archive-icon--iot"><img src="assets/images/projects/blynk-logo-clean.png?v=1.0.0" alt="Blynk logo"><span></span></div>
                 <div class="archive-body">
                     <span class="archive-type">ESP32 + Blynk</span>
                     <h3>Water Level Monitoring</h3>
@@ -61,7 +74,20 @@
             </article>
 
             <article class="archive-card scroll-reveal">
-                <div class="archive-icon archive-icon--portfolio"><span></span><i></i><i></i></div>
+                <div class="archive-icon archive-icon--siem"><i data-lucide="shield-check"></i><span></span></div>
+                <div class="archive-body">
+                    <span class="archive-type">Open Source SIEM</span>
+                    <h3>Wazuh Real-Time Detection</h3>
+                    <p>An open-source SIEM implementation concept using Wazuh for real-time network monitoring and threat detection.</p>
+                </div>
+                <div class="archive-actions">
+                    <button type="button" class="archive-detail-btn" data-project-open="siem"><i data-lucide="link"></i><span>View Details</span></button>
+                    <a href="https://www.canva.com/design/DAG9wCzaczE/QAfV3Cgf-X19VxptNVQuIg/edit?utm_content=DAG9wCzaczE&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank" rel="noopener noreferrer" class="archive-repo-btn" aria-label="Open SIEM Wazuh project deck"><i data-lucide="presentation"></i></a>
+                </div>
+            </article>
+
+            <article class="archive-card scroll-reveal">
+                <div class="archive-icon archive-icon--portfolio"><img src="assets/img/brand-mark.png?v=1.0.0" alt="Portfolio mark"><span></span></div>
                 <div class="archive-body">
                     <span class="archive-type">Personal Website</span>
                     <h3>IT Portfolio Website</h3>
@@ -74,7 +100,7 @@
             </article>
 
             <article class="archive-card scroll-reveal">
-                <div class="archive-icon archive-icon--figma"><span></span><span></span><span></span><span></span><span></span></div>
+                <div class="archive-icon archive-icon--asset archive-icon--figma"><img src="assets/images/projects/figma-logo-clean.png?v=1.0.0" alt="Figma logo"><span></span></div>
                 <div class="archive-body">
                     <span class="archive-type">UI/UX Case Study</span>
                     <h3>Project IMK - Mobile UI/UX</h3>
@@ -95,7 +121,7 @@
     <div class="project-detail-modal" id="project-detail-modal" aria-hidden="true">
         <div class="project-detail-backdrop" data-project-close></div>
         <div class="project-detail-dialog" role="dialog" aria-modal="true" aria-label="Project detail">
-            <button type="button" class="project-detail-close" data-project-close aria-label="Close project detail"><i data-lucide="x"></i></button>
+            <div class="project-detail-scroll-container">
 
             <article class="project-detail-panel is-active" data-project-panel="biskita">
                 <div class="case-study">
@@ -108,7 +134,22 @@
                     <section class="case-section"><h4>Background</h4><p>Public transport users need quick route visibility, clear stop information, and a frictionless ticket flow before starting a trip.</p></section>
                     <section class="case-section"><h4>What Was Built</h4><p>Home search, favorite route, route detail, ticket, wallet, payment method, notification, profile, and help screens with reusable Flutter components.</p></section>
                     <section class="case-section"><h4>Result</h4><p>A coherent mobile app foundation that helps users move from planning to active ticket in a few taps.</p></section>
-                    <div class="case-actions"><a href="https://github.com/alhafiztaufikur/BisKita" target="_blank" rel="noopener noreferrer">Repository <i data-lucide="github"></i></a></div>
+                    <div class="case-actions"><a href="https://github.com/alhafiztaufikur/BisKita" target="_blank" rel="noopener noreferrer">Repository <i data-lucide="github"></i><i data-lucide="arrow-up-right" class="action-arrow"></i></a></div>
+                </div>
+            </article>
+
+            <article class="project-detail-panel" data-project-panel="flutterapp">
+                <div class="case-study">
+                    <div class="case-hero">
+                        <div><span class="case-kicker">Flutter Mobile Case Study</span><h3>Flutter Application</h3><p>A mobile application project repository built around Flutter screen structure, reusable UI pieces, and app navigation practice.</p></div>
+                        <div class="case-visual case-flutter"><i data-lucide="smartphone"></i><strong>Flutter App</strong><span>UI - Navigation - Components</span></div>
+                    </div>
+                    <div class="case-meta-grid"><div class="case-meta-card"><i data-lucide="user"></i><span>Role</span><strong>Flutter Developer</strong></div><div class="case-meta-card"><i data-lucide="calendar"></i><span>Project Type</span><strong>Mobile application repository</strong></div><div class="case-meta-card"><i data-lucide="code-2"></i><span>Main Stack</span><strong>Flutter, Dart, Mobile UI</strong></div></div>
+                    <section class="case-summary"><h4><i data-lucide="list-checks"></i>Case Study Summary</h4><p>Developed a Flutter app foundation to practice mobile interface implementation, page structure, and reusable component patterns.</p></section>
+                    <section class="case-section"><h4>Background</h4><p>Mobile projects need a clean screen structure and consistent UI components so future features can be added without rebuilding the interface from scratch.</p></section>
+                    <section class="case-section"><h4>What Was Built</h4><p>Flutter project structure, screen files, UI widgets, navigation-ready layout, and reusable styling decisions for mobile development practice.</p></section>
+                    <section class="case-section"><h4>Result</h4><p>A practical Flutter repository that demonstrates mobile development workflow and can be extended into a complete app.</p></section>
+                    <div class="case-actions"><a href="https://github.com/alhafiztaufikur/flutter_application" target="_blank" rel="noopener noreferrer">Repository <i data-lucide="github"></i><i data-lucide="arrow-up-right" class="action-arrow"></i></a></div>
                 </div>
             </article>
 
@@ -123,7 +164,7 @@
                     <section class="case-section"><h4>Background</h4><p>Small food and beverage operations need faster ordering, cleaner receipt generation, and clear recap data without relying on manual notes.</p></section>
                     <section class="case-section"><h4>What Was Built</h4><p>Authentication, product/category CRUD, cart calculation, payment flow, member and promotion data, receipt pages, sales recap, and export support.</p></section>
                     <section class="case-section"><h4>Result</h4><p>A practical cashier system base that reduces manual tracking and keeps admin data organized.</p></section>
-                    <div class="case-actions"><a href="https://github.com/alhafiztaufikur/jusPOS" target="_blank" rel="noopener noreferrer">Repository <i data-lucide="github"></i></a></div>
+                    <div class="case-actions"><a href="https://github.com/alhafiztaufikur/jusPOS" target="_blank" rel="noopener noreferrer">Repository <i data-lucide="github"></i><i data-lucide="arrow-up-right" class="action-arrow"></i></a></div>
                 </div>
             </article>
 
@@ -138,7 +179,7 @@
                     <section class="case-section"><h4>Background</h4><p>Inventory data becomes difficult to maintain when item input, stock recap, and margin calculation are scattered across manual files.</p></section>
                     <section class="case-section"><h4>What Was Built</h4><p>Dashboard, item input and edit pages, item list, search, stock report, supplier/group modules, sales support pages, and printable report views.</p></section>
                     <section class="case-section"><h4>Result</h4><p>A cleaner inventory workflow that replaces spreadsheet-heavy tracking with structured database screens.</p></section>
-                    <div class="case-actions"><a href="https://github.com/alhafiztaufikur/input-barang" target="_blank" rel="noopener noreferrer">Repository <i data-lucide="github"></i></a></div>
+                    <div class="case-actions"><a href="https://github.com/alhafiztaufikur/input-barang" target="_blank" rel="noopener noreferrer">Repository <i data-lucide="github"></i><i data-lucide="arrow-up-right" class="action-arrow"></i></a></div>
                 </div>
             </article>
 
@@ -153,7 +194,22 @@
                     <section class="case-section"><h4>Background</h4><p>Water level monitoring is easier to react to when local indicators and remote dashboard data are available together.</p></section>
                     <section class="case-section"><h4>What Was Built</h4><p>Sensor reading loop, distance-to-percentage calculation, normal/high classification, LED states, and Blynk virtual pin publishing.</p></section>
                     <section class="case-section"><h4>Result</h4><p>A working prototype that publishes percentage, height, and condition status to a mobile-accessible dashboard.</p></section>
-                    <div class="case-actions"><a href="https://github.com/alhafiztaufikur/Sistem-Monitoring-Ketinggian-Air-Berbasis-ESP32-dan-Water-Level-Sensor" target="_blank" rel="noopener noreferrer">Repository <i data-lucide="github"></i></a></div>
+                    <div class="case-actions"><a href="https://github.com/alhafiztaufikur/Sistem-Monitoring-Ketinggian-Air-Berbasis-ESP32-dan-Water-Level-Sensor" target="_blank" rel="noopener noreferrer">Repository <i data-lucide="github"></i><i data-lucide="arrow-up-right" class="action-arrow"></i></a></div>
+                </div>
+            </article>
+
+            <article class="project-detail-panel" data-project-panel="siem">
+                <div class="case-study">
+                    <div class="case-hero">
+                        <div><span class="case-kicker">Cybersecurity Case Study</span><h3>Open Source SIEM with Wazuh</h3><p>Implementation concept for real-time network detection using Wazuh as an open-source SIEM platform.</p></div>
+                        <div class="case-visual case-siem"><i data-lucide="shield-check"></i><strong>SIEM Live</strong><span>Logs - Rules - Alerts - Dashboard</span></div>
+                    </div>
+                    <div class="case-meta-grid"><div class="case-meta-card"><i data-lucide="user"></i><span>Role</span><strong>Security Implementer</strong></div><div class="case-meta-card"><i data-lucide="calendar"></i><span>Project Type</span><strong>Open-source SIEM implementation</strong></div><div class="case-meta-card"><i data-lucide="code-2"></i><span>Main Stack</span><strong>Wazuh, SIEM, Log Monitoring, Network Detection</strong></div></div>
+                    <section class="case-summary"><h4><i data-lucide="list-checks"></i>Case Study Summary</h4><p>Designed an open-source SIEM implementation flow to centralize security logs, monitor network activity, and detect suspicious events in real time.</p></section>
+                    <section class="case-section"><h4>Background</h4><p>Network environments need visibility into endpoint and network events so suspicious activity can be reviewed quickly instead of being discovered after an incident.</p></section>
+                    <section class="case-section"><h4>What Was Built</h4><p>SIEM implementation concept, Wazuh-based monitoring architecture, real-time alert flow, log collection direction, detection scenario, and dashboard-focused documentation.</p></section>
+                    <section class="case-section"><h4>Result</h4><p>A security project deck that explains how open-source SIEM can support real-time detection, event visibility, and incident response readiness.</p></section>
+                    <div class="case-actions"><a href="https://www.canva.com/design/DAG9wCzaczE/QAfV3Cgf-X19VxptNVQuIg/edit?utm_content=DAG9wCzaczE&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank" rel="noopener noreferrer">Project Deck <i data-lucide="presentation"></i><i data-lucide="arrow-up-right" class="action-arrow"></i></a></div>
                 </div>
             </article>
 
@@ -168,7 +224,7 @@
                     <section class="case-section"><h4>Background</h4><p>A portfolio needs to communicate technical direction quickly while still giving recruiters deeper pages for projects, certificates, and background.</p></section>
                     <section class="case-section"><h4>What Was Built</h4><p>Reusable component loader, subpage navigation, project archive, project details, certificate modal, articles, theme switching, and contact footer.</p></section>
                     <section class="case-section"><h4>Result</h4><p>A more structured portfolio that feels closer to an interactive product than a static resume page.</p></section>
-                    <div class="case-actions"><a href="https://github.com/alhafiztaufikur/it-portfolio" target="_blank" rel="noopener noreferrer">Repository <i data-lucide="github"></i></a></div>
+                    <div class="case-actions"><a href="https://github.com/alhafiztaufikur/it-portfolio" target="_blank" rel="noopener noreferrer">Repository <i data-lucide="github"></i><i data-lucide="arrow-up-right" class="action-arrow"></i></a></div>
                 </div>
             </article>
 
@@ -186,6 +242,8 @@
                     <div class="case-actions"><a href="https://www.figma.com/design/KRoiGrM2XdVtlaaJVIiHPp/Project-IMK?node-id=167-2&m=dev&t=wBwwTArsDMm9DlNw-1" target="_blank" rel="noopener noreferrer">Figma Design <i data-lucide="figma"></i></a><a href="https://www.figma.com/proto/KRoiGrM2XdVtlaaJVIiHPp/Project-IMK?node-id=167-2&t=713Q44otaxrBKk11-1" target="_blank" rel="noopener noreferrer">Prototype <i data-lucide="external-link"></i></a></div>
                 </div>
             </article>
+            </div>
+            <button type="button" class="project-detail-close" data-project-close aria-label="Close project detail"><i data-lucide="x"></i></button>
         </div>
     </div>
 </section>

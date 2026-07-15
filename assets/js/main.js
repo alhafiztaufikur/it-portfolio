@@ -1,15 +1,15 @@
-import { loadComponents } from './modules/loader.js?v=2.3.8';
-import { initNetworkCanvas } from './modules/canvas.js?v=2.0.3';
+import { loadComponents } from './modules/loader.js?v=2.5.1';
+import { initNetworkCanvas } from './modules/canvas.js?v=2.0.4';
 import { initTypingEffect } from './modules/typing.js';
 import { initScrollReveal } from './modules/scroll.js';
-import { initMobileMenu } from './modules/menu.js?v=2.0.2';
+import { initMobileMenu } from './modules/menu.js?v=2.0.3';
 import { initTheme } from './modules/theme.js';
 import { initCertificationsModal } from './modules/certifications.js';
 import { initTechRotator } from './modules/tech-rotator.js';
 import { initAskAI } from './modules/ask-ai.js?v=2.0.2';
 import { initBackToTop } from './modules/scroll-top.js?v=2.0.1';
-import { initProjectDetails } from './modules/projects.js';
-import { initPageTransitions } from './modules/page-transition.js';
+import { initProjectDetails } from './modules/projects.js?v=2.0.1';
+import { initPageTransitions } from './modules/page-transition.js?v=2.0.3';
  
 document.addEventListener('DOMContentLoaded', async () => {
     // 1. Asynchronously load and inject homepage components

@@ -4,7 +4,7 @@
  */
 
 import { initTheme } from './modules/theme.js';
-import { initMobileMenu } from './modules/menu.js';
+import { initMobileMenu } from './modules/menu.js?v=2.0.3';
 import { initScrollReveal } from './modules/scroll.js';
 import { initBackToTop } from './modules/scroll-top.js';
 
