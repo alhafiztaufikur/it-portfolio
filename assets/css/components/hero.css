@@ -466,9 +466,40 @@ html:not([data-theme="light"]) .social-icon-btn:hover {
 }
 
 html:not([data-theme="light"]) .tech-card {
-    background: #ffffff;
-    border: 1px solid rgba(16, 185, 129, 0.15);
-    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.55), 0 0 45px rgba(16, 185, 129, 0.12);
+    position: relative;
+    overflow: hidden;
+    background:
+        linear-gradient(150deg, rgba(16, 185, 129, 0.16), transparent 34%),
+        linear-gradient(210deg, rgba(2, 132, 199, 0.16), transparent 42%),
+        repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.055) 0 1px, transparent 1px 22px),
+        #07111f;
+    border: 1px solid rgba(52, 211, 153, 0.28);
+    box-shadow:
+        0 28px 80px rgba(0, 0, 0, 0.62),
+        0 0 0 1px rgba(16, 185, 129, 0.08) inset,
+        0 0 54px rgba(16, 185, 129, 0.18);
+}
+
+html:not([data-theme="light"]) .tech-card::before {
+    content: '';
+    position: absolute;
+    inset: 18px;
+    border-radius: 24px;
+    border: 1px solid rgba(52, 211, 153, 0.14);
+    pointer-events: none;
+}
+
+html:not([data-theme="light"]) .tech-card::after {
+    content: '';
+    position: absolute;
+    right: -58px;
+    bottom: -58px;
+    width: 190px;
+    height: 190px;
+    border-radius: 999px;
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    background: radial-gradient(circle, rgba(16, 185, 129, 0.12), transparent 64%);
+    pointer-events: none;
 }
 
 .tech-card-inner {
@@ -478,6 +509,8 @@ html:not([data-theme="light"]) .tech-card {
     justify-content: center;
     width: 100%;
     height: 100%;
+    position: relative;
+    z-index: 1;
 }
 
 .tech-logo-box {
@@ -495,9 +528,13 @@ html:not([data-theme="light"]) .tech-card {
 }
 
 html:not([data-theme="light"]) .tech-logo-box {
-    background: #ffffff;
-    border-color: rgba(16, 185, 129, 0.12);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    background:
+        linear-gradient(180deg, rgba(15, 23, 42, 0.92), rgba(2, 6, 23, 0.82));
+    border-color: rgba(52, 211, 153, 0.28);
+    box-shadow:
+        0 18px 42px rgba(0, 0, 0, 0.32),
+        0 0 0 1px rgba(16, 185, 129, 0.08) inset,
+        0 0 28px rgba(16, 185, 129, 0.1);
 }
 
 .tech-logo-wrapper {
@@ -520,6 +557,10 @@ html:not([data-theme="light"]) .tech-logo-box {
     object-fit: contain;
 }
 
+html:not([data-theme="light"]) .tech-logo-wrapper svg {
+    filter: drop-shadow(0 14px 18px rgba(0, 0, 0, 0.3));
+}
+
 .tech-name {
     font-family: var(--font-heading);
     font-size: 1.35rem;
@@ -528,6 +569,11 @@ html:not([data-theme="light"]) .tech-logo-box {
     margin: 0;
     letter-spacing: 0.03em;
     transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html:not([data-theme="light"]) .tech-name {
+    color: #34d399;
+    text-shadow: 0 0 20px rgba(52, 211, 153, 0.32);
 }
 
 .tech-name.fade-out {
@@ -554,6 +600,400 @@ html:not([data-theme="light"]) .tech-logo-box {
     .tech-logo-wrapper {
         width: 92px;
         height: 92px;
+    }
+}
+
+@media (max-width: 768px) {
+    .skills-card-container {
+        height: 390px;
+        margin-top: 1.75rem;
+    }
+
+    .tech-card {
+        width: min(342px, calc(100vw - 2rem));
+        height: min(342px, calc(100vw - 2rem));
+        animation: floatHero 5.5s ease-in-out infinite;
+    }
+
+    .tech-logo-box {
+        width: 156px;
+        height: 156px;
+    }
+
+    .tech-logo-wrapper {
+        width: 94px;
+        height: 94px;
+    }
+
+    html:not([data-theme="light"]) .tech-card {
+        background:
+            linear-gradient(150deg, rgba(16, 185, 129, 0.18), transparent 36%),
+            linear-gradient(210deg, rgba(2, 132, 199, 0.16), transparent 44%),
+            repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0 1px, transparent 1px 20px),
+            #07111f;
+    }
+
+    html:not([data-theme="light"]) .tech-logo-box {
+        background:
+            linear-gradient(180deg, rgba(15, 23, 42, 0.96), rgba(2, 6, 23, 0.9));
+    }
+}
+
+/* ========================================================================== 
+   Infrastructure Radar (Hero Right)
+   ========================================================================== */
+.infra-radar-panel {
+    width: min(440px, 100%);
+    min-height: 430px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 28px;
+    padding: 1.35rem;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    gap: 1rem;
+    background:
+        linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(240, 253, 250, 0.9)),
+        radial-gradient(circle at 28% 22%, rgba(16, 185, 129, 0.14), transparent 34%),
+        radial-gradient(circle at 78% 80%, rgba(14, 165, 233, 0.13), transparent 38%);
+    border: 1px solid rgba(16, 185, 129, 0.14);
+    box-shadow: 0 24px 70px rgba(15, 23, 42, 0.12);
+    animation: floatHero 6s ease-in-out infinite;
+}
+
+.infra-radar-panel::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(rgba(16, 185, 129, 0.065) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(16, 185, 129, 0.065) 1px, transparent 1px);
+    background-size: 28px 28px;
+    mask-image: radial-gradient(circle at center, #000 20%, transparent 72%);
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+.infra-radar-panel::after {
+    content: '';
+    position: absolute;
+    width: 190px;
+    height: 190px;
+    right: -70px;
+    bottom: -70px;
+    border-radius: 999px;
+    background: radial-gradient(circle, rgba(16, 185, 129, 0.2), transparent 66%);
+    pointer-events: none;
+}
+
+html:not([data-theme="light"]) .infra-radar-panel {
+    background:
+        linear-gradient(145deg, rgba(8, 18, 32, 0.96), rgba(2, 6, 23, 0.92)),
+        radial-gradient(circle at 22% 18%, rgba(16, 185, 129, 0.24), transparent 34%),
+        radial-gradient(circle at 78% 82%, rgba(56, 189, 248, 0.2), transparent 42%);
+    border-color: rgba(52, 211, 153, 0.28);
+    box-shadow:
+        0 30px 90px rgba(0, 0, 0, 0.58),
+        0 0 56px rgba(16, 185, 129, 0.16);
+}
+
+html:not([data-theme="light"]) .infra-radar-panel::before {
+    background:
+        linear-gradient(rgba(52, 211, 153, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(56, 189, 248, 0.07) 1px, transparent 1px);
+}
+
+.radar-header,
+.radar-footer {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.radar-kicker,
+.radar-label,
+.radar-status {
+    font-family: var(--font-heading);
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+}
+
+.radar-kicker,
+.radar-label {
+    color: rgba(15, 23, 42, 0.55);
+}
+
+.radar-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    color: var(--color-accent-1);
+}
+
+.radar-status span {
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    background: #10b981;
+    box-shadow: 0 0 0 6px rgba(16, 185, 129, 0.12);
+    animation: radarPulse 1.7s ease-in-out infinite;
+}
+
+html:not([data-theme="light"]) .radar-kicker,
+html:not([data-theme="light"]) .radar-label {
+    color: rgba(226, 232, 240, 0.58);
+}
+
+.radar-stage {
+    position: relative;
+    z-index: 1;
+    min-height: 272px;
+    display: grid;
+    place-items: center;
+    border-radius: 24px;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at center, rgba(16, 185, 129, 0.12), transparent 28%),
+        radial-gradient(circle at center, transparent 38%, rgba(16, 185, 129, 0.08) 39%, transparent 40%),
+        rgba(255, 255, 255, 0.52);
+    border: 1px solid rgba(16, 185, 129, 0.1);
+}
+
+html:not([data-theme="light"]) .radar-stage {
+    background:
+        radial-gradient(circle at center, rgba(16, 185, 129, 0.2), transparent 26%),
+        radial-gradient(circle at center, transparent 38%, rgba(52, 211, 153, 0.13) 39%, transparent 40%),
+        rgba(2, 6, 23, 0.46);
+    border-color: rgba(52, 211, 153, 0.2);
+}
+
+.radar-ring {
+    position: absolute;
+    border-radius: 999px;
+    border: 1px solid rgba(16, 185, 129, 0.22);
+    pointer-events: none;
+}
+
+.radar-ring-1 {
+    width: 72%;
+    aspect-ratio: 1;
+}
+
+.radar-ring-2 {
+    width: 46%;
+    aspect-ratio: 1;
+    border-style: dashed;
+}
+
+.radar-sweep {
+    position: absolute;
+    width: 72%;
+    aspect-ratio: 1;
+    border-radius: 999px;
+    background: conic-gradient(from 0deg, rgba(16, 185, 129, 0.3), rgba(16, 185, 129, 0.02) 32deg, transparent 88deg);
+    animation: radarSpin 4.2s linear infinite;
+    opacity: 0.9;
+}
+
+.tech-core {
+    position: relative;
+    z-index: 3;
+    width: 128px;
+    height: 128px;
+    border-radius: 30px;
+    display: grid;
+    place-items: center;
+    background: rgba(255, 255, 255, 0.88);
+    border: 1px solid rgba(16, 185, 129, 0.14);
+    box-shadow:
+        0 22px 50px rgba(15, 23, 42, 0.12),
+        0 0 0 10px rgba(16, 185, 129, 0.06);
+}
+
+html:not([data-theme="light"]) .tech-core {
+    background: rgba(2, 6, 23, 0.78);
+    border-color: rgba(52, 211, 153, 0.28);
+    box-shadow:
+        0 24px 56px rgba(0, 0, 0, 0.4),
+        0 0 0 10px rgba(52, 211, 153, 0.08),
+        0 0 34px rgba(16, 185, 129, 0.16);
+}
+
+.infra-radar-panel .tech-logo-wrapper {
+    width: 78px;
+    height: 78px;
+}
+
+.radar-node {
+    position: absolute;
+    z-index: 2;
+    min-width: 44px;
+    padding: 0.45rem 0.6rem;
+    border-radius: 999px;
+    font-family: var(--font-heading);
+    font-size: 0.62rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    color: #047857;
+    background: rgba(255, 255, 255, 0.86);
+    border: 1px solid rgba(16, 185, 129, 0.15);
+    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+}
+
+html:not([data-theme="light"]) .radar-node {
+    color: #6ee7b7;
+    background: rgba(15, 23, 42, 0.76);
+    border-color: rgba(52, 211, 153, 0.24);
+}
+
+.node-lan {
+    top: 19%;
+    left: 13%;
+}
+
+.node-ops {
+    top: 18%;
+    right: 13%;
+}
+
+.node-auto {
+    bottom: 17%;
+    left: 14%;
+}
+
+.node-api {
+    right: 15%;
+    bottom: 19%;
+}
+
+.infra-radar-panel .tech-name {
+    margin-top: 0.25rem;
+    font-size: 1.55rem;
+    letter-spacing: 0;
+}
+
+.radar-meter {
+    display: flex;
+    align-items: flex-end;
+    gap: 0.3rem;
+}
+
+.radar-meter span {
+    width: 8px;
+    border-radius: 999px;
+    background: linear-gradient(180deg, #34d399, #0f766e);
+    animation: meterRise 1.8s ease-in-out infinite;
+}
+
+.radar-meter span:nth-child(1) {
+    height: 24px;
+}
+
+.radar-meter span:nth-child(2) {
+    height: 38px;
+    animation-delay: 0.2s;
+}
+
+.radar-meter span:nth-child(3) {
+    height: 30px;
+    animation-delay: 0.4s;
+}
+
+@keyframes radarSpin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes radarPulse {
+    50% {
+        transform: scale(0.72);
+        box-shadow: 0 0 0 10px rgba(16, 185, 129, 0.04);
+    }
+}
+
+@keyframes meterRise {
+    50% {
+        transform: scaleY(0.62);
+        opacity: 0.68;
+    }
+}
+
+@media (max-width: 1100px) {
+    .infra-radar-panel {
+        width: min(390px, 100%);
+        min-height: 390px;
+    }
+
+    .radar-stage {
+        min-height: 240px;
+    }
+}
+
+@media (max-width: 768px) {
+    .infra-radar-panel {
+        width: min(390px, calc(100vw - 2rem));
+        min-height: 242px;
+        padding: 0.85rem;
+        border-radius: 22px;
+        gap: 0.7rem;
+        animation: floatHero 5.5s ease-in-out infinite;
+    }
+
+    .radar-stage {
+        min-height: 132px;
+        border-radius: 18px;
+    }
+
+    .tech-core {
+        width: 82px;
+        height: 82px;
+        border-radius: 20px;
+        box-shadow:
+            0 16px 34px rgba(15, 23, 42, 0.12),
+            0 0 0 8px rgba(16, 185, 129, 0.06);
+    }
+
+    .infra-radar-panel .tech-logo-wrapper {
+        width: 50px;
+        height: 50px;
+    }
+
+    .infra-radar-panel .tech-name {
+        font-size: 1.12rem;
+    }
+
+    .radar-node {
+        min-width: 38px;
+        padding: 0.28rem 0.42rem;
+        font-size: 0.55rem;
+    }
+
+    .radar-kicker,
+    .radar-label,
+    .radar-status {
+        font-size: 0.58rem;
+    }
+
+    .radar-meter span {
+        width: 7px;
+    }
+
+    .radar-meter span:nth-child(1) {
+        height: 18px;
+    }
+
+    .radar-meter span:nth-child(2) {
+        height: 28px;
+    }
+
+    .radar-meter span:nth-child(3) {
+        height: 22px;
     }
 }
 

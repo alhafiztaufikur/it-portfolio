@@ -67,6 +67,7 @@
 
 body.is-scrolling .hero-animated-graphic,
 body.is-scrolling .tech-card,
+body.is-scrolling .infra-radar-panel,
 body.is-scrolling .svg-gear-cw,
 body.is-scrolling .svg-gear-ccw,
 body.is-scrolling .svg-monitor-group,
@@ -93,6 +94,17 @@ body.is-scrolling * {
 body.is-scrolling .scroll-reveal,
 body.is-scrolling .revealed {
     will-change: auto;
+}
+
+@media (max-width: 768px) {
+    body.is-scrolling .tech-card,
+    body.is-scrolling .infra-radar-panel,
+    body.is-scrolling .tech-card *,
+    body.is-scrolling .infra-radar-panel *,
+    body.is-scrolling .tech-logo-wrapper,
+    body.is-scrolling .tech-name {
+        animation-play-state: running !important;
+    }
 }
 
 /* Responsiveness Media Queries */
@@ -149,15 +161,61 @@ body.is-scrolling .revealed {
 
     .hero-grid {
         grid-template-columns: 1fr;
-        gap: 2rem;
+        gap: 1.35rem;
     }
 
     .hero-left {
         max-width: 100%;
+        order: 2;
     }
 
     .hero-right {
-        display: none;
+        display: flex;
+        width: 100%;
+        order: 1;
+        margin: 0 0 0.35rem;
+    }
+
+    .skills-card-container {
+        height: auto;
+        min-height: 252px;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    .tech-card {
+        width: min(238px, calc(100vw - 5rem));
+        height: min(238px, calc(100vw - 5rem));
+        border-radius: 26px;
+        padding: 1.4rem;
+    }
+
+    .tech-card::before {
+        inset: 12px;
+        border-radius: 20px;
+    }
+
+    .tech-card::after {
+        width: 130px;
+        height: 130px;
+        right: -42px;
+        bottom: -42px;
+    }
+
+    .tech-logo-box {
+        width: 112px;
+        height: 112px;
+        border-radius: 18px;
+        margin-bottom: 1rem;
+    }
+
+    .tech-logo-wrapper {
+        width: 72px;
+        height: 72px;
+    }
+
+    .tech-name {
+        font-size: 1.05rem;
     }
 
     .scroll-indicator {

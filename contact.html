@@ -8,20 +8,20 @@
     <meta name="description" content="Contact Al Hafiz Taufikur Rohman through email, LinkedIn, GitHub, Instagram, or the local profile assistant.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap"></noscript>
     <script>
         (function() {
-            document.documentElement.classList.add('page-loading');
             try {
                 const saved = localStorage.getItem('portfolio-theme') || 'dark';
                 if (saved === 'light') document.documentElement.setAttribute('data-theme', 'light');
             } catch (error) {}
         })();
     </script>
-    <link rel="stylesheet" href="assets/css/style.css?v=2.6.3">
+    <link rel="stylesheet" href="assets/css/style.css?v=2.7.2">
     <link rel="icon" type="image/png" href="assets/img/brand-mark.png?v=1.0.0">
     <script>(function(){const saved=localStorage.getItem('portfolio-theme')||'dark';if(saved==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script async src="https://unpkg.com/lucide@latest" onload="window.dispatchEvent(new Event('lucide-ready'))"></script>
 </head>
 
 <body class="subpage-body" data-page="contact" data-components="components/ask-ai.html,components/contact.html">
@@ -39,20 +39,76 @@
                 <a href="contact.html" class="nav-link btn-connect-mobile">Contact</a>
             </nav>
             <div class="nav-actions">
-                <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle Theme"><i data-lucide="sun" class="sun-icon"></i><i data-lucide="moon" class="moon-icon"></i></button>
+                <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle Theme"><i data-lucide="lightbulb" class="light-icon"></i><i data-lucide="moon" class="moon-icon"></i></button>
                 <a href="contact.html" class="btn-connect"><span>Contact Me</span><span class="btn-arrow-circle"><i data-lucide="arrow-up-right"></i></span></a>
                 <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu"><i data-lucide="menu"></i></button>
             </div>
         </div>
     </header>
 
-    <main class="subpage-main">
-        <section class="subpage-hero">
-            <div class="subpage-hero-panel">
-                <span class="subpage-kicker">Contact</span>
-                <h1 class="subpage-title">Ask quickly, then reach out directly.</h1>
-                <p class="subpage-desc">Use the local profile assistant to scan Hafiz's fit, or jump straight to GitHub, LinkedIn, Instagram, and email.</p>
-                <div class="subpage-actions"><a href="index.html" class="subpage-home-btn"><i data-lucide="arrow-left"></i><span>Back to Home</span></a></div>
+    <main class="subpage-main contact-page-main">
+        <section class="contact-hub" aria-labelledby="contact-title">
+            <div class="contact-hub-grid">
+                <div class="contact-intro">
+                    <span class="contact-kicker">Contact Console</span>
+                    <h1 id="contact-title">Ready to talk network, automation, or infrastructure.</h1>
+                    <p>Pick the fastest channel, send a short project brief, or use the local assistant below to scan Hafiz's fit before reaching out.</p>
+                    <div class="contact-primary-actions">
+                        <a href="mailto:hafiz.taufik33@gmail.com?subject=Portfolio%20Inquiry%20-%20Network%20Automation" class="contact-main-action">
+                            <i data-lucide="mail"></i>
+                            <span>Email Hafiz</span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/al-hafiz-taufikur-rohman" target="_blank" rel="noopener" class="contact-main-action contact-main-action--secondary">
+                            <i data-lucide="send"></i>
+                            <span>LinkedIn</span>
+                        </a>
+                    </div>
+                    <div class="contact-signal-row" aria-label="Availability summary">
+                        <span><i data-lucide="map-pin"></i>Bekasi, Indonesia</span>
+                        <span><i data-lucide="clock-3"></i>Open to discuss</span>
+                        <span><i data-lucide="shield-check"></i>Network focused</span>
+                    </div>
+                </div>
+
+                <div class="contact-command-panel" aria-label="Direct contact channels">
+                    <div class="command-panel-header">
+                        <span>Direct Channels</span>
+                        <strong>ONLINE</strong>
+                    </div>
+                    <a href="mailto:hafiz.taufik33@gmail.com" class="contact-channel">
+                        <span class="contact-channel-icon"><i data-lucide="mail"></i></span>
+                        <span><strong>Email</strong><small>hafiz.taufik33@gmail.com</small></span>
+                        <i data-lucide="arrow-up-right"></i>
+                    </a>
+                    <a href="https://github.com/alhafiztaufikur" target="_blank" rel="noopener" class="contact-channel">
+                        <span class="contact-channel-icon"><i data-lucide="code-2"></i></span>
+                        <span><strong>GitHub</strong><small>Automation projects and labs</small></span>
+                        <i data-lucide="arrow-up-right"></i>
+                    </a>
+                    <a href="https://www.instagram.com/hafiztaufikur" target="_blank" rel="noopener" class="contact-channel">
+                        <span class="contact-channel-icon"><i data-lucide="camera"></i></span>
+                        <span><strong>Instagram</strong><small>@hafiztaufikur</small></span>
+                        <i data-lucide="arrow-up-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="contact-brief-grid" aria-label="Contact topics">
+                <article class="contact-brief-card">
+                    <i data-lucide="router"></i>
+                    <h2>Network Work</h2>
+                    <p>Routing, switching, segmentation, troubleshooting, and lab documentation.</p>
+                </article>
+                <article class="contact-brief-card">
+                    <i data-lucide="square-terminal"></i>
+                    <h2>Automation</h2>
+                    <p>Python scripts, device backup flow, config checks, and repeatable operations.</p>
+                </article>
+                <article class="contact-brief-card">
+                    <i data-lucide="message-square"></i>
+                    <h2>Quick Brief</h2>
+                    <p>Send the goal, device scope, timeline, and what currently blocks progress.</p>
+                </article>
             </div>
         </section>
         <div class="subpage-content" id="page-component"></div>
@@ -60,7 +116,7 @@
     </main>
 
     <button id="back-to-top" class="back-to-top-btn" aria-label="Back to Top"><i data-lucide="arrow-up"></i></button>
-    <script type="module" src="assets/js/page.js?v=2.2.1"></script>
+    <script type="module" src="assets/js/page.js?v=2.2.7"></script>
 </body>
 
 </html>

@@ -1,30 +1,31 @@
-import { initTheme } from './modules/theme.js';
+import { initTheme } from './modules/theme.js?v=2.0.1';
 import { initMobileMenu } from './modules/menu.js?v=2.0.3';
 import { initScrollReveal } from './modules/scroll.js';
 import { initBackToTop } from './modules/scroll-top.js?v=2.0.1';
 import { initCertificationsModal } from './modules/certifications.js';
 import { initAskAI } from './modules/ask-ai.js?v=2.0.2';
 import { initProjectDetails } from './modules/projects.js?v=2.0.1';
-import { initPageTransitions } from './modules/page-transition.js?v=2.0.3';
+import { initPageTransitions } from './modules/page-transition.js?v=2.1.1';
 
 document.addEventListener('DOMContentLoaded', async () => {
     initTheme();
-    await loadPageComponents();
-
-    if (typeof lucide !== 'undefined') {
-        lucide.createIcons();
-    }
-
     initMobileMenu('menu-toggle', 'nav-menu', '.nav-link');
     initBackToTop();
+    initPageTransitions();
+    setActiveNav();
+
+    renderLucideIcons();
+
+    await loadPageComponents();
+
+    renderLucideIcons();
+
     initScrollReveal('.scroll-reveal');
     initCertificationsModal();
     initAskAI();
     initProjectDetails();
-    initPageTransitions();
     bindCertificatesToggle();
     animateSkillBars();
-    setActiveNav();
 });
 
 async function loadPageComponents() {
@@ -79,7 +80,7 @@ function bindCertificatesToggle() {
         }
 
         if (isOpen) {
-            if (typeof lucide !== 'undefined') lucide.createIcons();
+            renderLucideIcons();
             setTimeout(() => gallery.scrollIntoView({ behavior: 'smooth', block: 'start' }), 150);
         }
     });
@@ -101,4 +102,15 @@ function animateSkillBars() {
     }, { threshold: 0.3 });
 
     bars.forEach(bar => barObserver.observe(bar));
+}
+
+function renderLucideIcons() {
+    if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+        return;
+    }
+
+    window.addEventListener('lucide-ready', () => {
+        if (typeof lucide !== 'undefined') lucide.createIcons();
+    }, { once: true });
 }

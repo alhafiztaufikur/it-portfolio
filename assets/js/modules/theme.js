@@ -8,12 +8,13 @@ export function initTheme() {
     const html = document.documentElement;
     const STORAGE_KEY = 'portfolio-theme';
 
-    // Restore saved preference (default: dark)
     const saved = localStorage.getItem(STORAGE_KEY) || 'dark';
+    const btn = document.getElementById('theme-toggle');
+
+    // Restore saved preference (default: dark)
     applyTheme(saved);
 
     // Wire up the toggle button once it's in the DOM
-    const btn = document.getElementById('theme-toggle');
     if (btn) {
         btn.addEventListener('click', () => {
             const current = html.getAttribute('data-theme');
@@ -28,6 +29,12 @@ export function initTheme() {
             html.setAttribute('data-theme', 'light');
         } else {
             html.removeAttribute('data-theme');
+        }
+
+        if (btn) {
+            const isLight = theme === 'light';
+            btn.setAttribute('aria-pressed', String(isLight));
+            btn.setAttribute('aria-label', isLight ? 'Switch to dark theme' : 'Switch to light theme');
         }
     }
 }

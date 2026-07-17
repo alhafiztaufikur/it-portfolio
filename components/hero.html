@@ -40,17 +40,41 @@
             </div>
         </div>
 
-        <!-- Right Side Column: Dynamic Tech Card Rotator -->
+        <!-- Right Side Column: Dynamic Infrastructure Radar -->
         <div class="hero-right scroll-reveal">
             <div class="skills-card-container">
-                <div class="tech-card">
-                    <div class="tech-card-inner">
-                        <div class="tech-logo-box">
+                <div class="infra-radar-panel" aria-label="Infrastructure technology radar">
+                    <div class="radar-header">
+                        <span class="radar-kicker">Infrastructure Radar</span>
+                        <span class="radar-status"><span></span> Live Stack</span>
+                    </div>
+
+                    <div class="radar-stage">
+                        <span class="radar-ring radar-ring-1"></span>
+                        <span class="radar-ring radar-ring-2"></span>
+                        <span class="radar-sweep"></span>
+                        <span class="radar-node node-lan">LAN</span>
+                        <span class="radar-node node-ops">OPS</span>
+                        <span class="radar-node node-auto">AUTO</span>
+                        <span class="radar-node node-api">API</span>
+
+                        <div class="tech-core">
                             <div class="tech-logo-wrapper" id="tech-logo-container">
                                 <!-- Dynamic SVG Logo Injected here -->
                             </div>
                         </div>
-                        <h3 class="tech-name" id="tech-name-label">Java</h3>
+                    </div>
+
+                    <div class="radar-footer">
+                        <div>
+                            <span class="radar-label">Active Layer</span>
+                            <h3 class="tech-name" id="tech-name-label">Java</h3>
+                        </div>
+                        <div class="radar-meter" aria-hidden="true">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
                     </div>
                 </div>
             </div>

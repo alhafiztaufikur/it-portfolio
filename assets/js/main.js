@@ -1,39 +1,34 @@
-import { loadComponents } from './modules/loader.js?v=2.5.1';
+import { loadComponents } from './modules/loader.js?v=2.5.2';
 import { initNetworkCanvas } from './modules/canvas.js?v=2.0.4';
 import { initTypingEffect } from './modules/typing.js';
 import { initScrollReveal } from './modules/scroll.js';
 import { initMobileMenu } from './modules/menu.js?v=2.0.3';
-import { initTheme } from './modules/theme.js';
+import { initTheme } from './modules/theme.js?v=2.0.1';
 import { initCertificationsModal } from './modules/certifications.js';
 import { initTechRotator } from './modules/tech-rotator.js';
 import { initAskAI } from './modules/ask-ai.js?v=2.0.2';
 import { initBackToTop } from './modules/scroll-top.js?v=2.0.1';
 import { initProjectDetails } from './modules/projects.js?v=2.0.1';
-import { initPageTransitions } from './modules/page-transition.js?v=2.0.3';
+import { initPageTransitions } from './modules/page-transition.js?v=2.1.1';
  
 document.addEventListener('DOMContentLoaded', async () => {
+    initTheme();
+    initMobileMenu('menu-toggle', 'nav-menu', '.nav-link');
+    initBackToTop();
+    initPageTransitions();
+
+    renderLucideIcons();
+
     // 1. Asynchronously load and inject homepage components
     await loadComponents();
  
     // 2. Initialize Lucide Icons after the HTML templates have been injected into the DOM
-    if (typeof lucide !== 'undefined') {
-        lucide.createIcons();
-    }
+    renderLucideIcons();
  
-    // 3. Initialize Mobile slide-out drawer menu
-    initMobileMenu('menu-toggle', 'nav-menu', '.nav-link');
- 
-    // 4. Initialize Dark/Light Theme Toggle
-    initTheme();
- 
-    // 5. Initialize Back to Top Button
-    initBackToTop();
-
     // 5.5. Initialize homepage interactive modules
     initCertificationsModal();
     initAskAI();
     initProjectDetails();
-    initPageTransitions();
  
     // 6. Initialize ambient network animation
     initNetworkCanvas('network-canvas');
@@ -84,9 +79,20 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
             if (isOpen) {
                 // Re-run lucide icons in newly visible content
-                if (typeof lucide !== 'undefined') lucide.createIcons();
+                renderLucideIcons();
                 setTimeout(() => gallery.scrollIntoView({ behavior: 'smooth', block: 'start' }), 150);
             }
         });
     }
 });
+
+function renderLucideIcons() {
+    if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+        return;
+    }
+
+    window.addEventListener('lucide-ready', () => {
+        if (typeof lucide !== 'undefined') lucide.createIcons();
+    }, { once: true });
+}
