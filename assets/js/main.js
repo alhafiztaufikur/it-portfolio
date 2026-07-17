@@ -5,7 +5,7 @@ import { initScrollReveal } from './modules/scroll.js';
 import { initMobileMenu } from './modules/menu.js?v=2.0.3';
 import { initTheme } from './modules/theme.js?v=2.0.1';
 import { initCertificationsModal } from './modules/certifications.js';
-import { initTechRotator } from './modules/tech-rotator.js';
+import { initTechRotator } from './modules/tech-rotator.js?v=2.0.1';
 import { initAskAI } from './modules/ask-ai.js?v=2.0.2';
 import { initBackToTop } from './modules/scroll-top.js?v=2.0.1';
 import { initProjectDetails } from './modules/projects.js?v=2.0.1';
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     // 8. Initialize Hero dynamic typing text (if typing-text exists on page)
     const typingWords = [
         "Python Scripting",
-        "Ansible Playbooks",
+        "MikroTik Routing",
         "Cisco & Juniper Networks",
         "Infrastructure as Code (IaC)",
         "Linux Servers & APIs"

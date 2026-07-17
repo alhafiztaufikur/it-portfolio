@@ -1,6 +1,6 @@
 /**
  * tech-rotator.js — Dynamic Technology Card Rotator
- * Cycles through different technologies (Java, Python, Docker, Cisco, Linux, Ansible, Grafana, HTML5, IoT)
+ * Cycles through different technologies (Java, Python, Docker, Cisco, Linux, MikroTik, Grafana, HTML5, IoT)
  * on the hero section card every ~1.5s with smooth transition animations.
  */
 
@@ -65,10 +65,14 @@ const TECH_DATA = [
         </svg>`
     },
     {
-        name: "Ansible",
+        name: "MikroTik",
         logo: `<svg viewBox="0 0 24 24" width="80" height="80" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="12" cy="12" r="11" fill="#EE0000"/>
-            <path d="M12 4.5L5.5 17.5H8.5L10 14.5H14L15.5 17.5H18.5L12 4.5ZM12 8.5L13.25 11.5H10.75L12 8.5Z" fill="#FFFFFF"/>
+            <circle cx="12" cy="12" r="11" fill="#D71920"/>
+            <path d="M6.2 14.6V8.1H8.5L12 12.4L15.5 8.1H17.8V14.6H15.5V11.3L12.7 14.6H11.3L8.5 11.3V14.6H6.2Z" fill="#FFFFFF"/>
+            <path d="M5.2 17.2H18.8" stroke="#FFFFFF" stroke-width="1.7" stroke-linecap="round"/>
+            <circle cx="7" cy="17.2" r="1" fill="#FFFFFF"/>
+            <circle cx="12" cy="17.2" r="1" fill="#FFFFFF"/>
+            <circle cx="17" cy="17.2" r="1" fill="#FFFFFF"/>
         </svg>`
     },
     {
