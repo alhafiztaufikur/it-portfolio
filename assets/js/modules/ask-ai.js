@@ -50,9 +50,10 @@ export function initAskAI() {
             text: `**Experience snapshot**
 - **Bani Saleh University**: Bachelor of Informatics Engineering (Sep 2023 - Present) — GPA 3.91 / 4.00.
 - **PPK Ormawa HMTI**: Community service team empowering local cooperative in Cimuning Village through digital marketing (Jul 2026 - Sep 2026).
-- **PT. Sewu Segar Primatama**: Store Operations Staff handling POS transactions, daily sales reports, and stock opname (Feb 2025 - Jun 2026).
-- **PT. Dharma Controlcable Indonesia**: PPIC Intern managing Master Production Schedule and MRP raw material inventory (May 2022 - Aug 2022).
-- **SMK Yadika 13 Tambun**: Computer & Network Engineering (Jul 2020 - May 2023) — Score: 90.27.`
+- **PT. Sewu Segar Primatama**: Store Operations Staff handling POS transactions, daily sales reports, and stock opname (06 Feb 2025 - 16 Jun 2026).
+- **PT. Dharma Controlcable Indonesia**: Production Planning and Inventory Control managing Master Production Schedule and MRP raw material inventory (May 2022 - 31 Aug 2022).
+- **SMK Yadika 13 Tambun**: Computer & Network Engineering (Jul 2020 - May 2023) — Score: 90.27.
+- **Notable Achievement**: Network Competition Participant (E-Time 2025) at Jakarta State Polytechnic.`
         },
         rolefit: {
             evidence: 'Role direction, skills, certifications, and project mix.',

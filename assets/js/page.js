@@ -3,7 +3,7 @@ import { initMobileMenu } from './modules/menu.js?v=2.0.3';
 import { initScrollReveal } from './modules/scroll.js';
 import { initBackToTop } from './modules/scroll-top.js?v=2.0.1';
 import { initCertificationsModal } from './modules/certifications.js';
-import { initAskAI } from './modules/ask-ai.js?v=2.0.2';
+import { initAskAI } from './modules/ask-ai.js?v=2.0.3';
 import { initProjectDetails } from './modules/projects.js?v=2.0.1';
 import { initPageTransitions } from './modules/page-transition.js?v=2.1.1';
 
