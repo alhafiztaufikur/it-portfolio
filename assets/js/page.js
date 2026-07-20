@@ -6,12 +6,14 @@ import { initCertificationsModal } from './modules/certifications.js';
 import { initAskAI } from './modules/ask-ai.js?v=2.0.2';
 import { initProjectDetails } from './modules/projects.js?v=2.0.1';
 import { initPageTransitions } from './modules/page-transition.js?v=2.1.1';
+import { initCvModal } from './modules/cv-modal.js?v=1.0.0';
 
 document.addEventListener('DOMContentLoaded', async () => {
     initTheme();
     initMobileMenu('menu-toggle', 'nav-menu', '.nav-link');
     initBackToTop();
     initPageTransitions();
+    initCvModal();
     setActiveNav();
 
     renderLucideIcons();
@@ -24,6 +26,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     initCertificationsModal();
     initAskAI();
     initProjectDetails();
+    initCvModal();
     bindCertificatesToggle();
     animateSkillBars();
 });

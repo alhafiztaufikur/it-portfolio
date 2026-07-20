@@ -15,42 +15,44 @@ export function initAskAI() {
         summary: {
             evidence: 'Profile summary, skills, projects, and contact sections.',
             text: `**Short recruiter summary**
-- Hafiz is focused on **IT infrastructure, network support, and systems engineering**.
-- Strongest fit: **Junior Network Engineer**, **IT Support**, **Network Automation**, or **Systems Support** roles.
-- Portfolio proof includes **BisKita**, **jusPOS**, **Input Barang**, **ESP32 water-level monitoring**, **Project IMK**, and this modular website.
-- He combines networking fundamentals, web/app development, IoT, and practical operations discipline.`
+- Hafiz is an Informatics Engineering student at **Bani Saleh University (GPA: 3.91/4.00)** with a strong background in Computer Network Engineering.
+- Supported by **Cisco CCNA** & **BNSP national professional certifications**.
+- Practical experience in Store Operations (PT. Sewu Segar Primatama), PPIC Inventory Planning (PT. Dharma Controlcable Indonesia), and PPK Ormawa Organization Leadership.
+- Strongest fit: **Junior Network Engineer**, **IT Support**, **Network Automation**, or **Systems Support** roles.`
         },
         skills: {
             evidence: 'Skills section and project implementation notes.',
             text: `**Core technical strengths**
-- **Networking**: Cisco fundamentals, routing/switching concepts, troubleshooting, LAN/WAN awareness.
-- **Systems**: Linux basics, Docker exposure, server monitoring, documentation, and support workflows.
-- **Development**: PHP, MySQL/MariaDB, JavaScript, Flutter/Dart, REST-style flows, and UI/UX prototyping.
-- **IoT**: ESP32 sensor logic, HC-SR04 readings, Blynk status delivery, and simple telemetry dashboards.`
+- **Hard Skills**: Network Design & Configuration (Cisco, MikroTik RouterOS), Physical Network Installation (crimping UTP/STP cables with RJ45), Hardware Maintenance & Troubleshooting, Operating Systems (Windows, Linux / Ubuntu).
+- **Soft Skills**: Analytical Thinking, Problem Solving, Effective Communication, Adaptability, Time Management, Team Coordination.
+- **Projects & Automation**: Water Level Monitoring (ESP32 + Blynk), Wazuh SIEM Implementation, Interactive Vanilla JS Portfolio.`
         },
         projects: {
             evidence: 'Projects archive and detail pages.',
             text: `**Projects worth noticing first**
-- **BisKita Transit App**: Flutter mobile transport concept for routes, tickets, QR flow, and e-wallet payment.
-- **jusPOS Web Point of Sale**: PHP + MySQL cashier system with cart, member, promo, receipt, recap, and admin modules.
-- **Input Barang Management**: PHP inventory app for CRUD, stock search, reporting, margin calculation, and print pages.
-- **Water Level Monitoring**: ESP32 prototype using HC-SR04 and Blynk to report water height/status.
-- **Project IMK - Mobile UI/UX**: Figma interface and prototype case study for a mobile app experience.`
+- **Interactive Portfolio Website**: Developed a responsive portfolio using modular Vanilla JS, CLI loader, theme switcher, and AI recruiter chatbot.
+- **Water Level Monitoring**: Built an ESP32 IoT prototype reading water level via HC-SR04 ultrasonic sensor and publishing status to Blynk IoT cloud.
+- **Wazuh SIEM Implementation**: Designed a real-time network threat detection architecture using Wazuh SIEM for log management and security alerts.
+- **BisKita Transit App & jusPOS POS**: Flutter transport concept and PHP/MySQL cashier system.`
         },
         certifications: {
             evidence: 'Certifications section and linked certificate documents.',
-            text: `**Certification highlights**
-- **CCNA: Switching, Routing & Wireless Essentials** - Cisco Networking Academy.
-- **CCNA: Introduction to Networks** - Cisco Networking Academy.
-- **IT Essentials: PC Hardware & Software** - Cisco Networking Academy.
-- Additional portfolio context also shows a TKJ/networking path and hands-on infrastructure learning.`
+            text: `**Certifications vault**
+- **Cisco CCNA: Introduction to Networks** - Cisco Networking Academy.
+- **Cisco CCNA: Switching, Routing, and Wireless Essentials** - Cisco Networking Academy.
+- **Cisco IT Essentials: PC Hardware & Software** - Cisco Networking Academy.
+- **BNSP Certificate of Competence** - Computer & Network Engineering.
+- **BNSP Certificate of Competence** - Intermediate Computer Operator.
+- **Oracle Academy** - Database Design.`
         },
         experience: {
             evidence: 'Experience section and profile narrative.',
             text: `**Experience snapshot**
-- Hafiz's path combines Informatics study, TKJ foundations, service/operations discipline, and infrastructure projects.
-- The current direction is **Network Automation & Systems Engineering**.
-- He is positioning the portfolio around reliable operations: clean documentation, practical troubleshooting, automation mindset, and maintainable systems.`
+- **Bani Saleh University**: Bachelor of Informatics Engineering (Sep 2023 - Present) — GPA 3.91 / 4.00.
+- **PPK Ormawa HMTI**: Community service team empowering local cooperative in Cimuning Village through digital marketing (Jul 2026 - Sep 2026).
+- **PT. Sewu Segar Primatama**: Store Operations Staff handling POS transactions, daily sales reports, and stock opname (Feb 2025 - Jun 2026).
+- **PT. Dharma Controlcable Indonesia**: PPIC Intern managing Master Production Schedule and MRP raw material inventory (May 2022 - Aug 2022).
+- **SMK Yadika 13 Tambun**: Computer & Network Engineering (Jul 2020 - May 2023) — Score: 90.27.`
         },
         rolefit: {
             evidence: 'Role direction, skills, certifications, and project mix.',
