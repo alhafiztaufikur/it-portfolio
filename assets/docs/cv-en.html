@@ -235,49 +235,57 @@
         /* ==================== MOBILE ==================== */
         @media (max-width: 680px) {
             html, body { overflow-x: hidden; width: 100%; }
-            .cv-action-bar { padding: 0.5rem 0.7rem; gap: 0.45rem; }
-            .cv-bar-title { font-size: 0.76rem; max-width: 110px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+            .cv-action-bar { padding: 0.6rem 0.8rem; gap: 0.5rem; }
+            .cv-bar-title { font-size: 0.82rem; max-width: 140px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
             .cv-bar-subtitle { display: none; }
-            .cv-btn { padding: 0.4rem 0.55rem; gap: 0; }
+            .cv-btn { padding: 0.45rem 0.7rem; gap: 0; }
             .cv-btn svg { width: 16px; height: 16px; display: block; }
             .cv-btn span { display: none !important; }
-            .cv-back-btn { padding: 0.4rem 0.55rem; gap: 0; }
+            .cv-back-btn { padding: 0.45rem 0.7rem; gap: 0; }
             .cv-back-btn span { display: none !important; }
-            .cv-pages-wrap { padding: 10px 6px 24px; }
+            .cv-pages-wrap { padding: 12px 8px 28px; }
             .cv-page {
-                padding: 12px 10px;
-                border-radius: 3px;
-                width: calc(100% - 0px);
+                padding: 18px 14px 22px;
+                border-radius: 6px;
+                width: 100%;
                 max-width: 100%;
                 margin-left: 0;
                 margin-right: 0;
+                box-shadow: 0 4px 16px rgba(0,0,0,0.08);
             }
             /* --- CV content mobile --- */
-            .header { text-align: center; width: 100%; }
-            .header h1 { font-size: 12.5pt; letter-spacing: 0; text-align: center; }
+            .header { text-align: center; width: 100%; margin-bottom: 12px; }
+            .header h1 { font-size: 14.5pt; letter-spacing: 0; text-align: center; line-height: 1.25; margin-bottom: 6px; }
             .contact-info {
-                font-size: 7.5pt;
+                font-size: 8.5pt;
+                line-height: 1.6;
                 text-align: center;
-                word-break: break-word;
+                word-break: normal;
                 overflow-wrap: break-word;
             }
-            .contact-info a { word-break: break-all; }
-            .section-title { font-size: 9pt; }
+            .contact-info a {
+                display: inline-block;
+                white-space: nowrap;
+                word-break: normal;
+            }
+            .section { margin-bottom: 13px; }
+            .section-title { font-size: 9.5pt; margin-bottom: 6px; }
+            .entry { margin-bottom: 10px; }
             .entry-header {
                 display: flex;
                 flex-direction: column;
                 align-items: flex-start;
                 gap: 2px;
             }
-            .entry-title { font-size: 9pt; }
-            .entry-date { font-size: 8.5pt; font-weight: 600; color: #555; white-space: normal; }
-            .company-name { font-size: 9pt; }
-            .company-desc { font-size: 8.5pt; }
-            .summary-text { font-size: 8.5pt; text-align: left; line-height: 1.4; }
-            ul.bullet-list { padding-left: 13px; }
-            ul.bullet-list li { font-size: 8.5pt; text-align: left; line-height: 1.4; margin-bottom: 3px; }
-            .skills-grid { grid-template-columns: 1fr !important; gap: 10px !important; }
-            .skills-sub-title { font-size: 9pt; }
+            .entry-title { font-size: 9.5pt; }
+            .entry-date { font-size: 8.5pt; font-weight: 600; color: #475569; white-space: normal; }
+            .company-name { font-size: 9.2pt; }
+            .company-desc { font-size: 8.8pt; line-height: 1.35; }
+            .summary-text { font-size: 9pt; text-align: left; line-height: 1.45; }
+            ul.bullet-list { padding-left: 15px; margin-top: 4px; }
+            ul.bullet-list li { font-size: 9pt; text-align: left; line-height: 1.45; margin-bottom: 4px; }
+            .skills-grid { grid-template-columns: 1fr !important; gap: 12px !important; }
+            .skills-sub-title { font-size: 9.5pt; }
             .page-label { font-size: 0.65rem; bottom: -18px; }
         }
 
