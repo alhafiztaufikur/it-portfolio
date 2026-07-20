@@ -942,6 +942,7 @@ html:not([data-theme="light"]) .radar-node {
         padding: 0.85rem;
         border-radius: 22px;
         gap: 0.7rem;
+        margin: 0 auto;
         animation: floatHero 5.5s ease-in-out infinite;
     }
 
