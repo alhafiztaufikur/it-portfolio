@@ -955,48 +955,78 @@ html:not([data-theme="light"]) .radar-node {
 }
 
 @media (max-width: 768px) {
+    .skills-card-container {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        min-height: 0;
+        margin: 1rem auto 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
     .infra-radar-panel {
-        width: min(390px, calc(100vw - 2rem));
-        min-height: 242px;
-        padding: 0.85rem;
-        border-radius: 22px;
-        gap: 0.7rem;
+        width: min(315px, calc(100vw - 2.5rem));
+        min-height: 210px;
+        padding: 0.75rem 0.85rem;
+        border-radius: 18px;
+        gap: 0.55rem;
+        margin: 0 auto;
         animation: floatHero 5.5s ease-in-out infinite;
     }
 
     .radar-stage {
-        min-height: 132px;
-        border-radius: 18px;
+        min-height: 115px;
+        border-radius: 14px;
     }
 
     .tech-core {
-        width: 82px;
-        height: 82px;
-        border-radius: 20px;
+        width: 68px;
+        height: 68px;
+        border-radius: 16px;
         box-shadow:
-            0 16px 34px rgba(15, 23, 42, 0.12),
-            0 0 0 8px rgba(16, 185, 129, 0.06);
+            0 10px 24px rgba(15, 23, 42, 0.1),
+            0 0 0 6px rgba(16, 185, 129, 0.05);
     }
 
     .infra-radar-panel .tech-logo-wrapper {
-        width: 50px;
-        height: 50px;
+        width: 42px;
+        height: 42px;
     }
 
     .infra-radar-panel .tech-name {
-        font-size: 1.12rem;
+        font-size: 0.95rem;
     }
 
     .radar-node {
-        min-width: 38px;
-        padding: 0.28rem 0.42rem;
-        font-size: 0.55rem;
+        min-width: 32px;
+        padding: 0.22rem 0.38rem;
+        font-size: 0.5rem;
     }
 
     .radar-kicker,
     .radar-label,
     .radar-status {
-        font-size: 0.58rem;
+        font-size: 0.54rem;
+    }
+
+    .hero-buttons {
+        gap: 0.7rem;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .hero-buttons .btn {
+        font-size: 0.86rem;
+        padding: 0.6rem 1.25rem;
+        min-height: 40px;
+    }
+
+    .hero-buttons .btn i,
+    .hero-buttons .btn svg {
+        width: 15px;
+        height: 15px;
     }
 
     .radar-meter span {
