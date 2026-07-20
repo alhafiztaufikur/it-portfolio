@@ -157,17 +157,11 @@ body.is-scrolling .revealed {
     .hero-section {
         align-items: center;
         text-align: center;
-        width: 100%;
-        padding-left: 0;
-        padding-right: 0;
     }
 
     .hero-grid {
         grid-template-columns: 1fr;
         gap: 1.35rem;
-        padding: 0 1rem;
-        width: 100%;
-        max-width: 100%;
     }
 
     .hero-left {
