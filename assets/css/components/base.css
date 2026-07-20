@@ -8,6 +8,8 @@ html {
     scroll-behavior: smooth;
     font-size: 16px;
     background: #050c18;
+    overflow-x: hidden;
+    width: 100%;
 }
 
 html[data-theme="light"] {
