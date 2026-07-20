@@ -263,7 +263,7 @@
     background: #ffffff;
 }
 
-@media (max-width: 980px) {
+@media (max-width: 1080px) {
     .about-showcase,
     .about-focus-panel {
         grid-template-columns: 1fr;

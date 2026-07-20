@@ -517,6 +517,22 @@
     min-width: 72px;
 }
 
+@media (max-width: 1080px) {
+    .ask-ai-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    .ask-ai-card-col {
+        width: 100%;
+    }
+
+    .ask-ai-card {
+        max-width: 100%;
+        margin-left: 0;
+    }
+}
+
 @media (max-width: 640px) {
     .ask-ai-section {
         padding: 4rem 0;
