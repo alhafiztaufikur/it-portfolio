@@ -13,6 +13,12 @@ html {
     max-width: 100% !important;
 }
 
+@media (max-width: 1100px) and (min-width: 769px) {
+    html {
+        font-size: 18.5px;
+    }
+}
+
 html[data-theme="light"] {
     background: #f1f5f9;
 }
