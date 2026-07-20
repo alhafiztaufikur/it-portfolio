@@ -13,7 +13,7 @@
 
         body {
             font-family: Arial, Helvetica, sans-serif;
-            background: #e2e8f0;
+            background: #cbd5e1;
             color: #000000;
             font-size: 10.5pt;
             line-height: 1.45;
@@ -21,27 +21,117 @@
             print-color-adjust: exact;
         }
 
+        /* FLOATING ACTION BAR FOR DOWNLOAD / PRINT */
+        .cv-action-bar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            width: 100%;
+            background: #0f172a;
+            color: #ffffff;
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .cv-action-info {
+            font-size: 0.95rem;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            color: #f8fafc;
+        }
+
+        .cv-action-buttons {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .btn-action {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1.1rem;
+            font-size: 0.85rem;
+            font-weight: 700;
+            border-radius: 6px;
+            cursor: pointer;
+            border: none;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .btn-action.primary {
+            background: #0ea5e9;
+            color: #ffffff;
+        }
+
+        .btn-action.primary:hover {
+            background: #0284c7;
+            box-shadow: 0 4px 12px rgba(14, 165, 233, 0.4);
+        }
+
+        .btn-action.secondary {
+            background: rgba(255, 255, 255, 0.15);
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+        }
+
+        .btn-action.secondary:hover {
+            background: rgba(255, 255, 255, 0.25);
+        }
+
+        /* 2 SEPARATE A4 PAGES ON SCREEN */
         .cv-page {
             width: 100%;
             max-width: 820px;
-            min-height: 297mm;
+            min-height: 275mm;
             background: #ffffff;
-            margin: 15px auto;
+            margin: 25px auto;
             padding: 18mm 16mm;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+            border-radius: 4px;
+            position: relative;
+        }
+
+        .page-badge {
+            position: absolute;
+            top: -12px;
+            right: 20px;
+            background: #0f172a;
+            color: #ffffff;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 2px 10px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
 
         @media (max-width: 768px) {
             body {
                 font-size: 9.5pt;
-                background: #ffffff;
+                background: #e2e8f0;
+            }
+            .cv-action-bar {
+                padding: 0.6rem 0.85rem;
+            }
+            .cv-action-info {
+                font-size: 0.85rem;
+            }
+            .btn-action {
+                padding: 0.45rem 0.75rem;
+                font-size: 0.8rem;
             }
             .cv-page {
-                width: 100%;
+                width: 96%;
                 max-width: 100%;
-                margin: 0;
-                padding: 12px 10px;
-                box-shadow: none;
+                margin: 12px auto;
+                padding: 14px 12px;
+                min-height: auto;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
             }
             .header h1 {
                 font-size: 16pt;
@@ -67,22 +157,36 @@
         }
 
         @media print {
+            .cv-action-bar {
+                display: none !important;
+            }
             @page {
                 size: A4 portrait;
                 margin: 10mm 12mm;
             }
             body {
-                background: #ffffff;
+                background: #ffffff !important;
                 font-size: 9.5pt;
                 line-height: 1.35;
                 color: #000000;
             }
             .cv-page {
-                width: 100%;
-                max-width: 100%;
-                margin: 0;
-                padding: 0;
-                box-shadow: none;
+                width: 100% !important;
+                max-width: 100% !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                box-shadow: none !important;
+                border-radius: 0 !important;
+                min-height: auto !important;
+                page-break-after: always !important;
+                break-after: page !important;
+            }
+            .cv-page:last-child {
+                page-break-after: avoid !important;
+                break-after: avoid !important;
+            }
+            .page-badge {
+                display: none !important;
             }
             .section {
                 margin-bottom: 8px;
@@ -97,10 +201,6 @@
             ul.bullet-list li {
                 margin-bottom: 2px;
                 line-height: 1.35;
-            }
-            .page-break-page2 {
-                page-break-before: always !important;
-                break-before: page !important;
             }
         }
 
@@ -168,10 +268,6 @@
             font-size: 10.5pt;
         }
 
-        .entry-subtitle {
-            font-style: italic;
-        }
-
         .entry-date {
             font-weight: bold;
             font-size: 10.5pt;
@@ -203,43 +299,31 @@
             text-align: justify;
             line-height: 1.4;
         }
-
-        /* SKILLS GRID (MATCHES SCREENSHOT PAGE 2) */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            margin-top: 4px;
-        }
-
-        .skill-column-title {
-            font-weight: bold;
-            font-size: 10.5pt;
-            margin-bottom: 4px;
-            border-bottom: 1px solid #ddd;
-            padding-bottom: 2px;
-        }
-
-        .skill-column-title.no-border {
-            border-bottom: none;
-            margin-top: 10px;
-        }
-
-        ul.skill-bullets {
-            padding-left: 16px;
-            list-style-type: disc;
-        }
-
-        ul.skill-bullets li {
-            margin-bottom: 3px;
-            font-size: 9.5pt;
-            line-height: 1.35;
-        }
     </style>
 </head>
 <body>
 
+    <!-- ACTION BAR FOR DOWNLOAD / SAVE PDF -->
+    <div class="cv-action-bar">
+        <div class="cv-action-info">
+            Al Hafiz Taufikur Rohman — Curriculum Vitae (2 Pages)
+        </div>
+        <div class="cv-action-buttons">
+            <button onclick="window.print()" class="btn-action primary">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                <span>Download / Save PDF</span>
+            </button>
+            <button onclick="window.print()" class="btn-action secondary">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+                <span>Print</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- ==================== PAGE 1 ==================== -->
     <div class="cv-page">
+        <div class="page-badge">Page 1 of 2</div>
+
         <!-- HEADER -->
         <div class="header">
             <h1>AL HAFIZ TAUFIKUR ROHMAN</h1>
@@ -266,7 +350,7 @@
                     <span class="entry-title"><i>Bani Saleh University</i></span>
                     <span class="entry-date">Sep 2023 - Present</span>
                 </div>
-                <div>Bachelor of Informatics Engineering | GPA: 3.91 / 4.00</div>
+                <div>Bachelor of Informatics Engineering</div>
             </div>
 
             <div class="entry" style="margin-top: 8px;">
@@ -274,7 +358,7 @@
                     <span class="entry-title"><i>Yadika 13 Tambun Vocational School</i></span>
                     <span class="entry-date">Jul 2020 - May 2023</span>
                 </div>
-                <div>Computer Network Engineering | 90.27 / 100.00</div>
+                <div>Computer Network Engineering</div>
             </div>
         </div>
 
@@ -312,9 +396,14 @@
                 </ul>
             </div>
         </div>
+    </div>
+
+    <!-- ==================== PAGE 2 ==================== -->
+    <div class="cv-page">
+        <div class="page-badge">Page 2 of 2</div>
 
         <!-- ORGANIZATION EXPERIENCE -->
-        <div class="section page-break-page2">
+        <div class="section">
             <div class="section-title">ORGANIZATION EXPERIENCE</div>
 
             <div class="entry">
