@@ -347,12 +347,13 @@ html:not([data-theme="light"]) .social-icon-btn:hover {
    Live Running Text Ticker (Marquee)
    ========================================== */
 .hero-marquee-ticker {
-    width: 100vw;
+    width: 100%;
+    max-width: 100%;
     position: relative;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
+    left: 0;
+    right: 0;
+    margin-left: 0;
+    margin-right: 0;
     background: rgba(5, 12, 24, 0.45);
     border-top: 1px solid var(--border-glass);
     border-bottom: 1px solid var(--border-glass);
@@ -1020,12 +1021,13 @@ html:not([data-theme="light"]) .radar-node {
    ========================================================================== */
 /* Full-width bg blocker — covers body grid lines completely */
 .competency-strip-bg {
-    width: 100vw;
+    width: 100%;
+    max-width: 100%;
     position: relative;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
+    left: 0;
+    right: 0;
+    margin-left: 0;
+    margin-right: 0;
     z-index: 1;
 }
 

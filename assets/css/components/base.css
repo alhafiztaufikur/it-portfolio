@@ -8,6 +8,9 @@ html {
     scroll-behavior: smooth;
     font-size: 16px;
     background: #050c18;
+    overflow-x: hidden !important;
+    width: 100% !important;
+    max-width: 100% !important;
 }
 
 html[data-theme="light"] {
@@ -19,7 +22,10 @@ body {
     color: var(--text-primary);
     font-family: var(--font-body);
     line-height: 1.6;
-    overflow-x: hidden;
+    overflow-x: hidden !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    position: relative;
     -webkit-font-smoothing: antialiased;
 }
 

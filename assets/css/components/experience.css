@@ -14,11 +14,11 @@
     content: '';
     position: absolute;
     inset: 0;
-    left: 50%;
-    right: 50%;
-    width: 100vw;
-    margin-left: -50vw;
-    margin-right: -50vw;
+    left: 0;
+    right: 0;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
     z-index: -1;
     background:
         radial-gradient(circle at 16% 12%, rgba(16, 185, 129, 0.16), transparent 30%),

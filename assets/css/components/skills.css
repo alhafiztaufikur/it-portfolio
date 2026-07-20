@@ -15,11 +15,11 @@
     content: '';
     position: absolute;
     inset: 0;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
-    width: 100vw;
+    left: 0;
+    right: 0;
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
     background: var(--bg-primary);
     z-index: -1;
 }
