@@ -168,26 +168,18 @@ body.is-scrolling .revealed {
         padding: 0 1rem;
         width: 100%;
         max-width: 100%;
-        justify-items: center;
     }
 
     .hero-left {
         max-width: 100%;
-        width: 100%;
         order: 2;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
     }
 
     .hero-right {
         display: flex;
-        justify-content: center;
-        align-items: center;
         width: 100%;
         order: 1;
-        margin: 0 auto 0.35rem;
+        margin: 0 0 0.35rem;
     }
 
     .skills-card-container {
@@ -239,25 +231,6 @@ body.is-scrolling .revealed {
     .hero-description {
         margin-left: auto;
         margin-right: auto;
-        text-align: center;
-    }
-
-    .hero-title {
-        text-align: center;
-        margin-left: auto;
-        margin-right: auto;
-        font-size: clamp(1.65rem, 6.5vw, 2.2rem);
-    }
-
-    .hero-role-badge {
-        margin: 0 auto;
-        text-align: center;
-    }
-
-    .hero-socials {
-        justify-content: center;
-        width: 100%;
-        margin-top: 1.25rem;
     }
 
     .hero-buttons {
