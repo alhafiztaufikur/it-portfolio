@@ -155,44 +155,81 @@
             text-transform: uppercase;
         }
 
-        /* ==================== PRINT: EXACTLY 2 PAGES ==================== */
+        /* ==================== PRINT: EXACTLY 2 PAGES & NO HEADERS/FOOTERS ==================== */
         @media print {
-            .cv-action-bar { display: none !important; }
-            .page-label    { display: none !important; }
-
             @page {
                 size: A4 portrait;
-                margin: 14mm 15mm 14mm 15mm;
+                margin: 0; /* Hides browser default headers (date/title) and footers (URL/page numbers) */
             }
 
-            body {
+            *, *::before, *::after {
+                box-sizing: border-box !important;
+            }
+
+            html, body {
                 background: #fff !important;
-                font-size: 10pt;
-                line-height: 1.45;
-            }
-
-            .cv-pages-wrap { padding: 0; }
-
-            .cv-page {
-                width: 100% !important;
-                max-width: 100% !important;
                 margin: 0 !important;
                 padding: 0 !important;
-                box-shadow: none !important;
-                border-radius: 0 !important;
-                /* Force each .cv-page onto its own print page */
-                page-break-after: always;
-                break-after: page;
-            }
-            .cv-page:last-child {
-                page-break-after: avoid;
-                break-after: avoid;
+                width: 210mm !important;
+                height: auto !important;
+                font-size: 9.8pt;
+                line-height: 1.42;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
             }
 
-            .section { margin-bottom: 15px; }
-            .section-title { margin-bottom: 8px; padding-bottom: 2px; }
-            .entry { margin-bottom: 11px; }
-            ul.bullet-list li { margin-bottom: 4px; line-height: 1.45; }
+            .cv-action-bar,
+            .page-label {
+                display: none !important;
+            }
+
+            .cv-pages-wrap {
+                padding: 0 !important;
+                margin: 0 !important;
+                width: 100% !important;
+            }
+
+            .cv-page {
+                width: 210mm !important;
+                height: 297mm !important;
+                max-width: 210mm !important;
+                max-height: 297mm !important;
+                margin: 0 !important;
+                padding: 14mm 16mm 14mm 16mm !important;
+                box-shadow: none !important;
+                border-radius: 0 !important;
+                page-break-after: always !important;
+                break-after: page !important;
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+                overflow: hidden !important;
+                box-sizing: border-box !important;
+            }
+
+            .cv-page:last-child {
+                page-break-after: avoid !important;
+                break-after: avoid !important;
+            }
+
+            .header { margin-bottom: 12px; }
+            .header h1 { font-size: 18.5pt; margin-bottom: 5px; }
+            .contact-info { font-size: 9pt; line-height: 1.45; }
+
+            .section { margin-bottom: 12px; }
+            .section-title { font-size: 10pt; margin-bottom: 6px; padding-bottom: 2px; border-bottom-width: 1.5px; }
+            .summary-text { font-size: 9.5pt; line-height: 1.42; }
+
+            .entry { margin-bottom: 8px; }
+            .entry-title { font-size: 10pt; }
+            .entry-date { font-size: 9.5pt; }
+            .company-name { font-size: 9.5pt; margin-top: 1px; }
+            .company-desc { font-size: 9pt; margin-bottom: 3px; }
+
+            ul.bullet-list { padding-left: 16px; margin-top: 3px; }
+            ul.bullet-list li { margin-bottom: 3px; font-size: 9.5pt; line-height: 1.4; }
+
+            .skills-sub-title { font-size: 10pt; margin-bottom: 3px; }
+            .skills-grid { gap: 14px; }
         }
 
         /* ==================== MOBILE ==================== */
