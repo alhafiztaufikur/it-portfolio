@@ -67,11 +67,20 @@ export function initCvModal() {
         };
     }
 
-    // Direct download button logic inside modal
-    if (downloadBtn) {
+    // Direct download/save PDF button logic inside modal
+    if (downloadBtn && iframe) {
         downloadBtn.onclick = (e) => {
-            e.stopPropagation(); // Stop event propagation so openModal doesn't intercept
-            // Allow natural browser download link behavior
+            e.preventDefault();
+            e.stopPropagation();
+            try {
+                if (iframe.contentWindow) {
+                    iframe.contentWindow.focus();
+                    iframe.contentWindow.print();
+                }
+            } catch (err) {
+                console.error("PDF Print error:", err);
+                window.open('assets/docs/cv-en.html', '_blank');
+            }
         };
     }
 

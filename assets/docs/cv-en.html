@@ -67,14 +67,40 @@
         }
 
         @media print {
+            @page {
+                size: A4 portrait;
+                margin: 10mm 12mm;
+            }
             body {
                 background: #ffffff;
+                font-size: 9.5pt;
+                line-height: 1.35;
+                color: #000000;
             }
             .cv-page {
                 width: 100%;
+                max-width: 100%;
                 margin: 0;
                 padding: 0;
                 box-shadow: none;
+            }
+            .section {
+                margin-bottom: 8px;
+            }
+            .section-title {
+                margin-bottom: 6px;
+                padding-bottom: 1px;
+            }
+            .entry {
+                margin-bottom: 6px;
+            }
+            ul.bullet-list li {
+                margin-bottom: 2px;
+                line-height: 1.35;
+            }
+            .page-break-page2 {
+                page-break-before: always !important;
+                break-before: page !important;
             }
         }
 
@@ -288,7 +314,7 @@
         </div>
 
         <!-- ORGANIZATION EXPERIENCE -->
-        <div class="section">
+        <div class="section page-break-page2">
             <div class="section-title">ORGANIZATION EXPERIENCE</div>
 
             <div class="entry">

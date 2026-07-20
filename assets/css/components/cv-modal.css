@@ -220,13 +220,13 @@
         gap: 0.4rem;
     }
 
-    .cv-modal-btn {
-        padding: 0.45rem 0.65rem;
-        font-size: 0.8rem;
+    .cv-modal-btn span {
+        display: none !important;
     }
 
-    .cv-modal-btn span {
-        display: inline-block;
+    .cv-modal-btn {
+        padding: 0.5rem 0.65rem;
+        border-radius: 8px;
     }
 
     .cv-modal-close {
