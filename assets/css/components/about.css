@@ -226,23 +226,78 @@
     margin-top: 0.35rem;
 }
 
-.about-focus-chips {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.55rem;
+.about-focus-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.75rem;
 }
 
-.focus-chip {
-    display: inline-flex;
+.focus-card {
+    display: flex;
     align-items: center;
-    min-height: 32px;
-    padding: 0 0.8rem;
-    border-radius: 999px;
-    background: rgba(16, 185, 129, 0.07);
-    border: 1px solid rgba(16, 185, 129, 0.16);
+    gap: 0.75rem;
+    padding: 0.85rem 1rem;
+    border-radius: 14px;
+    background: rgba(16, 185, 129, 0.04);
+    border: 1px solid rgba(16, 185, 129, 0.14);
+    transition: all var(--transition-normal);
+}
+
+.focus-card:hover {
+    background: rgba(16, 185, 129, 0.08);
+    border-color: rgba(16, 185, 129, 0.3);
+    transform: translateY(-2px);
+}
+
+.focus-card-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    background: rgba(16, 185, 129, 0.12);
     color: var(--color-accent-1);
-    font-size: 0.76rem;
+    flex-shrink: 0;
+}
+
+.focus-card-icon svg {
+    width: 17px;
+    height: 17px;
+}
+
+.focus-card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    min-width: 0;
+}
+
+.focus-card-name {
+    font-family: var(--font-heading);
+    font-size: 0.84rem;
     font-weight: 750;
+    color: var(--text-primary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.focus-card-sub {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+[data-theme="light"] .focus-card {
+    background: rgba(15, 23, 42, 0.03);
+    border-color: rgba(15, 23, 42, 0.09);
+}
+
+[data-theme="light"] .focus-card-icon {
+    background: rgba(16, 185, 129, 0.15);
 }
 
 [data-theme="light"] .about-action {
@@ -294,15 +349,34 @@
         margin-top: 0.2rem;
     }
 
-    .about-focus-chips {
-        gap: 0.45rem;
+    .about-focus-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.6rem;
     }
 
-    .focus-chip {
-        font-size: 0.72rem;
-        min-height: 30px;
-        padding: 0 0.75rem;
-        border-radius: 20px;
+    .focus-card {
+        padding: 0.7rem 0.75rem;
+        gap: 0.55rem;
+        border-radius: 12px;
+    }
+
+    .focus-card-icon {
+        width: 28px;
+        height: 28px;
+        border-radius: 8px;
+    }
+
+    .focus-card-icon svg {
+        width: 14px;
+        height: 14px;
+    }
+
+    .focus-card-name {
+        font-size: 0.76rem;
+    }
+
+    .focus-card-sub {
+        font-size: 0.64rem;
     }
 
     .about-dashboard {
