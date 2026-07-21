@@ -278,9 +278,81 @@
     }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
+    .about-focus-panel {
+        padding: 1.15rem 1.25rem;
+        gap: 1rem;
+        border-radius: 18px;
+    }
+
+    .about-focus-title span {
+        font-size: 1.02rem;
+    }
+
+    .about-focus-title p {
+        font-size: 0.8rem;
+        margin-top: 0.2rem;
+    }
+
+    .about-focus-chips {
+        gap: 0.45rem;
+    }
+
+    .focus-chip {
+        font-size: 0.72rem;
+        min-height: 30px;
+        padding: 0 0.75rem;
+        border-radius: 20px;
+    }
+
+    .about-dashboard {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0.65rem;
+        margin-top: 2rem;
+    }
+
+    .about-metric {
+        min-height: 96px;
+        padding: 0.85rem 0.65rem;
+        text-align: center;
+        align-items: center;
+    }
+
+    .about-metric-value {
+        font-size: 1.75rem;
+    }
+
+    .about-metric-label {
+        font-size: 0.62rem;
+        margin-top: 0.25rem;
+        letter-spacing: 0.04em;
+    }
+
+    .about-note {
+        padding: 1rem 1.15rem;
+    }
+
+    .about-note p {
+        font-size: 0.84rem;
+    }
+}
+
+@media (max-width: 520px) {
     .about-dashboard {
         grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+
+    .about-metric {
+        min-height: 76px;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 0.85rem 1.25rem;
+    }
+
+    .about-metric-label {
+        margin-top: 0;
+        font-size: 0.68rem;
     }
 
     .about-action {

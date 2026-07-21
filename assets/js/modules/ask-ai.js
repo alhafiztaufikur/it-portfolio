@@ -16,16 +16,16 @@ export function initAskAI() {
             evidence: 'Profile summary, skills, projects, and contact sections.',
             text: `**Short recruiter summary**
 - Hafiz is an Informatics Engineering student at **Bani Saleh University (GPA: 3.91/4.00)** with a strong background in Computer Network Engineering.
-- Supported by **Cisco CCNA** & **BNSP national professional certifications**.
-- Practical experience in Store Operations (PT. Sewu Segar Primatama), PPIC Inventory Planning (PT. Dharma Controlcable Indonesia), and PPK Ormawa Organization Leadership.
-- Strongest fit: **Junior Network Engineer**, **IT Support**, **Network Automation**, or **Systems Support** roles.`
+- Supported by **Cisco CCNA (Networks, Switching, Routing, Wireless)** & **BNSP national professional certifications**.
+- Practical experience in Store Operations (PT. Sewu Segar Primatama), PPIC Inventory Planning (PT. Dharma Controlcable Indonesia), and PPK Ormawa Leadership.
+- Strongest fit: **Junior Network Engineer**, **IT Support & Troubleshooting**, **Network Systems Administration**, or **Infrastructure Operations** roles.`
         },
         skills: {
             evidence: 'Skills section and project implementation notes.',
             text: `**Core technical strengths**
-- **Hard Skills**: Network Design & Configuration (Cisco, MikroTik RouterOS), Physical Network Installation (crimping UTP/STP cables with RJ45), Hardware Maintenance & Troubleshooting, Operating Systems (Windows, Linux / Ubuntu).
+- **Hard Skills**: Cisco & MikroTik (RouterOS, OSPF, RIP, VLANs), IT Support & Hardware Troubleshooting, Linux Server Admin (Ubuntu/Debian, DNS, DHCP), Physical Network Installation (UTP/STP cabling, RJ45 crimping, patch panels), Network Design & Topology, Operating System Administration (Windows & Linux).
 - **Soft Skills**: Analytical Thinking, Problem Solving, Effective Communication, Adaptability, Time Management, Team Coordination.
-- **Projects & Automation**: Water Level Monitoring (ESP32 + Blynk), Wazuh SIEM Implementation, Interactive Vanilla JS Portfolio.`
+- **Key Technical Competencies**: Network Topology Design, Routing & Switching, Hardware Diagnostic Maintenance, POS/Inventory System Operations.`
         },
         projects: {
             evidence: 'Projects archive and detail pages.',
