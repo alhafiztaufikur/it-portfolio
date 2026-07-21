@@ -41,14 +41,13 @@
 /* Scroll Animation classes */
 .scroll-reveal {
     opacity: 0;
-    transform: translateY(18px);
-    transition: opacity 0.45s ease-out, transform 0.45s ease-out;
-    will-change: opacity, transform;
+    transform: translate3d(0, 16px, 0);
+    transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .scroll-reveal.revealed {
     opacity: 1;
-    transform: translateY(0);
+    transform: translate3d(0, 0, 0);
     will-change: auto;
 }
 
@@ -63,37 +62,6 @@
         transition: none;
         will-change: auto;
     }
-}
-
-body.is-scrolling .hero-animated-graphic,
-body.is-scrolling .tech-card,
-body.is-scrolling .infra-radar-panel,
-body.is-scrolling .svg-gear-cw,
-body.is-scrolling .svg-gear-ccw,
-body.is-scrolling .svg-monitor-group,
-body.is-scrolling .svg-phone-group,
-body.is-scrolling .svg-badge-code,
-body.is-scrolling .svg-badge-gears,
-body.is-scrolling .svg-cloud-group,
-body.is-scrolling .svg-cloud-arrow,
-body.is-scrolling .svg-power-led,
-body.is-scrolling .svg-code-lines line,
-body.is-scrolling .marquee-track,
-body.is-scrolling .about-avatar-ring,
-body.is-scrolling .about-avatar-ring-inner,
-body.is-scrolling .scanner-line,
-body.is-scrolling .status-dot,
-body.is-scrolling .footer-status-dot {
-    animation-play-state: paused !important;
-}
-
-body.is-scrolling * {
-    animation-play-state: paused !important;
-}
-
-body.is-scrolling .scroll-reveal,
-body.is-scrolling .revealed {
-    will-change: auto;
 }
 
 @media (max-width: 768px) {

@@ -35,18 +35,9 @@ export function initMobileMenu(toggleId, menuId, linksClass) {
     if (navbar) {
         let ticking = false;
         let isScrolled = window.scrollY > 50;
-        let scrollClassTimer = null;
         navbar.classList.toggle('scrolled', isScrolled);
 
         window.addEventListener('scroll', () => {
-            if (!document.body.classList.contains('is-scrolling')) {
-                document.body.classList.add('is-scrolling');
-            }
-            window.clearTimeout(scrollClassTimer);
-            scrollClassTimer = window.setTimeout(() => {
-                document.body.classList.remove('is-scrolling');
-            }, 140);
-
             if (ticking) return;
             ticking = true;
 
